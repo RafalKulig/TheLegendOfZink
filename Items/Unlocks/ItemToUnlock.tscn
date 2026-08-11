@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://v2m7knkdob3c"]
+
+[ext_resource type="Script" uid="uid://w725kx1owyw3" path="res://Items/Unlocks/ItemToUnlock.cs" id="1_0ftoa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0f7yd"]
+radius = 5.0
+
+[node name="ItemToUnlock" type="Area2D" unique_id=1424118092]
+script = ExtResource("1_0ftoa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=81977265]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=533849179]
+shape = SubResource("CircleShape2D_0f7yd")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bmht86ytlkedf"]
+
+[ext_resource type="Texture2D" uid="uid://d1clqq10wq377" path="res://assets/Legend_of_Zink_Asset_Pack/Zink/PNG/sprWeaponArrow.png" id="1_5aygp"]
+[ext_resource type="Script" uid="uid://cdpnkgbxlwh6k" path="res://Weapons/Arrow/Arrow.cs" id="1_xhss8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
+size = Vector2(16, 6)
+
+[node name="Arrow" type="CharacterBody2D" unique_id=2024456593]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_xhss8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1612158720]
+shape = SubResource("RectangleShape2D_0f7yd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1193685726]
+texture = ExtResource("1_5aygp")
+region_enabled = true
+region_rect = Rect2(0, 6, 16, 5)
+
+[node name="LifeTime" type="Timer" parent="." unique_id=1060540909]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LifeTime" to="." method="OnLifeTimeOut"]

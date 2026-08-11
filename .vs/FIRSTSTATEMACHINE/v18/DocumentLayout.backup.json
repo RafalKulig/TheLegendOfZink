@@ -1,0 +1,160 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\weapons\\sword\\sword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:weapons\\sword\\sword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\player\\states\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\player\\states\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\system\\interfaces\\iweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:system\\interfaces\\iweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\system\\statemachine\\statemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:system\\statemachine\\statemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\items\\unlocks\\itemtounlock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:items\\unlocks\\itemtounlock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\player\\states\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\player\\states\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\player\\states\\idle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\player\\states\\idle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IWeapon.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Interfaces\\IWeapon.cs",
+              "RelativeDocumentMoniker": "System\\Interfaces\\IWeapon.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Interfaces\\IWeapon.cs",
+              "RelativeToolTip": "System\\Interfaces\\IWeapon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T22:00:47.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Move.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\States\\Move.cs",
+              "RelativeDocumentMoniker": "entities\\player\\States\\Move.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\States\\Move.cs",
+              "RelativeToolTip": "entities\\player\\States\\Move.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwCEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T21:48:42.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Idle.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\States\\Idle.cs",
+              "RelativeDocumentMoniker": "entities\\player\\States\\Idle.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\States\\Idle.cs",
+              "RelativeToolTip": "entities\\player\\States\\Idle.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T21:42:32.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\Player.cs",
+              "RelativeDocumentMoniker": "entities\\player\\Player.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\Player.cs",
+              "RelativeToolTip": "entities\\player\\Player.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwDMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T15:52:00.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Sword.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\Weapons\\Sword\\Sword.cs",
+              "RelativeDocumentMoniker": "Weapons\\Sword\\Sword.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\Weapons\\Sword\\Sword.cs",
+              "RelativeToolTip": "Weapons\\Sword\\Sword.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAwwDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T21:40:52.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ItemToUnlock.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\Items\\Unlocks\\ItemToUnlock.cs",
+              "RelativeDocumentMoniker": "Items\\Unlocks\\ItemToUnlock.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\Items\\Unlocks\\ItemToUnlock.cs",
+              "RelativeToolTip": "Items\\Unlocks\\ItemToUnlock.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T21:25:02.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Attack.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\States\\Attack.cs",
+              "RelativeDocumentMoniker": "entities\\player\\States\\Attack.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\States\\Attack.cs",
+              "RelativeToolTip": "entities\\player\\States\\Attack.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T15:52:06.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StateMachine.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\StateMachine\\StateMachine.cs",
+              "RelativeDocumentMoniker": "System\\StateMachine\\StateMachine.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\StateMachine\\StateMachine.cs",
+              "RelativeToolTip": "System\\StateMachine\\StateMachine.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwDEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:09:31.097Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FirstStateMachine": {
+      "commandName": "Project"
+    },
+    "Profil 1": {
+      "commandName": "Executable"
+    }
+  }
+}

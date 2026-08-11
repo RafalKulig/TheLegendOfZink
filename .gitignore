@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 assets/
 *.png
 *.wav
 *.mp3
 *.fbx
 *.blend
+=======
+# Godot 4+ specific ignores
+.godot/
+/android/
+>>>>>>> 6a24322 (Initial commit (no assets))

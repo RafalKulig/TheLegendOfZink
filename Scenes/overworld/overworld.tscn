@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cltmc78esgyg3"]
+
+[ext_resource type="PackedScene" uid="uid://ckovurnb6xwy5" path="res://entities/player/player.tscn" id="1_n3lcv"]
+[ext_resource type="Texture2D" uid="uid://bswl72m4gw5me" path="res://icon.svg" id="2_jvs31"]
+[ext_resource type="PackedScene" uid="uid://v2m7knkdob3c" path="res://Items/Unlocks/ItemToUnlock.tscn" id="3_662u0"]
+[ext_resource type="Texture2D" uid="uid://d2gk6tqgc0evx" path="res://Items/Unlocks/sprIconBow.png" id="4_dhsp4"]
+
+[node name="Overworld" type="Node2D" unique_id=855994466]
+
+[node name="Player" parent="." unique_id=144735961 instance=ExtResource("1_n3lcv")]
+z_index = 5
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
+remote_path = NodePath("../../Camera2D")
+update_rotation = false
+update_scale = false
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1279775282]
+position = Vector2(-1.9073486e-06, 0)
+scale = Vector2(1.4140625, 1.375)
+texture = ExtResource("2_jvs31")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121]
+zoom = Vector2(2, 2)
+position_smoothing_speed = 10.0
+
+[node name="ItemToUnlock" parent="." unique_id=1424118092 instance=ExtResource("3_662u0")]
+position = Vector2(-70, -6)
+Sprite = ExtResource("4_dhsp4")

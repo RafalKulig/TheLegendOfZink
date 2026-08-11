@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://bl4dhcskkn3og"]
+
+[ext_resource type="Texture2D" uid="uid://tpgjtuuc62wt" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprGoblinS.png" id="1_3uctd"]
+[ext_resource type="Script" uid="uid://by0202uh3tlnx" path="res://entities/enemies/goblin/Goblin.cs" id="1_blqbt"]
+[ext_resource type="Texture2D" uid="uid://pgbkpfjkcaer" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprGoblinW.png" id="2_acf7e"]
+[ext_resource type="Texture2D" uid="uid://yhj04urbe78q" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprGoblinE.png" id="3_blqbt"]
+[ext_resource type="Texture2D" uid="uid://bhdx5d07fj3t4" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprGoblinN.png" id="4_uajcl"]
+[ext_resource type="Script" uid="uid://myhrvgwd6m1l" path="res://System/StateMachine/StateMachine.cs" id="5_mv41r"]
+[ext_resource type="Script" uid="uid://dph77xkm04xb6" path="res://entities/enemies/goblin/States/GoblinIdle.cs" id="7_blqbt"]
+[ext_resource type="Script" uid="uid://dcvjl7yaosmgn" path="res://entities/enemies/goblin/States/GoblinWander.cs" id="8_uajcl"]
+[ext_resource type="Script" uid="uid://cw4e7xgt1f00p" path="res://entities/enemies/goblin/States/GoblinChase.cs" id="9_mv41r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmlim"]
+atlas = ExtResource("1_3uctd")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02xdb"]
+atlas = ExtResource("1_3uctd")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs7le"]
+atlas = ExtResource("2_acf7e")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8igl"]
+atlas = ExtResource("2_acf7e")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckjdn"]
+atlas = ExtResource("3_blqbt")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34w0v"]
+atlas = ExtResource("3_blqbt")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wnk4"]
+atlas = ExtResource("4_uajcl")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0fei"]
+atlas = ExtResource("4_uajcl")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vlclu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmlim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02xdb")
+}],
+"loop": 1,
+"name": &"WalkingDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs7le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8igl")
+}],
+"loop": 1,
+"name": &"WalkingLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckjdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34w0v")
+}],
+"loop": 1,
+"name": &"WalkingRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wnk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0fei")
+}],
+"loop": 1,
+"name": &"WalkingUp",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjn5e"]
+size = Vector2(16, 16)
+
+[node name="goblin" type="CharacterBody2D" unique_id=1889188522]
+script = ExtResource("1_blqbt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=976604832]
+sprite_frames = SubResource("SpriteFrames_vlclu")
+animation = &"WalkingRight"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=53647376]
+shape = SubResource("RectangleShape2D_cjn5e")
+disabled = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=54316323 node_paths=PackedStringArray("InitialState")]
+script = ExtResource("5_mv41r")
+InitialState = NodePath("GoblinChase")
+metadata/_custom_type_script = "uid://myhrvgwd6m1l"
+
+[node name="GoblinIdle" type="Node" parent="StateMachine" unique_id=613268098 node_paths=PackedStringArray("enemy", "Anims", "StateMachine")]
+script = ExtResource("7_blqbt")
+enemy = NodePath("../..")
+Anims = NodePath("../../AnimatedSprite2D")
+StateMachine = NodePath("..")
+
+[node name="GoblinWander" type="Node" parent="StateMachine" unique_id=1894360793 node_paths=PackedStringArray("enemy", "Anims", "StateMachine")]
+script = ExtResource("8_uajcl")
+enemy = NodePath("../..")
+Anims = NodePath("../../AnimatedSprite2D")
+StateMachine = NodePath("..")
+
+[node name="GoblinChase" type="Node" parent="StateMachine" unique_id=995212190 node_paths=PackedStringArray("enemy", "Anims", "StateMachine")]
+script = ExtResource("9_mv41r")
+enemy = NodePath("../..")
+Anims = NodePath("../../AnimatedSprite2D")
+StateMachine = NodePath("..")
+
+[node name="GoblinAttack" type="Node" parent="StateMachine" unique_id=706388735]

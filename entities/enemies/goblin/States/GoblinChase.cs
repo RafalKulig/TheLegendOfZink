@@ -3,24 +3,51 @@ using System;
 
 public partial class GoblinChase : State
 {
-    [Export] private CharacterBody2D enemy;
+    [Export] private Goblin enemy;
     [Export] private AnimatedSprite2D Anims;
     [Export] private int speed = 20;
 	private CharacterBody2D player;
 
+
+    private bool preferXMovement = true;
+    private float AxisTolerence = 5.0f;
+
 	public override void Entry()
 	{
         player = GetNode<CharacterBody2D>("/root/Overworld/Player");
-        GD.Print(player);
+        Vector2 direction = player.GlobalPosition - enemy.GlobalPosition;
+        preferXMovement = Mathf.Abs(direction.X) > Mathf.Abs(direction.Y);
     }
 
     public override void PhysicsUpdate(float delta)
     {
         Vector2 direction = player.GlobalPosition - enemy.GlobalPosition;
+        float distance = direction.Length();
 
-        if (direction.Length() > 20)
+        if (distance > 100)
         {
-            if (Mathf.FloorToInt(direction.X) != 0)
+            StateMachine.StateChange(this, "GoblinIdle");
+            return;
+        }
+
+        if (distance > 30)
+        {
+            if (preferXMovement)
+            {
+                if (Mathf.Abs(direction.X) < AxisTolerence)
+                {
+                    preferXMovement = false;
+                }
+            }
+            else
+            {
+                if (Mathf.Abs(direction.Y) < AxisTolerence)
+                {
+                    preferXMovement = true;
+                }
+            }
+
+            if (preferXMovement)
             {
                 enemy.Velocity = new Vector2(direction.X, 0).Normalized() * speed;
             }
@@ -28,16 +55,12 @@ public partial class GoblinChase : State
             {
                 enemy.Velocity = new Vector2(0, direction.Y).Normalized() * speed;
             }
-            //enemy.Velocity = direction.Normalized() * speed;
         }
         else
         {
             enemy.Velocity = Vector2.Zero;
-        }
-
-        if (direction.Length() > 100)
-        {
-            StateMachine.StateChange(this, "GoblinIdle");
+            StateMachine.StateChange(this, "GoblinAttack");
+            return;
         }
 
         WalkingAnimation(enemy.Velocity.Normalized());

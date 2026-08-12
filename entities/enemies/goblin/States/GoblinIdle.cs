@@ -19,11 +19,6 @@ public partial class GoblinIdle : State
         enemy.Velocity = Vector2.Zero;
     }
 
-    public override void Exit()
-    {
-        //to do -> animacja wyjscia prawo/lewo
-    }
-
     public override void Update(float delta)
     {
         Vector2 direction = player.GlobalPosition - enemy.GlobalPosition;

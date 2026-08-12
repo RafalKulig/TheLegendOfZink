@@ -11,7 +11,8 @@
 [node name="Player" parent="." unique_id=144735961 instance=ExtResource("1_n3lcv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-45, 29)
+position = Vector2(33, 29)
+metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
 remote_path = NodePath("../../Camera2D")
@@ -24,7 +25,7 @@ scale = Vector2(1.4140625, 1.375)
 texture = ExtResource("2_jvs31")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121]
-position = Vector2(-45, 29)
+position = Vector2(33, 29)
 zoom = Vector2(2, 2)
 position_smoothing_speed = 10.0
 

@@ -4,40 +4,48 @@ using System;
 public partial class GoblinAttack : State
 {
     [Export] private Goblin enemy;
-    [Export] private AnimatedSprite2D Anims;
-    private float AttackCooldown;
-    private bool AttackFinished;
+    [Export] private AnimationPlayer Anims;
+    private Vector2 AttackDirection;
+    private CharacterBody2D player;
 
     public override void Entry()
     {
-        GD.Print("Entry");
-        AttackFinished = false;
-        AttackCooldown = 1.0f;
-        GD.Print(enemy.LastDirection);
-        PickAnimation(enemy.LastDirection);
-    }
-
-    public override void Update(float delta)
-    {
-        if (AttackFinished && AttackCooldown >= 0)
+        player = GetNode<CharacterBody2D>("/root/Overworld/Player");
+        Vector2 direction = player.GlobalPosition - enemy.GlobalPosition;
+        if (Mathf.Abs(direction.X) > Mathf.Abs(direction.Y))
         {
-            AttackCooldown -= delta;
+            if (direction.X >= 0)
+            {
+                AttackDirection = Vector2.Right;
+                
+            }
+            else
+            {
+                AttackDirection = Vector2.Left;
+            }
         }
-        else if (AttackCooldown <= 0)
+        else
         {
-            StateMachine.StateChange(this, "GoblinIdle");
+            if (direction.Y >= 0)
+            {
+                AttackDirection = Vector2.Down;
+            }
+            else
+            {
+                AttackDirection = Vector2.Up;
+            }
         }
+        
+        PickAnimation(AttackDirection);
     }
 
     public void OnAnimationFinished()
     {
-        GD.Print("Animfinished");
-        AttackFinished = true;
+        StateMachine.StateChange(this, "GoblinWander");
     }
 
     public void PickAnimation(Vector2 dir)
     {
-        GD.Print("AnimPiciking");
         if (dir == Vector2.Right)
         {
             Anims.Play("AttackRight");
@@ -52,7 +60,7 @@ public partial class GoblinAttack : State
         }
         if (dir == Vector2.Up)
         {
-            Anims.Play("AttackDown");
+            Anims.Play("AttackUp");
         }
     }
 }

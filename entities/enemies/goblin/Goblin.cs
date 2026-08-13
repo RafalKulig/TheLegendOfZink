@@ -1,16 +1,10 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class Goblin : CharacterBody2D
 {
-    public Vector2 LastDirection { get; set; }
-    CharacterBody2D player;
-
-    public override void _Process(double delta)
-    {
-        //player = GetTree().GetFirstNodeInGroup("Player") as CharacterBody2D;
-        //GD.Print(GetTree().GetFirstNodeInGroup("Player").Name);
-    }
+    public Vector2 LastDirection { get; private set; }
 
     public override void _PhysicsProcess(double delta)
     {

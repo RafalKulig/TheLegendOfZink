@@ -9,4 +9,17 @@ assets/
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+#VS
+.vs/
+.idea/
+*.sln.docstates
+bin/
+obj/
+
+*.user
+*.userprefs
+*.suo
+*.userosv
+*.sln.imls
 >>>>>>> 6a24322 (Initial commit (no assets))

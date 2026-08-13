@@ -30,7 +30,7 @@ public partial class GoblinChase : State
             return;
         }
 
-        if (distance > 30)
+        if (distance > 20)
         {
             if (preferXMovement)
             {

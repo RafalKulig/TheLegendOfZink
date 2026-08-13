@@ -34,4 +34,4 @@ position = Vector2(-70, -6)
 Sprite = ExtResource("4_dhsp4")
 
 [node name="goblin" parent="." unique_id=1889188522 instance=ExtResource("5_dnero")]
-position = Vector2(-71, 28)
+position = Vector2(-73, 22)

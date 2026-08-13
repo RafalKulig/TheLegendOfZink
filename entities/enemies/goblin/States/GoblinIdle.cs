@@ -3,7 +3,7 @@ using System;
 
 public partial class GoblinIdle : State
 {
-    [Export] private CharacterBody2D enemy;
+    [Export] private Goblin enemy;
     [Export] private AnimatedSprite2D Anims;
 
     private float idleTimer;
@@ -13,9 +13,17 @@ public partial class GoblinIdle : State
 	{
         player = GetNode<CharacterBody2D>("/root/Overworld/Player");
 
-        idleTimer = GD.RandRange(1, 4);
+        Vector2 dir = enemy.LastDirection;
+        if (dir == Vector2.Left) Anims.Play("WalkingLeft");
+        if (dir == Vector2.Right) Anims.Play("WalkingRight");
+        if (dir == Vector2.Up) Anims.Play("WalkingUp");
+        if (dir == Vector2.Down) Anims.Play("WalkingDown");
+
         Anims.Stop();
         Anims.Frame = 0;
+
+        idleTimer = GD.RandRange(1, 4);
+
         enemy.Velocity = Vector2.Zero;
     }
 

@@ -74,6 +74,22 @@ AttackB={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="WorldStatic"
+2d_physics/layer_2="WorldDynamic"
+2d_physics/layer_3="HazardsEnvi"
+2d_physics/layer_4="PlayerBody"
+2d_physics/layer_5="EnemyBody"
+2d_physics/layer_6="NpcBody"
+2d_physics/layer_7="PlayerHurtbox"
+2d_physics/layer_8="PlayerHitbox"
+2d_physics/layer_9="EnemyHurtbox"
+2d_physics/layer_10="EnemyHitbox"
+2d_physics/layer_11="Collectibles"
+2d_physics/layer_12="Interactions"
+2d_physics/layer_13="AISensors"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

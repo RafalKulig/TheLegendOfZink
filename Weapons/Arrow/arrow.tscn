@@ -1,27 +1,41 @@
 [gd_scene format=3 uid="uid://bmht86ytlkedf"]
 
-[ext_resource type="Texture2D" uid="uid://d1clqq10wq377" path="res://assets/Legend_of_Zink_Asset_Pack/Zink/PNG/sprWeaponArrow.png" id="1_5aygp"]
+[ext_resource type="Texture2D" uid="uid://d1clqq10wq377" path="res://entities/player/Zink/PNG/sprWeaponArrow.png" id="1_5aygp"]
 [ext_resource type="Script" uid="uid://cdpnkgbxlwh6k" path="res://Weapons/Arrow/Arrow.cs" id="1_xhss8"]
+[ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="3_v3ce8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
+size = Vector2(12, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuaa3"]
 size = Vector2(16, 6)
 
 [node name="Arrow" type="CharacterBody2D" unique_id=2024456593]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 128
+collision_mask = 19
 script = ExtResource("1_xhss8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1612158720]
-shape = SubResource("RectangleShape2D_0f7yd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1193685726]
 texture = ExtResource("1_5aygp")
 region_enabled = true
 region_rect = Rect2(0, 6, 16, 5)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1612158720]
+shape = SubResource("RectangleShape2D_0f7yd")
+
 [node name="LifeTime" type="Timer" parent="." unique_id=1060540909]
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=49571468]
+collision_layer = 128
+collision_mask = 256
+script = ExtResource("3_v3ce8")
+Damage = 1
+metadata/_custom_type_script = "uid://dyurj2h4tffj1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=907486413]
+shape = SubResource("RectangleShape2D_vuaa3")
 
 [connection signal="timeout" from="LifeTime" to="." method="OnLifeTimeOut"]

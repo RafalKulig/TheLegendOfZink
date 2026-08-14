@@ -15,7 +15,6 @@ public partial class Arrow : CharacterBody2D
 
         if (collision != null)
         {
-            GD.Print("Jednak gracz");
             QueueFree();
         }
     }

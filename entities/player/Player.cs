@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 public partial class Player : CharacterBody2D
 {
-	public Vector2 LastDirection { get; private set; } = Vector2.Right;
+    [Export] private HealthComponent healthComponent;
+
+    public Vector2 LastDirection { get; private set; } = Vector2.Right;
 
 	private HashSet<ItemToUnlock.UnlockType> Unlocks = new();
 
@@ -15,8 +17,14 @@ public partial class Player : CharacterBody2D
 	public override void _Ready()
 	{
 		Eq[Enums.EquipmentSlot.SlotA] = new Sword();
-		Eq[Enums.EquipmentSlot.SlotB] = new Shield();
-	}
+		Eq[Enums.EquipmentSlot.SlotB] = new Bow();
+
+        if (healthComponent is not null)
+        {
+            healthComponent.Died += OnPlayerDied;
+            healthComponent.Damaged += OnPlayerDamaged;
+        }
+    }
 
 	public override void _Process(double delta)
 	{
@@ -50,4 +58,15 @@ public partial class Player : CharacterBody2D
 		}
 		return false;
 	}
+
+
+    private void OnPlayerDamaged(int amount)
+    {
+        GD.Print("ale boli " + Name + "'a " + amount + " zostalo: " + healthComponent.currentHealth);
+    }
+
+    private void OnPlayerDied()
+    {
+        GD.Print("umarl: " + Name);
+    }
 }

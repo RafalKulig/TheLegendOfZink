@@ -3,7 +3,7 @@ using System;
 
 public partial class Attack : State
 {
-    [Export] private AnimatedSprite2D Anims;
+    [Export] private AnimationPlayer Anims;
     [Export] private Player Player;
 
     private IWeapon CurrentWeapon;
@@ -11,11 +11,8 @@ public partial class Attack : State
     public override void Entry()
     {
         CurrentWeapon = Player.Eq[Player.ActiveSlot];
-
         Player.Velocity = Vector2.Zero;
-
         CurrentWeapon.Use(Player);
-
         string AnimName = CurrentWeapon.AnimationName;
         Anims.Play(AnimName);
     }

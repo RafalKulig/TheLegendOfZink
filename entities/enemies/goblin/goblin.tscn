@@ -578,7 +578,6 @@ sprite_frames = SubResource("SpriteFrames_vlclu")
 animation = &"WalkingRight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=53647376]
-visible = false
 shape = SubResource("RectangleShape2D_cjn5e")
 
 [node name="StateMachine" type="Node" parent="." unique_id=54316323 node_paths=PackedStringArray("InitialState")]
@@ -611,7 +610,6 @@ Anims = NodePath("../../AnimationPlayer")
 StateMachine = NodePath("..")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=85009595]
-visible = false
 collision_layer = 512
 collision_mask = 64
 script = ExtResource("15_g0fei")
@@ -630,7 +628,6 @@ disabled = true
 debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1307024158 node_paths=PackedStringArray("healthComponent")]
-visible = false
 collision_layer = 256
 collision_mask = 128
 script = ExtResource("15_8wnk4")

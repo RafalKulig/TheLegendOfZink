@@ -7,44 +7,20 @@
       "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:system\\components\\hurtbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\weapons\\sword\\sword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:weapons\\sword\\sword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\enemies\\goblin\\goblin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\enemies\\goblin\\goblin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\HealthComponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:System\\Components\\HealthComponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\system\\components\\healthcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:system\\components\\healthcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\Hitbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:System\\Components\\Hitbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\player\\states\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\player\\states\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\enemies\\goblin\\states\\goblinchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\enemies\\goblin\\states\\goblinchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\enemies\\goblin\\states\\goblinidle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\enemies\\goblin\\states\\goblinidle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\enemies\\goblin\\states\\goblinattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\enemies\\goblin\\states\\goblinattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\enemies\\goblin\\states\\goblinwander.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\enemies\\goblin\\states\\goblinwander.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\system\\statemachine\\statemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:system\\statemachine\\statemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\enemies\\goblin\\goblin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\enemies\\goblin\\goblin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +30,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Goblin.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\Goblin.cs",
+              "RelativeDocumentMoniker": "entities\\enemies\\goblin\\Goblin.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\Goblin.cs",
+              "RelativeToolTip": "entities\\enemies\\goblin\\Goblin.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwB0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-14T13:24:11.182Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\Player.cs",
+              "RelativeDocumentMoniker": "entities\\player\\Player.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\Player.cs",
+              "RelativeToolTip": "entities\\player\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-13T14:46:37.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Hitbox.cs",
+              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\Hitbox.cs",
+              "RelativeDocumentMoniker": "System\\Components\\Hitbox.cs",
+              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\Hitbox.cs",
+              "RelativeToolTip": "System\\Components\\Hitbox.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-14T14:20:20.383Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -68,7 +83,7 @@
               "RelativeDocumentMoniker": "System\\Components\\HealthComponent.cs",
               "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\HealthComponent.cs",
               "RelativeToolTip": "System\\Components\\HealthComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-13T18:07:24.244Z",
               "EditorCaption": ""
@@ -81,121 +96,10 @@
               "RelativeDocumentMoniker": "System\\Components\\Hurtbox.cs",
               "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\Hurtbox.cs",
               "RelativeToolTip": "System\\Components\\Hurtbox.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-13T18:02:47.569Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Player.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\Player.cs",
-              "RelativeDocumentMoniker": "entities\\player\\Player.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\Player.cs",
-              "RelativeToolTip": "entities\\player\\Player.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-13T14:46:37.934Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Sword.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\Weapons\\Sword\\Sword.cs",
-              "RelativeDocumentMoniker": "Weapons\\Sword\\Sword.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\Weapons\\Sword\\Sword.cs",
-              "RelativeToolTip": "Weapons\\Sword\\Sword.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwCEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-13T12:02:15.049Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Attack.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\States\\Attack.cs",
-              "RelativeDocumentMoniker": "entities\\player\\States\\Attack.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\States\\Attack.cs",
-              "RelativeToolTip": "entities\\player\\States\\Attack.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-13T12:02:02.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Goblin.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\Goblin.cs",
-              "RelativeDocumentMoniker": "entities\\enemies\\goblin\\Goblin.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\Goblin.cs",
-              "RelativeToolTip": "entities\\enemies\\goblin\\Goblin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T13:54:33.075Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GoblinAttack.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\States\\GoblinAttack.cs",
-              "RelativeDocumentMoniker": "entities\\enemies\\goblin\\States\\GoblinAttack.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\States\\GoblinAttack.cs",
-              "RelativeToolTip": "entities\\enemies\\goblin\\States\\GoblinAttack.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAADcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T15:30:51.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GoblinIdle.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\States\\GoblinIdle.cs",
-              "RelativeDocumentMoniker": "entities\\enemies\\goblin\\States\\GoblinIdle.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\States\\GoblinIdle.cs",
-              "RelativeToolTip": "entities\\enemies\\goblin\\States\\GoblinIdle.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAQwAsAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T13:56:52.2Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GoblinWander.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\States\\GoblinWander.cs",
-              "RelativeDocumentMoniker": "entities\\enemies\\goblin\\States\\GoblinWander.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\States\\GoblinWander.cs",
-              "RelativeToolTip": "entities\\enemies\\goblin\\States\\GoblinWander.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwDAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T16:56:29.817Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GoblinChase.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\States\\GoblinChase.cs",
-              "RelativeDocumentMoniker": "entities\\enemies\\goblin\\States\\GoblinChase.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\States\\GoblinChase.cs",
-              "RelativeToolTip": "entities\\enemies\\goblin\\States\\GoblinChase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAYwCAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T13:57:17.992Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "StateMachine.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\StateMachine\\StateMachine.cs",
-              "RelativeDocumentMoniker": "System\\StateMachine\\StateMachine.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\StateMachine\\StateMachine.cs",
-              "RelativeToolTip": "System\\StateMachine\\StateMachine.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAowDUAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T17:09:31.097Z"
             }
           ]
         }

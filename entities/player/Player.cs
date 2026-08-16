@@ -5,60 +5,42 @@ using System.Collections.Generic;
 public partial class Player : CharacterBody2D
 {
     [Export] private HealthComponent healthComponent;
+	[Export] public InventoryComponent Inventory { get; private set; }
 
-    public Vector2 LastDirection { get; private set; } = Vector2.Right;
-
-	private HashSet<ItemToUnlock.UnlockType> Unlocks = new();
-
-	public Dictionary<Enums.EquipmentSlot, IWeapon> Eq = new();
-
-	public Enums.EquipmentSlot ActiveSlot { get; set; } = Enums.EquipmentSlot.SlotA;
+	public Vector2 LastDirection { get; private set; } = Vector2.Right;
 
 	public override void _Ready()
 	{
-		Eq[Enums.EquipmentSlot.SlotA] = new Sword();
-		Eq[Enums.EquipmentSlot.SlotB] = new Bow();
+		Inventory.EquipWeaponToSlot(new Sword(), Enums.EquipmentSlot.SlotA);
+        Inventory.EquipWeaponToSlot(new Bow(), Enums.EquipmentSlot.SlotB);
 
         if (healthComponent is not null)
         {
             healthComponent.Died += OnPlayerDied;
             healthComponent.Damaged += OnPlayerDamaged;
         }
+        if (Inventory is not null)
+        {
+            Inventory.ItemCountChanged += OnItemCountChanged;
+        }
+
+        Inventory.AddToItemCount(Enums.ItemType.ARROW, 10);
     }
 
-	public override void _Process(double delta)
-	{
-		if(Velocity != Vector2.Zero)
-		{
-			LastDirection = Velocity.Normalized();
-		}
-	}
 	public override void _PhysicsProcess(double delta)
 	{
-		MoveAndSlide();
-	}
+        if (Velocity != Vector2.Zero)
+        {
+            LastDirection = Velocity.Normalized();
+        }
 
-	public void ItemUnlock(ItemToUnlock.UnlockType ItemType)
-	{
-		Unlocks.Add(ItemType);
-		GD.Print("odblokowano: " +  ItemType.ToString());
-	}
+        if (Input.IsActionJustPressed("Inventory"))
+        {
+            Inventory.ShowEq();
+        }
 
-	public bool CheckIfUnlocked(ItemToUnlock.UnlockType itemType)
-	{
-		return Unlocks.Contains(itemType);
+        MoveAndSlide();
 	}
-
-	public bool CanAttack(Enums.EquipmentSlot slot)
-	{
-		IWeapon weapon;
-		if(Eq.TryGetValue(slot, out weapon) && weapon is not null)
-		{
-			return weapon.CanUse(this);
-		}
-		return false;
-	}
-
 
     private void OnPlayerDamaged(int amount)
     {
@@ -69,4 +51,9 @@ public partial class Player : CharacterBody2D
     {
         GD.Print("umarl: " + Name);
     }
+
+	private void OnItemCountChanged(Enums.ItemType item, int count)
+	{
+        GD.Print(item + ": " + count);
+	}
 }

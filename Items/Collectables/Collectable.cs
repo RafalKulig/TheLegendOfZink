@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [Tool]
-public partial class ItemToUnlock : Area2D
+public partial class Collectable : Area2D
 {
     private Texture2D _sprite;
 
@@ -12,19 +12,19 @@ public partial class ItemToUnlock : Area2D
         get => _sprite;
         set
         {
-            _sprite = value; 
-            UpdateSprite();  
+            _sprite = value;
+            UpdateSprite();
         }
     }
 
     [Export]
-    public Enums.UnlockType Type { get; private set; }
+    public Enums.ItemType Type { get; private set; }
 
     public void OnBodyEntered(Node2D body)
     {
         if (body is Player player)
         {
-            player.Inventory.UnlockWeapon(Type);
+            player.Inventory.AddToItemCount(Type, 1);
             QueueFree();
         }
     }

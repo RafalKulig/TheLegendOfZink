@@ -8,4 +8,20 @@ public partial class Enums : GodotObject
         SlotA, 
         SlotB  
     }
+
+    public enum ItemType
+    {
+        COIN,
+        ARROW,
+
+    }
+
+    public enum UnlockType
+    {
+        BOW,
+        BOMB,
+        SHIELD,
+        WAND,
+        BOOMERANG,
+    }
 }

@@ -22,16 +22,16 @@ public partial class Move : State
         if (MoveDirection == Vector2.Zero)
             StateMachine.StateChange(this, "Idle");
 
-        if (Input.IsActionJustPressed("AttackA") && Player.CanAttack(Enums.EquipmentSlot.SlotA))
+        if (Input.IsActionJustPressed("AttackA") && Player.Inventory.CanAttack(Enums.EquipmentSlot.SlotA))
         {
-            Player.ActiveSlot = Enums.EquipmentSlot.SlotA;
+            Player.Inventory.ActiveSlot = Enums.EquipmentSlot.SlotA;
             StateMachine.StateChange(this, "Attack");
             return;
         }
 
-        if (Input.IsActionJustPressed("AttackB") && Player.CanAttack(Enums.EquipmentSlot.SlotB))
+        if (Input.IsActionJustPressed("AttackB") && Player.Inventory.CanAttack(Enums.EquipmentSlot.SlotB))
         {
-            Player.ActiveSlot = Enums.EquipmentSlot.SlotB;
+            Player.Inventory.ActiveSlot = Enums.EquipmentSlot.SlotB;
             StateMachine.StateChange(this, "Attack");
             return;
         }

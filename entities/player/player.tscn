@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://eb776hicbpyj" path="res://System/Components/Hurtbox.cs" id="22_221hk"]
 [ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="22_t1t22"]
 [ext_resource type="Script" uid="uid://c1cxp4qsw07r0" path="res://System/Components/HealthComponent.cs" id="23_ghoj8"]
+[ext_resource type="Script" uid="uid://bb7snjrvdqs0l" path="res://System/Components/InventoryComponent.cs" id="25_50fht"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24ehl"]
 atlas = ExtResource("2_3wlsy")
@@ -875,12 +876,13 @@ _data = {
 &"SwordAttackUp": SubResource("Animation_qpopc")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=144735961 node_paths=PackedStringArray("healthComponent")]
+[node name="Player" type="CharacterBody2D" unique_id=144735961 node_paths=PackedStringArray("healthComponent", "Inventory")]
 y_sort_enabled = true
 collision_layer = 8
 collision_mask = 7175
 script = ExtResource("1_fkugw")
 healthComponent = NodePath("HealthComponent")
+Inventory = NodePath("InventoryComponent")
 
 [node name="PlayerAnimations" type="AnimatedSprite2D" parent="." unique_id=1982319800]
 sprite_frames = SubResource("SpriteFrames_0f7yd")
@@ -944,5 +946,8 @@ metadata/_custom_type_script = "uid://c1cxp4qsw07r0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1787745393]
 libraries/ = SubResource("AnimationLibrary_wq0jh")
+
+[node name="InventoryComponent" type="Node2D" parent="." unique_id=1740085292]
+script = ExtResource("25_50fht")
 
 [connection signal="animation_finished" from="PlayerAnimations" to="StateMachine/Attack" method="OnAnimationFinished"]

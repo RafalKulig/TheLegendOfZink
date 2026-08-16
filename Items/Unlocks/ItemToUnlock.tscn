@@ -6,6 +6,8 @@
 radius = 5.0
 
 [node name="ItemToUnlock" type="Area2D" unique_id=1424118092]
+collision_layer = 1024
+collision_mask = 8
 script = ExtResource("1_0ftoa")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=81977265]

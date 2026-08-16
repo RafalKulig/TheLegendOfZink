@@ -18,6 +18,11 @@ public partial class Bow : Node, IWeapon
 
     public bool CanUse(Player Player)
     {
+        if (Player.Inventory.GetItemCount(Enums.ItemType.ARROW) == 0)
+        {
+            return false;
+        }
+
         return true;
     }
 
@@ -38,7 +43,7 @@ public partial class Bow : Node, IWeapon
 
     public void Exit(Player Player)
     {
-
+        Player.Inventory.AddToItemCount(Enums.ItemType.ARROW, -1);
     }
 
     public void AttackingAnimation(Vector2 dir)

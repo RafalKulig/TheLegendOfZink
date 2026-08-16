@@ -10,7 +10,7 @@ public partial class Attack : State
 
     public override void Entry()
     {
-        CurrentWeapon = Player.Eq[Player.ActiveSlot];
+        CurrentWeapon = Player.Inventory.GetActiveWeapon();
         Player.Velocity = Vector2.Zero;
         CurrentWeapon.Use(Player);
         string AnimName = CurrentWeapon.AnimationName;

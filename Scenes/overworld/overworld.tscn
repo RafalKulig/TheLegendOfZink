@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bswl72m4gw5me" path="res://icon.svg" id="2_jvs31"]
 [ext_resource type="PackedScene" uid="uid://v2m7knkdob3c" path="res://Items/Unlocks/ItemToUnlock.tscn" id="3_662u0"]
 [ext_resource type="Texture2D" uid="uid://d2gk6tqgc0evx" path="res://Items/Unlocks/sprIconBow.png" id="4_dhsp4"]
-[ext_resource type="PackedScene" uid="uid://bl4dhcskkn3og" path="res://entities/enemies/goblin/goblin.tscn" id="5_dnero"]
+[ext_resource type="PackedScene" uid="uid://cg51c45hifubi" path="res://Items/Collectables/collectable.tscn" id="5_7yk5o"]
+[ext_resource type="Texture2D" uid="uid://des0i8gurffpf" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconMiniArrow.png" id="6_4bwop"]
 
 [node name="Overworld" type="Node2D" unique_id=855994466]
 
@@ -30,8 +31,30 @@ zoom = Vector2(2, 2)
 position_smoothing_speed = 10.0
 
 [node name="ItemToUnlock" parent="." unique_id=1424118092 instance=ExtResource("3_662u0")]
-position = Vector2(-70, -6)
+position = Vector2(68, -9)
 Sprite = ExtResource("4_dhsp4")
 
-[node name="goblin" parent="." unique_id=1889188522 instance=ExtResource("5_dnero")]
-position = Vector2(-73, 22)
+[node name="Collectable" parent="." unique_id=929995757 instance=ExtResource("5_7yk5o")]
+position = Vector2(-74, -31)
+Sprite = ExtResource("6_4bwop")
+Type = 1
+
+[node name="Collectable2" parent="." unique_id=577392122 instance=ExtResource("5_7yk5o")]
+position = Vector2(-73, -7)
+Sprite = ExtResource("6_4bwop")
+Type = 1
+
+[node name="Collectable3" parent="." unique_id=1787231347 instance=ExtResource("5_7yk5o")]
+position = Vector2(-72, 17)
+Sprite = ExtResource("6_4bwop")
+Type = 1
+
+[node name="Collectable4" parent="." unique_id=1413708195 instance=ExtResource("5_7yk5o")]
+position = Vector2(-72, 41)
+Sprite = ExtResource("6_4bwop")
+
+[node name="Collectable5" parent="." unique_id=1447093923 instance=ExtResource("5_7yk5o")]
+position = Vector2(-71, 68)
+Sprite = ExtResource("6_4bwop")
+
+[node name="InventoryUI" type="CanvasLayer" parent="." unique_id=869479515]

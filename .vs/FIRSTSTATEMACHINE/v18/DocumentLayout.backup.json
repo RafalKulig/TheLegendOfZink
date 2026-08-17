@@ -1,26 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\",
+  "WorkspaceRootPath": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\system\\components\\hurtbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:system\\components\\hurtbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\ciulstwa rafala\\godot\\projekty\\thelegendofzink-main\\system\\components\\inventorycomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:system\\components\\inventorycomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\enemies\\goblin\\goblin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\enemies\\goblin\\goblin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\Items\\Collectables\\Collectable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Items\\Collectables\\Collectable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\system\\components\\healthcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:system\\components\\healthcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\ciulstwa rafala\\godot\\projekty\\thelegendofzink-main\\items\\unlocks\\itemtounlock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:items\\unlocks\\itemtounlock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\Hitbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:System\\Components\\Hitbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\ciulstwa rafala\\godot\\projekty\\thelegendofzink-main\\system\\enums\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:system\\enums\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\gamedev\\godot\\projekty\\firststatemachine\\entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\ciulstwa rafala\\godot\\projekty\\thelegendofzink-main\\entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|d:\\ciulstwa rafala\\godot\\projekty\\thelegendofzink-main\\system\\components\\healthcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1675F7-8161-469F-99A7-9E7565C76323}|FirstStateMachine.csproj|solutionrelative:system\\components\\healthcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,14 +39,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Goblin.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\Goblin.cs",
-              "RelativeDocumentMoniker": "entities\\enemies\\goblin\\Goblin.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\enemies\\goblin\\Goblin.cs",
-              "RelativeToolTip": "entities\\enemies\\goblin\\Goblin.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwB0AAAAGAAAAAAAAAA==",
+              "Title": "Collectable.cs",
+              "DocumentMoniker": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\Items\\Collectables\\Collectable.cs",
+              "RelativeDocumentMoniker": "Items\\Collectables\\Collectable.cs",
+              "ToolTip": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\Items\\Collectables\\Collectable.cs",
+              "RelativeToolTip": "Items\\Collectables\\Collectable.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-14T13:24:11.182Z",
+              "WhenOpened": "2026-08-16T22:14:59.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ItemToUnlock.cs",
+              "DocumentMoniker": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\Items\\Unlocks\\ItemToUnlock.cs",
+              "RelativeDocumentMoniker": "Items\\Unlocks\\ItemToUnlock.cs",
+              "ToolTip": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\Items\\Unlocks\\ItemToUnlock.cs",
+              "RelativeToolTip": "Items\\Unlocks\\ItemToUnlock.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-16T18:52:50.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\System\\Enums\\Enums.cs",
+              "RelativeDocumentMoniker": "System\\Enums\\Enums.cs",
+              "ToolTip": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\System\\Enums\\Enums.cs",
+              "RelativeToolTip": "System\\Enums\\Enums.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-16T21:49:41.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\entities\\player\\Player.cs",
+              "RelativeDocumentMoniker": "entities\\player\\Player.cs",
+              "ToolTip": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\entities\\player\\Player.cs",
+              "RelativeToolTip": "entities\\player\\Player.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAkwDgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-13T14:46:37.934Z",
               "EditorCaption": ""
             },
             {
@@ -51,54 +94,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Player.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\Player.cs",
-              "RelativeDocumentMoniker": "entities\\player\\Player.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\entities\\player\\Player.cs",
-              "RelativeToolTip": "entities\\player\\Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-13T14:46:37.934Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Hitbox.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\Hitbox.cs",
-              "RelativeDocumentMoniker": "System\\Components\\Hitbox.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\Hitbox.cs",
-              "RelativeToolTip": "System\\Components\\Hitbox.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-14T14:20:20.383Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HealthComponent.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\HealthComponent.cs",
-              "RelativeDocumentMoniker": "System\\Components\\HealthComponent.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\HealthComponent.cs",
-              "RelativeToolTip": "System\\Components\\HealthComponent.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-13T18:07:24.244Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Hurtbox.cs",
-              "DocumentMoniker": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\Hurtbox.cs",
-              "RelativeDocumentMoniker": "System\\Components\\Hurtbox.cs",
-              "ToolTip": "D:\\GameDev\\Godot\\Projekty\\FirstStateMachine\\System\\Components\\Hurtbox.cs",
-              "RelativeToolTip": "System\\Components\\Hurtbox.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAxAAAAAAAAAA==",
+              "Title": "InventoryComponent.cs",
+              "DocumentMoniker": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\System\\Components\\InventoryComponent.cs",
+              "RelativeDocumentMoniker": "System\\Components\\InventoryComponent.cs",
+              "ToolTip": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\System\\Components\\InventoryComponent.cs",
+              "RelativeToolTip": "System\\Components\\InventoryComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-13T18:02:47.569Z",
+              "WhenOpened": "2026-08-16T18:28:29.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HealthComponent.cs",
+              "DocumentMoniker": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\System\\Components\\HealthComponent.cs",
+              "RelativeDocumentMoniker": "System\\Components\\HealthComponent.cs",
+              "ToolTip": "D:\\Ciulstwa Rafala\\Godot\\Projekty\\TheLegendOfZink-main\\System\\Components\\HealthComponent.cs",
+              "RelativeToolTip": "System\\Components\\HealthComponent.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-16T21:59:14.618Z",
               "EditorCaption": ""
             }
           ]

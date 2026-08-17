@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ea0ogsl8xsuk"]
+
+[ext_resource type="Script" uid="uid://letbrlqc3qng" path="res://UI/InventorySlot/InventorySlot.cs" id="1_flgjv"]
+
+[node name="InventorySlot" type="PanelContainer" unique_id=1513011730 node_paths=PackedStringArray("iconRect", "label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_flgjv")
+iconRect = NodePath("TextureRect")
+label = NodePath("Label")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=642261228]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=2081022601]
+layout_mode = 2
+size_flags_vertical = 8

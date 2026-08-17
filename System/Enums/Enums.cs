@@ -13,13 +13,12 @@ public partial class Enums : GodotObject
     {
         COIN,
         ARROW,
-
+        BOMB,
     }
 
     public enum UnlockType
     {
         BOW,
-        BOMB,
         SHIELD,
         WAND,
         BOOMERANG,

@@ -12,16 +12,12 @@ public partial class Player : CharacterBody2D
 	public override void _Ready()
 	{
 		Inventory.EquipWeaponToSlot(new Sword(), Enums.EquipmentSlot.SlotA);
-        Inventory.EquipWeaponToSlot(new Bow(), Enums.EquipmentSlot.SlotB);
+        //Inventory.EquipWeaponToSlot(new Bow(), Enums.EquipmentSlot.SlotB);
 
         if (healthComponent is not null)
         {
             healthComponent.Died += OnPlayerDied;
             healthComponent.Damaged += OnPlayerDamaged;
-        }
-        if (Inventory is not null)
-        {
-            Inventory.ItemCountChanged += OnItemCountChanged;
         }
 
         Inventory.AddToItemCount(Enums.ItemType.ARROW, 10);
@@ -32,11 +28,6 @@ public partial class Player : CharacterBody2D
         if (Velocity != Vector2.Zero)
         {
             LastDirection = Velocity.Normalized();
-        }
-
-        if (Input.IsActionJustPressed("Inventory"))
-        {
-            Inventory.ShowEq();
         }
 
         MoveAndSlide();
@@ -51,9 +42,4 @@ public partial class Player : CharacterBody2D
     {
         GD.Print("umarl: " + Name);
     }
-
-	private void OnItemCountChanged(Enums.ItemType item, int count)
-	{
-        GD.Print(item + ": " + count);
-	}
 }

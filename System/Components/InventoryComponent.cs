@@ -9,6 +9,7 @@ public partial class InventoryComponent : Node2D
     [Signal] public delegate void ItemCountChangedEventHandler(Enums.ItemType item, int count);
     //[Signal] public delegate void WeaponEquippedEventHandler(Enums.EquipmentSlot slot, IWeapon weapon);
     [Signal] public delegate void WeaponUnlockedEventHandler(Enums.UnlockType type);
+    [Signal] public delegate void InventoryUpdatedEventHandler();
 
     private Dictionary<Enums.ItemType, int> Items = new();
     private Dictionary<Enums.EquipmentSlot, IWeapon> Equiped = new();
@@ -20,6 +21,30 @@ public partial class InventoryComponent : Node2D
     {
         Items[Enums.ItemType.COIN] = 0;
         Items[Enums.ItemType.ARROW] = 0;
+        Items[Enums.ItemType.BOMB] = 0;
+    }
+
+    public Texture2D GetTextureFromWeapon(IWeapon weapon)
+    {
+        if (weapon == null) return null;
+
+        string path = "res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIcon";
+        if (weapon is Sword) path += "Sword.png";
+        if (weapon is Bow) path += "Bow.png";
+        if (weapon is Shield) path += "Shield.png";
+
+        Texture2D texture = ResourceLoader.Load<Texture2D>(path);
+
+        return texture;
+    }
+
+    public IWeapon GetWeaponFromSlot(Enums.EquipmentSlot slot)
+    {
+        if(Equiped.TryGetValue(slot, out var weapon))
+        {
+            return weapon;
+        }
+        return null;
     }
 
     public void EquipWeaponToSlot(IWeapon weapon, Enums.EquipmentSlot slot)
@@ -38,11 +63,37 @@ public partial class InventoryComponent : Node2D
     {
         Unlocks.Add(type);
         GD.Print("odblokowano: " + type.ToString());
+        EmitSignal(SignalName.InventoryUpdated);
     }
 
-    public bool CheckIfUnlocked(Enums.UnlockType itemType)
+    public Texture2D GetTextureFromUnlocked(Enums.UnlockType type)
     {
-        return Unlocks.Contains(itemType);
+        string path = "res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIcon";
+        switch (type)
+        {
+            case Enums.UnlockType.BOW:
+                path += "Bow.png";
+                break;
+            case Enums.UnlockType.SHIELD:
+                path += "Shield.png";
+                break;
+            case Enums.UnlockType.BOOMERANG:
+                path += "Boomerang.png";
+                break;
+            case Enums.UnlockType.WAND:
+                path += "Wand.png";
+                break;
+            default:
+                path += "Sword.png";
+                break;
+        }
+        Texture2D texture = ResourceLoader.Load<Texture2D>(path);
+        return texture;
+    }
+
+    public HashSet<Enums.UnlockType> GetUnlocked()
+    {
+        return Unlocks;
     }
 
     public bool CanAttack(Enums.EquipmentSlot slot)
@@ -71,26 +122,6 @@ public partial class InventoryComponent : Node2D
             Items[item] += count;
         }
         EmitSignal(SignalName.ItemCountChanged, (int)item, Items[item]);
-    }
-
-    public void ShowEq()
-    {
-        GD.Print("Items:");
-        foreach (var item in Items)
-        {
-            GD.Print(item.Key + ": " + item.Value);
-        }
-        GD.Print("------------");
-        GD.Print("Equipped Weapons:");
-        foreach (var slot in Equiped)
-        {
-            GD.Print(slot.Key + ": " + slot.Value?.GetType().Name);
-        }
-        GD.Print("------------");
-        GD.Print("Unlocked Weapons:");
-        foreach (var weapon in Unlocks)
-        {
-            GD.Print(weapon);
-        }
+        EmitSignal(SignalName.InventoryUpdated);
     }
 }

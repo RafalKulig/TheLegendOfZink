@@ -1,41 +1,25 @@
 using Godot;
 using System;
 
-public partial class InventoryUi : Control
+public partial class HUD : Control
 {
-	[Export] private Player Player; //for InventoryComponent
-	[Export] private PackedScene SlotPrefab;
+	[Export] private Player Player;
 
-	//UpperPart
-	[Export] private TextureRect SlotA;
+    [Export] private TextureRect SlotA;
     [Export] private TextureRect SlotB;
-	[Export] private Label CoinsLabel;
+    [Export] private Label CoinsLabel;
     [Export] private Label ArrowsLabel;
     [Export] private Label BombsLabel;
-
-	//LowerPart
-	[Export] private GridContainer UnlockedWeaponsGrid;
-
-    private InventorySlot SelectedSlot;
 
     public override void _Ready()
     {
         if (Player is not null)
         {
             Player.Inventory.InventoryUpdated += RefreshUI;
-            Visible = !Visible;
             RefreshUI();
         }
-    }
 
-    public override void _UnhandledKeyInput(InputEvent @event)
-    {
-        if(@event.IsActionPressed("Inventory") && !@event.IsEcho())
-        {
-            Visible = !Visible;
-            EventBusUI.Instance.EmitSignal(EventBusUI.SignalName.UIVisibilityChanged, "Inventory", Visible);
-            GetTree().Paused = !GetTree().Paused;
-        }
+        EventBusUI.Instance.UIVisibilityChanged += OnUiVisibilityChanged;
     }
 
     private void RefreshUI()
@@ -68,27 +52,14 @@ public partial class InventoryUi : Control
         CoinsLabel.Text = "x" + Player.Inventory.GetItemCount(Enums.ItemType.COIN).ToString();
         ArrowsLabel.Text = "x" + Player.Inventory.GetItemCount(Enums.ItemType.ARROW).ToString();
         BombsLabel.Text = "x" + Player.Inventory.GetItemCount(Enums.ItemType.BOMB).ToString();
-
-        foreach (Node child in UnlockedWeaponsGrid.GetChildren())
-        {
-            child.QueueFree();
-        }
-
-        foreach (var weapon in Player.Inventory.GetUnlocked())
-        {
-            var NewSlot = SlotPrefab.Instantiate<InventorySlot>();
-            UnlockedWeaponsGrid.AddChild(NewSlot);
-            Texture2D texture = Player.Inventory.GetTextureFromUnlocked(weapon);
-            NewSlot.UpdateSlot(texture, weapon);
-
-            NewSlot.SlotClicked += OnSlotClicked;
-        }
     }
 
-    private void OnSlotClicked(InventorySlot ClickedSlot, Enums.EquipmentSlot slot)
+    private void OnUiVisibilityChanged(string UiName, bool IsOpen)
     {
-        SelectedSlot = ClickedSlot;
-        Player.Inventory.EquipWeaponToSlot(ClickedSlot.ItemType, slot);
+        if (UiName == "Inventory")
+        {
+            Visible = !IsOpen;
+        }
         RefreshUI();
     }
 }

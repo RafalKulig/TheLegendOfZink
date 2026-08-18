@@ -60,17 +60,22 @@ texture = ExtResource("1_s63xj")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="WeaponA" parent="MainContainer/PanelContainer/MainLayout/UpperPart/WeaponsEquiped/A" unique_id=1513011730 instance=ExtResource("2_v1oki")]
+[node name="WeaponA" type="TextureRect" parent="MainContainer/PanelContainer/MainLayout/UpperPart/WeaponsEquiped/A" unique_id=1681023697]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -12.0
-offset_right = 0.5
-offset_bottom = 12.0
+offset_left = -16.0
+offset_top = -17.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
 
 [node name="B" type="TextureRect" parent="MainContainer/PanelContainer/MainLayout/UpperPart/WeaponsEquiped" unique_id=348424976]
 custom_minimum_size = Vector2(30, 30)
@@ -79,17 +84,20 @@ texture = ExtResource("3_qcjti")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="WeaponB" parent="MainContainer/PanelContainer/MainLayout/UpperPart/WeaponsEquiped/B" unique_id=2141077808 instance=ExtResource("2_v1oki")]
+[node name="WeaponB" type="TextureRect" parent="MainContainer/PanelContainer/MainLayout/UpperPart/WeaponsEquiped/B" unique_id=2074926282]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -11.5
-offset_right = 0.5
-offset_bottom = 11.5
+offset_left = -15.0
+offset_top = -17.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Collectables" type="HBoxContainer" parent="MainContainer/PanelContainer/MainLayout/UpperPart" unique_id=329489135]
 layout_mode = 2
@@ -148,4 +156,8 @@ size_flags_vertical = 3
 
 [node name="UnlockedWeapons" type="GridContainer" parent="MainContainer/PanelContainer/MainLayout/LowerPart" unique_id=443988521]
 layout_mode = 2
-columns = 6
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 5

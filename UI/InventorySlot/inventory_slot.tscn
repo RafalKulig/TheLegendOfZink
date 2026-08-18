@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://letbrlqc3qng" path="res://UI/InventorySlot/InventorySlot.cs" id="1_flgjv"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4gihl"]
+
 [node name="InventorySlot" type="PanelContainer" unique_id=1513011730 node_paths=PackedStringArray("iconRect", "label")]
+custom_minimum_size = Vector2(50, 50)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4gihl")
 script = ExtResource("1_flgjv")
 iconRect = NodePath("TextureRect")
 label = NodePath("Label")

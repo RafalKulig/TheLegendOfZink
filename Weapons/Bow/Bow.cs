@@ -3,9 +3,13 @@ using System;
 
 public partial class Bow : Node, IWeapon
 {
+    private Enums.UnlockType _type;
     private string _name;
     private Vector2 dir;
     private PackedScene arrowScene = GD.Load<PackedScene>("res://Weapons/Arrow/arrow.tscn");
+
+    public Enums.UnlockType Type => Enums.UnlockType.BOW;
+    
 
     public string AnimationName
     {

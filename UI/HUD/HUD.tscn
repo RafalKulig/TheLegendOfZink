@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://dl0ybo61de8se"]
+
+[ext_resource type="Texture2D" uid="uid://dpvcv5n5t1kkk" path="res://assets/Legend_of_Zink_Asset_Pack/HUD/PNG/sprHUDAssignAButton.png" id="1_gaqij"]
+[ext_resource type="Script" uid="uid://kj03fxda8efl" path="res://UI/HUD/HUD.cs" id="1_vb885"]
+[ext_resource type="Texture2D" uid="uid://uqaimrs57q81" path="res://assets/Legend_of_Zink_Asset_Pack/HUD/PNG/sprHUDAssignBButton.png" id="2_vb885"]
+[ext_resource type="Texture2D" uid="uid://cxfrviliyeq5t" path="res://assets/Legend_of_Zink_Asset_Pack/HUD/PNG/sprHUDCent.png" id="3_q8dl0"]
+[ext_resource type="Texture2D" uid="uid://des0i8gurffpf" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconMiniArrow.png" id="4_10ibt"]
+[ext_resource type="Texture2D" uid="uid://dceuvgds358tn" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconMiniBomb.png" id="5_3o8sq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k5ml"]
+bg_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[node name="HUD" type="Control" unique_id=1142976838 node_paths=PackedStringArray("SlotA", "SlotB", "CoinsLabel", "ArrowsLabel", "BombsLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vb885")
+SlotA = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/WeaponsEquiped/A/WeaponA")
+SlotB = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/WeaponsEquiped/B/WeaponB")
+CoinsLabel = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowCoins/Label")
+ArrowsLabel = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowArrows/Label")
+BombsLabel = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowBombs/Label")
+
+[node name="MainContainer" type="VBoxContainer" parent="." unique_id=1634517232]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MainContainer" unique_id=1530716369]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8k5ml")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/PanelContainer" unique_id=281783201]
+layout_mode = 2
+
+[node name="UpperPart" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer" unique_id=324752449]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="WeaponsEquiped" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer/UpperPart" unique_id=465374614]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 16
+
+[node name="A" type="TextureRect" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/WeaponsEquiped" unique_id=1610584444]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_gaqij")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="WeaponA" type="TextureRect" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/WeaponsEquiped/A" unique_id=1353817386]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -17.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="B" type="TextureRect" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/WeaponsEquiped" unique_id=831128633]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("2_vb885")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="WeaponB" type="TextureRect" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/WeaponsEquiped/B" unique_id=2005602590]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -17.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Collectables" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer/UpperPart" unique_id=388441055]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="ItemRowCoins" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables" unique_id=506249706]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowCoins" unique_id=45186623]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_q8dl0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowCoins" unique_id=387682723]
+layout_mode = 2
+text = "x99"
+
+[node name="ItemRowArrows" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables" unique_id=2004932859]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowArrows" unique_id=360422665]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("4_10ibt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowArrows" unique_id=883379590]
+layout_mode = 2
+text = "x99"
+
+[node name="ItemRowBombs" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables" unique_id=899899913]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowBombs" unique_id=507172452]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_3o8sq")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowBombs" unique_id=857824386]
+layout_mode = 2
+text = "x99"

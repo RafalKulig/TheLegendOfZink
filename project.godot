@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 run/max_fps=320
 config/icon="res://icon.svg"
 
+[autoload]
+
+EventBusUI="*uid://cacnsh3iexsqv"
+
 [display]
 
 window/size/viewport_width=640

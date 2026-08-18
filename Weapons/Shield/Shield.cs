@@ -3,8 +3,18 @@ using System;
 
 public partial class Shield : Node, IWeapon
 {
+    private Enums.UnlockType _type;
     private string _name;
     private Vector2 dir;
+
+    public Enums.UnlockType Type
+    {
+        get => _type;
+        set
+        {
+            _type = Enums.UnlockType.SHIELD;
+        }
+    }
 
     public string AnimationName
     {

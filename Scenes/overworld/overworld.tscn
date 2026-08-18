@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://v2m7knkdob3c" path="res://Items/Unlocks/ItemToUnlock.tscn" id="3_662u0"]
 [ext_resource type="Texture2D" uid="uid://d2gk6tqgc0evx" path="res://Items/Unlocks/sprIconBow.png" id="4_dhsp4"]
 [ext_resource type="PackedScene" uid="uid://cg51c45hifubi" path="res://Items/Collectables/collectable.tscn" id="5_7yk5o"]
+[ext_resource type="Texture2D" uid="uid://bwv4tlaw6rcbj" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconSword.png" id="5_jn2vy"]
 [ext_resource type="Texture2D" uid="uid://des0i8gurffpf" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconMiniArrow.png" id="6_4bwop"]
 [ext_resource type="PackedScene" uid="uid://ipnbfwmw485s" path="res://UI/InventoryUI/InventoryUI.tscn" id="7_4bwop"]
+[ext_resource type="PackedScene" uid="uid://dl0ybo61de8se" path="res://UI/HUD/HUD.tscn" id="9_4gihl"]
 
 [node name="Overworld" type="Node2D" unique_id=855994466]
 
@@ -28,12 +30,18 @@ texture = ExtResource("2_jvs31")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121]
 position = Vector2(33, 29)
+offset = Vector2(0, -15)
 zoom = Vector2(2, 2)
 position_smoothing_speed = 10.0
 
 [node name="ItemToUnlock" parent="." unique_id=1424118092 instance=ExtResource("3_662u0")]
 position = Vector2(68, -9)
 Sprite = ExtResource("4_dhsp4")
+Type = 1
+
+[node name="ItemToUnlock2" parent="." unique_id=958298034 instance=ExtResource("3_662u0")]
+position = Vector2(68, -29)
+Sprite = ExtResource("5_jn2vy")
 
 [node name="Collectable" parent="." unique_id=929995757 instance=ExtResource("5_7yk5o")]
 position = Vector2(-74, -31)
@@ -59,6 +67,14 @@ position = Vector2(-71, 68)
 Sprite = ExtResource("6_4bwop")
 
 [node name="InventoryUI" type="CanvasLayer" parent="." unique_id=869479515]
+process_mode = 3
 
 [node name="InventoryUI" parent="InventoryUI" unique_id=1877481370 node_paths=PackedStringArray("Player") instance=ExtResource("7_4bwop")]
 Player = NodePath("../../Player")
+metadata/_edit_use_anchors_ = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=258148658]
+
+[node name="HUD" parent="HUD" unique_id=1142976838 node_paths=PackedStringArray("Player") instance=ExtResource("9_4gihl")]
+Player = NodePath("../../Player")
+metadata/_edit_use_anchors_ = true

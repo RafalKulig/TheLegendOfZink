@@ -18,6 +18,7 @@ public partial class Enums : GodotObject
 
     public enum UnlockType
     {
+        SWORD,
         BOW,
         SHIELD,
         WAND,

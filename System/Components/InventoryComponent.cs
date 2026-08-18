@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using static Enums;
 
 [GlobalClass]
@@ -19,6 +20,9 @@ public partial class InventoryComponent : Node2D
 
     public override void _Ready()
     {
+        Equiped[Enums.EquipmentSlot.SlotA] = null;
+        Equiped[Enums.EquipmentSlot.SlotB] = null;
+
         Items[Enums.ItemType.COIN] = 0;
         Items[Enums.ItemType.ARROW] = 0;
         Items[Enums.ItemType.BOMB] = 0;
@@ -34,7 +38,7 @@ public partial class InventoryComponent : Node2D
         if (weapon is Shield) path += "Shield.png";
 
         Texture2D texture = ResourceLoader.Load<Texture2D>(path);
-
+        
         return texture;
     }
 
@@ -47,11 +51,44 @@ public partial class InventoryComponent : Node2D
         return null;
     }
 
-    public void EquipWeaponToSlot(IWeapon weapon, Enums.EquipmentSlot slot)
+    public void EquipWeaponToSlot(Enums.UnlockType WeaponType, Enums.EquipmentSlot TargetSlot)
     {
-        if (weapon is null) return;
+        IWeapon weapon = null;
+        switch (WeaponType)
+        {
+            case Enums.UnlockType.BOW:
+                weapon = new Bow();
+                break;
+            case Enums.UnlockType.SHIELD:
+                weapon = new Shield();
+                break;
+            case Enums.UnlockType.BOOMERANG:
+                //weapon = new Boomerang();
+                break;
+            case Enums.UnlockType.WAND:
+                //weapon = new Wand();
+                break;
+            case Enums.UnlockType.SWORD:
+                weapon = new Sword();
+                break;
+        }
 
-        Equiped[slot] = weapon;
+        Enums.EquipmentSlot OtherSlot;
+        if (TargetSlot == Enums.EquipmentSlot.SlotA)
+        {
+            OtherSlot = Enums.EquipmentSlot.SlotB;
+        }
+        else
+        {
+            OtherSlot = Enums.EquipmentSlot.SlotA;
+        }
+
+        if (Equiped[OtherSlot] is not null && Equiped[OtherSlot].Type == weapon.Type)
+        {
+            Equiped[OtherSlot] = null;
+        }
+
+        Equiped[TargetSlot] = weapon;
     }
 
     public IWeapon GetActiveWeapon()
@@ -83,7 +120,7 @@ public partial class InventoryComponent : Node2D
             case Enums.UnlockType.WAND:
                 path += "Wand.png";
                 break;
-            default:
+            case Enums.UnlockType.SWORD:
                 path += "Sword.png";
                 break;
         }

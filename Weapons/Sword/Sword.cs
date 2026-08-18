@@ -6,6 +6,9 @@ public partial class Sword : Node, IWeapon
     private string _name;
     private Vector2 dir;
 
+    public Enums.UnlockType Type => Enums.UnlockType.SWORD;
+    
+
     public string AnimationName
     {
         get => _name;

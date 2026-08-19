@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://by0202uh3tlnx" path="res://entities/enemies/goblin/Goblin.cs" id="1_blqbt"]
 [ext_resource type="Texture2D" uid="uid://pgbkpfjkcaer" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprGoblinW.png" id="2_acf7e"]
 [ext_resource type="Texture2D" uid="uid://bylm6mm6e566t" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprGoblinAttackS.png" id="2_c8igl"]
+[ext_resource type="Shader" uid="uid://dphkd6hpkm0jx" path="res://System/Shaders/HitFlash.gdshader" id="2_rgl76"]
 [ext_resource type="Texture2D" uid="uid://yhj04urbe78q" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprGoblinE.png" id="3_blqbt"]
 [ext_resource type="Texture2D" uid="uid://dlw233suma2xy" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprGoblinAttackW.png" id="3_ckjdn"]
 [ext_resource type="Texture2D" uid="uid://c6jovmuy78jca" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprGoblinAttackE.png" id="4_34w0v"]
@@ -17,6 +18,12 @@
 [ext_resource type="Script" uid="uid://eb776hicbpyj" path="res://System/Components/Hurtbox.cs" id="15_8wnk4"]
 [ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="15_g0fei"]
 [ext_resource type="Script" uid="uid://c1cxp4qsw07r0" path="res://System/Components/HealthComponent.cs" id="16_g0fei"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0fei"]
+resource_local_to_scene = true
+shader = ExtResource("2_rgl76")
+shader_parameter/FlashModifier = 0.0
+shader_parameter/FlashColor = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgl76"]
 atlas = ExtResource("2_c8igl")
@@ -202,13 +209,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjn5e"]
-size = Vector2(16, 16)
+size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlclu"]
 size = Vector2(16, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vuaa3"]
 size = Vector2(12, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iso6y"]
+size = Vector2(24, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
 size = Vector2(16, 16)
@@ -220,7 +230,7 @@ step = 0.33333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitbox/BatUpDown:disabled")
+tracks/0/path = NodePath("WeaponHitbox/BatUpDown:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -270,7 +280,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Hitbox/BatUpDown:position")
+tracks/4/path = NodePath("WeaponHitbox/BatUpDown:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -325,7 +335,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitbox/BatLeftRight:disabled")
+tracks/3/path = NodePath("WeaponHitbox/BatLeftRight:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -337,7 +347,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Hitbox/BatLeftRight:position")
+tracks/4/path = NodePath("WeaponHitbox/BatLeftRight:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -392,7 +402,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitbox/BatLeftRight:disabled")
+tracks/3/path = NodePath("WeaponHitbox/BatLeftRight:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -404,7 +414,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Hitbox/BatLeftRight:position")
+tracks/4/path = NodePath("WeaponHitbox/BatLeftRight:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -421,7 +431,7 @@ step = 0.33333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitbox/BatUpDown:disabled")
+tracks/0/path = NodePath("WeaponHitbox/BatUpDown:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -471,7 +481,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Hitbox/BatUpDown:position")
+tracks/4/path = NodePath("WeaponHitbox/BatUpDown:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -511,7 +521,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/BatUpDown:disabled")
+tracks/2/path = NodePath("WeaponHitbox/BatUpDown:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -523,7 +533,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitbox/BatUpDown:position")
+tracks/3/path = NodePath("WeaponHitbox/BatUpDown:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -535,7 +545,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Hitbox/BatLeftRight:disabled")
+tracks/4/path = NodePath("WeaponHitbox/BatLeftRight:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -547,7 +557,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Hitbox/BatLeftRight:position")
+tracks/5/path = NodePath("WeaponHitbox/BatLeftRight:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -555,6 +565,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(14, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D:material:shader_parameter/FlashModifier")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rgl76"]
@@ -566,14 +588,120 @@ _data = {
 &"RESET": SubResource("Animation_g0fei")
 }
 
-[node name="goblin" type="CharacterBody2D" unique_id=1889188522 node_paths=PackedStringArray("healthComponent")]
+[sub_resource type="Animation" id="Animation_v5jfi"]
+resource_name = "Death"
+length = 2.0
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 1.9970704),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ahrin"]
+resource_name = "Hit"
+length = 0.15
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:material:shader_parameter/FlashModifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_q55cs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:material:shader_parameter/FlashModifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"WalkingRight"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AnimatedSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5jfi"]
+_data = {
+&"Death": SubResource("Animation_v5jfi"),
+&"Hit": SubResource("Animation_ahrin"),
+&"RESET": SubResource("Animation_q55cs")
+}
+
+[node name="goblin" type="CharacterBody2D" unique_id=1889188522 node_paths=PackedStringArray("healthComponent", "EffectsAnimPlayer")]
 collision_layer = 16
 collision_mask = 7
 script = ExtResource("1_blqbt")
 healthComponent = NodePath("HealthComponent")
+EffectsAnimPlayer = NodePath("EffectsAnimPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=976604832]
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_g0fei")
 sprite_frames = SubResource("SpriteFrames_vlclu")
 animation = &"WalkingRight"
 
@@ -606,26 +734,38 @@ StateMachine = NodePath("..")
 [node name="GoblinAttack" type="Node" parent="StateMachine" unique_id=706388735 node_paths=PackedStringArray("enemy", "Anims", "StateMachine")]
 script = ExtResource("14_ckjdn")
 enemy = NodePath("../..")
-Anims = NodePath("../../AnimationPlayer")
+Anims = NodePath("../../AttackAnimPlayer")
 StateMachine = NodePath("..")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=85009595]
+[node name="WeaponHitbox" type="Area2D" parent="." unique_id=85009595]
+visible = false
 collision_layer = 512
 collision_mask = 64
 script = ExtResource("15_g0fei")
 Damage = 1
 
-[node name="BatUpDown" type="CollisionShape2D" parent="Hitbox" unique_id=1213325369]
+[node name="BatUpDown" type="CollisionShape2D" parent="WeaponHitbox" unique_id=1213325369]
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_vlclu")
 disabled = true
 debug_color = Color(1, 0, 0, 0.41960785)
 
-[node name="BatLeftRight" type="CollisionShape2D" parent="Hitbox" unique_id=1383254724]
+[node name="BatLeftRight" type="CollisionShape2D" parent="WeaponHitbox" unique_id=1383254724]
 position = Vector2(14, 0)
 shape = SubResource("RectangleShape2D_vuaa3")
 disabled = true
 debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="BodyHitbox" type="Area2D" parent="." unique_id=195302552]
+collision_layer = 512
+collision_mask = 64
+script = ExtResource("15_g0fei")
+Damage = 1
+KnockbackPower = 250
+metadata/_custom_type_script = "uid://dyurj2h4tffj1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyHitbox" unique_id=1315429090]
+shape = SubResource("RectangleShape2D_iso6y")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1307024158 node_paths=PackedStringArray("healthComponent")]
 collision_layer = 256
@@ -639,7 +779,11 @@ debug_color = Color(0, 0.70980394, 0.07058824, 0.40392157)
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=35282664]
 script = ExtResource("16_g0fei")
-maxHealth = 5
+maxHealth = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1038019884]
+[node name="AttackAnimPlayer" type="AnimationPlayer" parent="." unique_id=1038019884]
 libraries/ = SubResource("AnimationLibrary_rgl76")
+
+[node name="EffectsAnimPlayer" type="AnimationPlayer" parent="." unique_id=1998098976]
+root_node = NodePath("../AttackAnimPlayer")
+libraries/ = SubResource("AnimationLibrary_v5jfi")

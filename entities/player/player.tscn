@@ -876,13 +876,14 @@ _data = {
 &"SwordAttackUp": SubResource("Animation_qpopc")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=144735961 node_paths=PackedStringArray("healthComponent", "Inventory")]
+[node name="Player" type="CharacterBody2D" unique_id=144735961 node_paths=PackedStringArray("healthComponent", "Inventory", "Hitbox")]
 y_sort_enabled = true
 collision_layer = 8
 collision_mask = 7175
 script = ExtResource("1_fkugw")
 healthComponent = NodePath("HealthComponent")
 Inventory = NodePath("InventoryComponent")
+Hitbox = NodePath("Hitbox")
 
 [node name="PlayerAnimations" type="AnimatedSprite2D" parent="." unique_id=1982319800]
 sprite_frames = SubResource("SpriteFrames_0f7yd")
@@ -920,6 +921,7 @@ collision_layer = 128
 collision_mask = 258
 script = ExtResource("22_t1t22")
 Damage = 1
+KnockbackPower = 250
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1273522642]

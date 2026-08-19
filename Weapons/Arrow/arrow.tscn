@@ -10,10 +10,11 @@ size = Vector2(12, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vuaa3"]
 size = Vector2(16, 6)
 
-[node name="Arrow" type="CharacterBody2D" unique_id=2024456593]
+[node name="Arrow" type="CharacterBody2D" unique_id=2024456593 node_paths=PackedStringArray("Hitbox")]
 collision_layer = 128
 collision_mask = 19
 script = ExtResource("1_xhss8")
+Hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1193685726]
 texture = ExtResource("1_5aygp")
@@ -33,6 +34,7 @@ collision_layer = 128
 collision_mask = 256
 script = ExtResource("3_v3ce8")
 Damage = 1
+KnockbackPower = 150
 metadata/_custom_type_script = "uid://dyurj2h4tffj1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=907486413]

@@ -20,14 +20,14 @@ public partial class Hurtbox : Area2D
     private void OnAreaEntered(Area2D area)
     {
         if (area is Hitbox hitbox)
-            TakeDamage(hitbox.Damage);
+            TakeDamage(hitbox.Damage, hitbox);
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, Hitbox DamageDealer)
     {
         if (healthComponent is not null)
         {
-            healthComponent.ReceiveDamage(amount);
+            healthComponent.ReceiveDamage(amount, DamageDealer);
         }
     }
 

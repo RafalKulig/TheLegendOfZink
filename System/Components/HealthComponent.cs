@@ -5,7 +5,7 @@ using System;
 public partial class HealthComponent : Node2D
 {
 	[Signal] public delegate void HealthChangedEventHandler(int currentHealth); //might use
-	[Signal] public delegate void DamagedEventHandler(int amount);
+	[Signal] public delegate void DamagedEventHandler(int amount, Hitbox DamageDealer);
 	[Signal] public delegate void DiedEventHandler();
 
 	[Export] private int maxHealth;
@@ -17,13 +17,13 @@ public partial class HealthComponent : Node2D
 		currentHealth = maxHealth;
     }
 
-	public void ReceiveDamage(int amount)
+	public void ReceiveDamage(int Amount, Hitbox DamageDealer)
 	{
 		if (currentHealth <= 0) return;
 
-		currentHealth -= amount;
+		currentHealth -= Amount;
 
-		EmitSignal(SignalName.Damaged, amount);
+		EmitSignal(SignalName.Damaged, Amount, DamageDealer);
 
 		if (currentHealth <= 0)
 		{

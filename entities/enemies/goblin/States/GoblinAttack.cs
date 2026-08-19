@@ -10,6 +10,8 @@ public partial class GoblinAttack : State
 
     public override void Entry()
     {
+        enemy.KnockbackProtection = true;
+
         player = GetNode<CharacterBody2D>("/root/Overworld/Player");
         Vector2 direction = player.GlobalPosition - enemy.GlobalPosition;
         if (Mathf.Abs(direction.X) > Mathf.Abs(direction.Y))
@@ -17,7 +19,6 @@ public partial class GoblinAttack : State
             if (direction.X >= 0)
             {
                 AttackDirection = Vector2.Right;
-                
             }
             else
             {
@@ -41,6 +42,7 @@ public partial class GoblinAttack : State
 
     public void OnAnimationFinished()
     {
+        enemy.KnockbackProtection = false;
         StateMachine.StateChange(this, "GoblinWander");
     }
 

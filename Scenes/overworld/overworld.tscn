@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://des0i8gurffpf" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconMiniArrow.png" id="6_4bwop"]
 [ext_resource type="PackedScene" uid="uid://ipnbfwmw485s" path="res://UI/InventoryUI/InventoryUI.tscn" id="7_4bwop"]
 [ext_resource type="PackedScene" uid="uid://dl0ybo61de8se" path="res://UI/HUD/HUD.tscn" id="9_4gihl"]
+[ext_resource type="PackedScene" uid="uid://bl4dhcskkn3og" path="res://entities/enemies/goblin/goblin.tscn" id="10_tcx6l"]
 
 [node name="Overworld" type="Node2D" unique_id=855994466]
 
@@ -78,3 +79,6 @@ metadata/_edit_use_anchors_ = true
 [node name="HUD" parent="HUD" unique_id=1142976838 node_paths=PackedStringArray("Player") instance=ExtResource("9_4gihl")]
 Player = NodePath("../../Player")
 metadata/_edit_use_anchors_ = true
+
+[node name="goblin" parent="." unique_id=1889188522 instance=ExtResource("10_tcx6l")]
+position = Vector2(-40, -28)

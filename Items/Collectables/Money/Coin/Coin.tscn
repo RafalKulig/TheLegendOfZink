@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bub124lte3q6g"]
+
+[ext_resource type="Script" uid="uid://ulav1thxestk" path="res://Items/Collectables/Base/Collectable.cs" id="1_ts7b0"]
+[ext_resource type="Texture2D" uid="uid://cwwiblohdfurs" path="res://assets/Legend_of_Zink_Asset_Pack/Collectables/PNG/sprGoldCoin.png" id="2_htjyx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8jw5"]
+atlas = ExtResource("2_htjyx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yyn2"]
+atlas = ExtResource("2_htjyx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3kfk"]
+atlas = ExtResource("2_htjyx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fr88"]
+atlas = ExtResource("2_htjyx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0f7yd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8jw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yyn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3kfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fr88")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c5xq"]
+size = Vector2(10, 10)
+
+[node name="Coin" type="Area2D" unique_id=1395748197]
+collision_layer = 1024
+collision_mask = 8
+script = ExtResource("1_ts7b0")
+metadata/_custom_type_script = "uid://ulav1thxestk"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=30733711]
+scale = Vector2(0.875, 0.875)
+sprite_frames = SubResource("SpriteFrames_0f7yd")
+autoplay = "default"
+frame_progress = 0.6030407
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=851614407]
+shape = SubResource("RectangleShape2D_8c5xq")

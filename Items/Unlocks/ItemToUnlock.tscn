@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://w725kx1owyw3" path="res://Items/Unlocks/ItemToUnlock.cs" id="1_0ftoa"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0f7yd"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ts7b0"]
+size = Vector2(8, 10)
 
 [node name="ItemToUnlock" type="Area2D" unique_id=1424118092]
 collision_layer = 1024
@@ -14,6 +14,6 @@ script = ExtResource("1_0ftoa")
 scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=533849179]
-shape = SubResource("CircleShape2D_0f7yd")
+shape = SubResource("RectangleShape2D_ts7b0")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]

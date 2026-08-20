@@ -6,6 +6,7 @@ public partial class Goblin : CharacterBody2D
 {
     [Export] private HealthComponent healthComponent;
     [Export] private AnimationPlayer EffectsAnimPlayer;
+    [Export] private Hitbox AttackHitbox, BodyHitbox;
 
     public Vector2 LastDirection { get; private set; }
 
@@ -27,7 +28,8 @@ public partial class Goblin : CharacterBody2D
         if (Velocity != Vector2.Zero)
         {
             LastDirection = Velocity.Normalized();
-            
+            AttackHitbox.HitDirection = LastDirection;
+            BodyHitbox.HitDirection = LastDirection;
         }
 
         ApplyKnockback((float)delta);
@@ -68,9 +70,6 @@ public partial class Goblin : CharacterBody2D
     private async void OnGoblinDied()
     {
         Velocity = Vector2.Zero;
-
-        var StateMachine = GetNode<StateMachine>("StateMachine");
-        StateMachine.ProcessMode = ProcessModeEnum.Disabled;
 
         EffectsAnimPlayer.Play("Death");
 

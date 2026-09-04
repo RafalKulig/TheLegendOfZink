@@ -4,4 +4,8 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="Scenes\overworld\overworld.tscn" />
+    <None Include="Scenes\SpawnAreas\SpawnArea.cs.uid" />
+  </ItemGroup>
 </Project>

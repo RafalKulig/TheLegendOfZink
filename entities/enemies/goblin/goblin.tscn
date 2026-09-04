@@ -813,6 +813,7 @@ _data = {
 }
 
 [node name="goblin" type="CharacterBody2D" unique_id=1889188522 node_paths=PackedStringArray("healthComponent", "EffectsAnimPlayer", "AttackHitbox", "BodyHitbox")]
+z_index = 1
 collision_layer = 16
 collision_mask = 7
 script = ExtResource("1_blqbt")
@@ -860,6 +861,7 @@ Anims = NodePath("../../AttackAnimPlayer")
 StateMachine = NodePath("..")
 
 [node name="WeaponHitbox" type="Area2D" parent="." unique_id=85009595]
+z_index = 1
 collision_layer = 512
 collision_mask = 64
 script = ExtResource("15_g0fei")

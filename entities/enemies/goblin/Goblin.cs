@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Threading.Tasks;
 
-public partial class Goblin : CharacterBody2D
+public partial class Goblin : Enemy
 {
     [Export] private HealthComponent healthComponent;
     [Export] private AnimationPlayer EffectsAnimPlayer;
@@ -69,6 +69,8 @@ public partial class Goblin : CharacterBody2D
 
     private async void OnGoblinDied()
     {
+        EmitSignal(SignalName.Died, this);
+
         Velocity = Vector2.Zero;
 
         EffectsAnimPlayer.Play("Death");

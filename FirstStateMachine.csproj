@@ -8,4 +8,8 @@
     <None Include="Scenes\overworld\overworld.tscn" />
     <None Include="Scenes\SpawnAreas\SpawnArea.cs.uid" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="entities\enemies\Slime\" />
+    <Folder Include="entities\enemies\Slime\States\" />
+  </ItemGroup>
 </Project>

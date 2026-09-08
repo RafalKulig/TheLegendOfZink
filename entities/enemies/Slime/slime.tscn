@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://f8g432b8jsa6"]
+
+[ext_resource type="Script" uid="uid://no7cpew5emjp" path="res://entities/enemies/Enemy.cs" id="1_f2om1"]
+[ext_resource type="Texture2D" uid="uid://drt18pneiyp6g" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprSlimeIdle.png" id="2_twg5e"]
+[ext_resource type="Texture2D" uid="uid://cy6228usau2qw" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprSlimeJump.png" id="3_fghwv"]
+[ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="4_twg5e"]
+[ext_resource type="Script" uid="uid://c1cxp4qsw07r0" path="res://System/Components/HealthComponent.cs" id="5_s2q46"]
+[ext_resource type="Script" uid="uid://myhrvgwd6m1l" path="res://System/StateMachine/StateMachine.cs" id="6_nhoiu"]
+[ext_resource type="Script" uid="uid://bm0j7lfjmewhg" path="res://entities/enemies/Slime/States/SlimeIdle.cs" id="7_ovby0"]
+[ext_resource type="Script" uid="uid://delyb0fdvtiew" path="res://entities/enemies/Slime/States/SlimeMove.cs" id="8_nhoiu"]
+[ext_resource type="Script" uid="uid://eb776hicbpyj" path="res://System/Components/Hurtbox.cs" id="9_ovby0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yui0s"]
+atlas = ExtResource("2_twg5e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2q46"]
+atlas = ExtResource("2_twg5e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhoiu"]
+atlas = ExtResource("2_twg5e")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovby0"]
+atlas = ExtResource("2_twg5e")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeyeq"]
+atlas = ExtResource("3_fghwv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvx04"]
+atlas = ExtResource("3_fghwv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu46b"]
+atlas = ExtResource("3_fghwv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4x83"]
+atlas = ExtResource("3_fghwv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7j6a"]
+atlas = ExtResource("3_fghwv")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg6x3"]
+atlas = ExtResource("3_fghwv")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57lxh"]
+atlas = ExtResource("3_fghwv")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vlclu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yui0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2q46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhoiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovby0")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_jeyeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvx04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu46b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4x83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7j6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg6x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57lxh")
+}],
+"loop": 0,
+"name": &"Jump",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlclu"]
+size = Vector2(10, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjn5e"]
+size = Vector2(14, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mw6x"]
+size = Vector2(14, 12)
+
+[node name="Slime" type="CharacterBody2D" unique_id=2092123515]
+z_index = 1
+collision_layer = 16
+collision_mask = 7
+script = ExtResource("1_f2om1")
+metadata/_custom_type_script = "uid://no7cpew5emjp"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=382034823]
+sprite_frames = SubResource("SpriteFrames_vlclu")
+animation = &"Idle"
+frame = 3
+frame_progress = 0.07510008
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1425122436]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_vlclu")
+
+[node name="BodyHitbox" type="Area2D" parent="." unique_id=160140915]
+collision_layer = 512
+collision_mask = 64
+script = ExtResource("4_twg5e")
+Damage = 1
+KnockbackPower = 200
+metadata/_custom_type_script = "uid://dyurj2h4tffj1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyHitbox" unique_id=903747059]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_cjn5e")
+debug_color = Color(0.9863835, 0.116308935, 0, 0.41960785)
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=624130893]
+script = ExtResource("5_s2q46")
+maxHealth = 2
+metadata/_custom_type_script = "uid://c1cxp4qsw07r0"
+
+[node name="StateMachine" type="Node" parent="." unique_id=886087503 node_paths=PackedStringArray("InitialState")]
+script = ExtResource("6_nhoiu")
+InitialState = NodePath("SlimeIdle")
+metadata/_custom_type_script = "uid://myhrvgwd6m1l"
+
+[node name="SlimeIdle" type="Node" parent="StateMachine" unique_id=1041975551 node_paths=PackedStringArray("Enemy", "Anims", "StateMachine")]
+script = ExtResource("7_ovby0")
+Enemy = NodePath("../..")
+Anims = NodePath("../../AnimatedSprite2D")
+StateMachine = NodePath("..")
+
+[node name="SlimeMove" type="Node" parent="StateMachine" unique_id=194202209 node_paths=PackedStringArray("Enemy", "StateMachine")]
+script = ExtResource("8_nhoiu")
+Enemy = NodePath("../..")
+StateMachine = NodePath("..")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=829646683 node_paths=PackedStringArray("healthComponent")]
+script = ExtResource("9_ovby0")
+healthComponent = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://eb776hicbpyj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=376037161]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_8mw6x")
+debug_color = Color(2.1658839e-06, 0.63996667, 0.36154163, 0.41960785)

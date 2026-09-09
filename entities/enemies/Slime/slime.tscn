@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://f8g432b8jsa6"]
 
-[ext_resource type="Script" uid="uid://no7cpew5emjp" path="res://entities/enemies/Enemy.cs" id="1_f2om1"]
+[ext_resource type="Script" uid="uid://bb0dd1pl2sceb" path="res://entities/enemies/Slime/Slime.cs" id="1_ovby0"]
 [ext_resource type="Texture2D" uid="uid://drt18pneiyp6g" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprSlimeIdle.png" id="2_twg5e"]
 [ext_resource type="Texture2D" uid="uid://cy6228usau2qw" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprSlimeJump.png" id="3_fghwv"]
 [ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="4_twg5e"]
@@ -74,7 +74,7 @@ animations = [{
 "speed": 3.0
 }, {
 "frames": [{
-"duration": 3.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_jeyeq")
 }, {
 "duration": 1.0,
@@ -95,7 +95,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_57lxh")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"Jump",
 "speed": 5.0
 }]
@@ -113,14 +113,13 @@ size = Vector2(14, 12)
 z_index = 1
 collision_layer = 16
 collision_mask = 7
-script = ExtResource("1_f2om1")
+script = ExtResource("1_ovby0")
 metadata/_custom_type_script = "uid://no7cpew5emjp"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=382034823]
 sprite_frames = SubResource("SpriteFrames_vlclu")
-animation = &"Idle"
-frame = 3
-frame_progress = 0.07510008
+animation = &"Jump"
+frame_progress = 0.34895298
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1425122436]
 position = Vector2(0, 1)
@@ -155,9 +154,12 @@ Enemy = NodePath("../..")
 Anims = NodePath("../../AnimatedSprite2D")
 StateMachine = NodePath("..")
 
-[node name="SlimeMove" type="Node" parent="StateMachine" unique_id=194202209 node_paths=PackedStringArray("Enemy", "StateMachine")]
+[node name="SlimeMove" type="Node" parent="StateMachine" unique_id=194202209 node_paths=PackedStringArray("Enemy", "Anims", "StateMachine")]
 script = ExtResource("8_nhoiu")
 Enemy = NodePath("../..")
+Anims = NodePath("../../AnimatedSprite2D")
+DetectionDistance = 10
+StopDistance = 100
 StateMachine = NodePath("..")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=829646683 node_paths=PackedStringArray("healthComponent")]

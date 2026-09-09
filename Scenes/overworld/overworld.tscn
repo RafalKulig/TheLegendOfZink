@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bl4dhcskkn3og" path="res://entities/enemies/goblin/goblin.tscn" id="3_8k5ml"]
 [ext_resource type="PackedScene" uid="uid://ipnbfwmw485s" path="res://UI/InventoryUI/InventoryUI.tscn" id="7_4bwop"]
 [ext_resource type="PackedScene" uid="uid://f8g432b8jsa6" path="res://entities/enemies/Slime/slime.tscn" id="7_jn2vy"]
+[ext_resource type="PackedScene" uid="uid://v2m7knkdob3c" path="res://Items/Unlocks/ItemToUnlock.tscn" id="8_4gihl"]
 [ext_resource type="PackedScene" uid="uid://dl0ybo61de8se" path="res://UI/HUD/HUD.tscn" id="9_4gihl"]
+[ext_resource type="Texture2D" uid="uid://c7h7qniiqjap8" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconBow.png" id="9_8k5ml"]
 [ext_resource type="Script" uid="uid://bercehocfsiew" path="res://Scenes/SpawnAreas/SpawnArea.cs" id="9_tcx6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_esrw0"]
@@ -1904,7 +1906,7 @@ tile_set = SubResource("TileSet_y818t")
 [node name="Player" parent="." unique_id=144735961 instance=ExtResource("1_n3lcv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-862.5471, 550.4835)
+position = Vector2(-859.44727, 566.3503)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
@@ -1914,7 +1916,7 @@ update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121]
 z_index = 1
-position = Vector2(-862.5471, 550.4835)
+position = Vector2(-859.44727, 566.3503)
 offset = Vector2(0, -15)
 zoom = Vector2(1.5, 1.5)
 position_smoothing_speed = 10.0
@@ -1956,3 +1958,9 @@ collision_mask = 31
 
 [node name="Slime" parent="." unique_id=2092123515 instance=ExtResource("7_jn2vy")]
 position = Vector2(-861, 476)
+
+[node name="ItemToUnlock" parent="." unique_id=1424118092 instance=ExtResource("8_4gihl")]
+z_index = 1
+position = Vector2(1154, 307)
+scale = Vector2(1.5, 1.5)
+Sprite = ExtResource("9_8k5ml")

@@ -44,9 +44,11 @@ public partial class Player : CharacterBody2D
 
     private void OnPlayerDamaged(int amount, Hitbox DamageDealer)
     {
+        GD.Print(DamageDealer.Name);
         IsKnockdbackActive = true;
         KnockbackVelocity = DamageDealer.HitDirection * DamageDealer.KnockbackPower;
         EffectsAnimPlayer.Play("Hit");
+        GD.Print(KnockbackVelocity);
     }
 
     private void OnPlayerDied()

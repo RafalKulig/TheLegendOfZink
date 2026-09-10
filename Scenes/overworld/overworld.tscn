@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://ckovurnb6xwy5" path="res://entities/player/player.tscn" id="1_n3lcv"]
 [ext_resource type="PackedScene" uid="uid://bl4dhcskkn3og" path="res://entities/enemies/goblin/goblin.tscn" id="3_8k5ml"]
 [ext_resource type="PackedScene" uid="uid://ipnbfwmw485s" path="res://UI/InventoryUI/InventoryUI.tscn" id="7_4bwop"]
-[ext_resource type="PackedScene" uid="uid://f8g432b8jsa6" path="res://entities/enemies/Slime/slime.tscn" id="7_jn2vy"]
+[ext_resource type="PackedScene" uid="uid://blrt7hmbf68aw" path="res://Scenes/SpawnAreas/SpawnArea.tscn" id="7_jn2vy"]
 [ext_resource type="PackedScene" uid="uid://v2m7knkdob3c" path="res://Items/Unlocks/ItemToUnlock.tscn" id="8_4gihl"]
 [ext_resource type="PackedScene" uid="uid://dl0ybo61de8se" path="res://UI/HUD/HUD.tscn" id="9_4gihl"]
 [ext_resource type="Texture2D" uid="uid://c7h7qniiqjap8" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconBow.png" id="9_8k5ml"]
-[ext_resource type="Script" uid="uid://bercehocfsiew" path="res://Scenes/SpawnAreas/SpawnArea.cs" id="9_tcx6l"]
+[ext_resource type="PackedScene" uid="uid://f8g432b8jsa6" path="res://entities/enemies/Slime/slime.tscn" id="9_tcx6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_esrw0"]
 texture = ExtResource("1_8k5ml")
@@ -1878,11 +1878,11 @@ terrain_set_0/terrain_0/name = "GroundGrassLand"
 terrain_set_0/terrain_0/color = Color(0.8886808, 0.15347841, 0.46766323, 1)
 sources/1 = SubResource("TileSetAtlasSource_esrw0")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlclu"]
 size = Vector2(464, 400)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuaa3"]
-size = Vector2(30, 30)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjn5e"]
+size = Vector2(192, 176)
 
 [node name="Overworld" type="Node2D" unique_id=855994466]
 
@@ -1906,7 +1906,7 @@ tile_set = SubResource("TileSet_y818t")
 [node name="Player" parent="." unique_id=144735961 instance=ExtResource("1_n3lcv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-859.44727, 566.3503)
+position = Vector2(-875.09766, 555.1394)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
@@ -1916,9 +1916,8 @@ update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121]
 z_index = 1
-position = Vector2(-859.44727, 566.3503)
+position = Vector2(-875.09766, 555.1394)
 offset = Vector2(0, -15)
-zoom = Vector2(1.5, 1.5)
 position_smoothing_speed = 10.0
 
 [node name="InventoryUI" type="CanvasLayer" parent="." unique_id=869479515]
@@ -1935,32 +1934,34 @@ metadata/_edit_use_anchors_ = true
 Player = NodePath("../../Player")
 metadata/_edit_use_anchors_ = true
 
-[node name="SpawnArea" type="Area2D" parent="." unique_id=1094706537 node_paths=PackedStringArray("AreaShape", "SpawnChecker")]
-z_index = 1
-position = Vector2(1496, 272)
-collision_layer = 0
-collision_mask = 8
-script = ExtResource("9_tcx6l")
-EntityToSpawn = ExtResource("3_8k5ml")
-MaxEntitySpawned = 10
-TimeToReset = 180.0
-IsAbleToReset = true
-AreaShape = NodePath("SpawnShape")
-SpawnChecker = NodePath("SpawnChecker")
-
-[node name="SpawnShape" type="CollisionShape2D" parent="SpawnArea" unique_id=968120263]
-shape = SubResource("RectangleShape2D_0f7yd")
-
-[node name="SpawnChecker" type="ShapeCast2D" parent="SpawnArea" unique_id=374320036]
-shape = SubResource("RectangleShape2D_vuaa3")
-target_position = Vector2(0, 0)
-collision_mask = 31
-
-[node name="Slime" parent="." unique_id=2092123515 instance=ExtResource("7_jn2vy")]
-position = Vector2(-861, 476)
-
 [node name="ItemToUnlock" parent="." unique_id=1424118092 instance=ExtResource("8_4gihl")]
 z_index = 1
 position = Vector2(1154, 307)
 scale = Vector2(1.5, 1.5)
 Sprite = ExtResource("9_8k5ml")
+
+[node name="Spawners" type="Node" parent="." unique_id=1898598326]
+
+[node name="TownEastGoblin" parent="Spawners" unique_id=234193313 node_paths=PackedStringArray("AreaShape") instance=ExtResource("7_jn2vy")]
+position = Vector2(1494, 278)
+EntityToSpawn = ExtResource("3_8k5ml")
+MaxEntitySpawned = 12
+TimeToReset = 360.0
+IsAbleToReset = true
+AreaShape = NodePath("SpawnShape")
+
+[node name="SpawnShape" type="CollisionShape2D" parent="Spawners/TownEastGoblin" unique_id=915684191]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_vlclu")
+
+[node name="VillageCrossroadsSlime" parent="Spawners" unique_id=179379364 node_paths=PackedStringArray("AreaShape") instance=ExtResource("7_jn2vy")]
+position = Vector2(-848, 456)
+EntityToSpawn = ExtResource("9_tcx6l")
+MaxEntitySpawned = 6
+TimeToReset = 300.0
+IsAbleToReset = true
+AreaShape = NodePath("SpawnShape")
+
+[node name="SpawnShape" type="CollisionShape2D" parent="Spawners/VillageCrossroadsSlime" unique_id=1893154575]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_cjn5e")

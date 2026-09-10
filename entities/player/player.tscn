@@ -340,7 +340,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
-size = Vector2(10, 15)
+size = Vector2(10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ovn"]
 size = Vector2(24, 20)
@@ -935,7 +935,7 @@ sprite_frames = SubResource("SpriteFrames_0f7yd")
 animation = &"WalkD"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1511589292]
-position = Vector2(0, 0.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_0f7yd")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1947020590 node_paths=PackedStringArray("InitialState")]

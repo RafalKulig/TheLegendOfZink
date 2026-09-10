@@ -3,16 +3,13 @@ using System;
 
 public partial class SlimeIdle : State
 {
-	[Export] private Enemy Enemy;
+	[Export] private Slime Enemy;
     [Export] private AnimatedSprite2D Anims;
 
-	private Player Player;
     private float IdleTimer;
 
     public override void Entry()
     {
-        Player = GetTree().Root.GetNode<Player>("/root/Overworld/Player");
-
         Enemy.Velocity = Vector2.Zero;
 
         IdleTimer = GD.RandRange(1, 3);
@@ -22,19 +19,12 @@ public partial class SlimeIdle : State
 
     public override void Update(float delta)
     {
-        Vector2 direction = Player.GlobalPosition - Enemy.GlobalPosition;
-        if (direction.Length() < 10)
-        {
-            StateMachine.StateChange(this, "SlimeMove");
-            return;
-        }
-
-        if (IdleTimer >= 0)
+        if (IdleTimer > 0)
         {
             IdleTimer -= delta;
 
         }
-        else
+        else if (IdleTimer <= 0)
         {
             StateMachine.StateChange(this, "SlimeMove");
         }

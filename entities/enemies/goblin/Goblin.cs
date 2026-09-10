@@ -8,10 +8,6 @@ public partial class Goblin : Enemy
     [Export] private AnimationPlayer EffectsAnimPlayer;
     [Export] private Hitbox AttackHitbox, BodyHitbox;
 
-    public Vector2 LastDirection { get; private set; }
-
-    private Vector2 KnockbackVelocity = Vector2.Zero;
-    private bool IsKnockdbackActive = false;
     public bool KnockbackProtection = false;
 
     public override void _Ready()
@@ -35,22 +31,6 @@ public partial class Goblin : Enemy
         ApplyKnockback((float)delta);
 
         MoveAndSlide();
-    }
-
-    private void ApplyKnockback(float delta)
-    {
-        if (!IsKnockdbackActive) return;
-
-        KnockbackVelocity = KnockbackVelocity.MoveToward(Vector2.Zero, 1000 * delta);
-        if (KnockbackVelocity.Length() > 10 && IsKnockdbackActive)
-        {
-            Velocity = KnockbackVelocity;
-        }
-        else if (IsKnockdbackActive)
-        {
-            Velocity = Vector2.Zero;
-            IsKnockdbackActive = false;
-        }
     }
 
     private void OnGoblinDamaged(int amount, Hitbox DamageDealer)

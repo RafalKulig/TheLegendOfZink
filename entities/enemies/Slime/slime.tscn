@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://f8g432b8jsa6"]
 
 [ext_resource type="Script" uid="uid://bb0dd1pl2sceb" path="res://entities/enemies/Slime/Slime.cs" id="1_ovby0"]
+[ext_resource type="Shader" uid="uid://dphkd6hpkm0jx" path="res://System/Shaders/HitFlash.gdshader" id="2_jeyeq"]
 [ext_resource type="Texture2D" uid="uid://drt18pneiyp6g" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprSlimeIdle.png" id="2_twg5e"]
 [ext_resource type="Texture2D" uid="uid://cy6228usau2qw" path="res://assets/Legend_of_Zink_Asset_Pack/Enemies/PNG/sprSlimeJump.png" id="3_fghwv"]
 [ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="4_twg5e"]
@@ -9,6 +10,12 @@
 [ext_resource type="Script" uid="uid://bm0j7lfjmewhg" path="res://entities/enemies/Slime/States/SlimeIdle.cs" id="7_ovby0"]
 [ext_resource type="Script" uid="uid://delyb0fdvtiew" path="res://entities/enemies/Slime/States/SlimeMove.cs" id="8_nhoiu"]
 [ext_resource type="Script" uid="uid://eb776hicbpyj" path="res://System/Components/Hurtbox.cs" id="9_ovby0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvx04"]
+resource_local_to_scene = true
+shader = ExtResource("2_jeyeq")
+shader_parameter/FlashModifier = 0.0
+shader_parameter/FlashColor = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yui0s"]
 atlas = ExtResource("2_twg5e")
@@ -74,7 +81,7 @@ animations = [{
 "speed": 3.0
 }, {
 "frames": [{
-"duration": 1.5,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_jeyeq")
 }, {
 "duration": 1.0,
@@ -109,17 +116,196 @@ size = Vector2(14, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mw6x"]
 size = Vector2(14, 12)
 
-[node name="Slime" type="CharacterBody2D" unique_id=2092123515]
+[sub_resource type="Animation" id="Animation_jvx04"]
+resource_name = "Death"
+length = 2.0
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 1.9970704),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyHitbox:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hurtbox:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StateMachine:process_mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_ovby0"]
+resource_name = "Hit"
+length = 0.15
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/FlashModifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jeyeq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/FlashModifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyHitbox:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hurtbox:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StateMachine:process_mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jeyeq"]
+_data = {
+&"Death": SubResource("Animation_jvx04"),
+&"Hit": SubResource("Animation_ovby0"),
+&"RESET": SubResource("Animation_jeyeq")
+}
+
+[node name="Slime" type="CharacterBody2D" unique_id=2092123515 node_paths=PackedStringArray("HealthComponent", "BodyHitbox", "EffectsAnimPlayer")]
 z_index = 1
 collision_layer = 16
 collision_mask = 7
 script = ExtResource("1_ovby0")
+HealthComponent = NodePath("HealthComponent")
+BodyHitbox = NodePath("BodyHitbox")
+EffectsAnimPlayer = NodePath("EffectsAnimPlayer")
 metadata/_custom_type_script = "uid://no7cpew5emjp"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=382034823]
+material = SubResource("ShaderMaterial_jvx04")
 sprite_frames = SubResource("SpriteFrames_vlclu")
 animation = &"Jump"
-frame_progress = 0.34895298
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1425122436]
 position = Vector2(0, 1)
@@ -158,11 +344,11 @@ StateMachine = NodePath("..")
 script = ExtResource("8_nhoiu")
 Enemy = NodePath("../..")
 Anims = NodePath("../../AnimatedSprite2D")
-DetectionDistance = 10
-StopDistance = 100
 StateMachine = NodePath("..")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=829646683 node_paths=PackedStringArray("healthComponent")]
+collision_layer = 256
+collision_mask = 128
 script = ExtResource("9_ovby0")
 healthComponent = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://eb776hicbpyj"
@@ -171,3 +357,6 @@ metadata/_custom_type_script = "uid://eb776hicbpyj"
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_8mw6x")
 debug_color = Color(2.1658839e-06, 0.63996667, 0.36154163, 0.41960785)
+
+[node name="EffectsAnimPlayer" type="AnimationPlayer" parent="." unique_id=1011077689]
+libraries/ = SubResource("AnimationLibrary_jeyeq")

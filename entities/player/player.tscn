@@ -22,9 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://cuavp6e7ht83k" path="res://entities/player/Zink/PNG/Zink_Weapons/sprZinkWeaponsShieldCrawlE.png" id="8_ghoj8"]
 [ext_resource type="Texture2D" uid="uid://ng4ed1y20jf7" path="res://entities/player/Zink/PNG/Zink_Weapons/sprZinkWeaponsShieldCrawlN.png" id="9_t1t22"]
 [ext_resource type="Script" uid="uid://vltxwnkv3qkd" path="res://entities/player/States/Attack.cs" id="13_3wlsy"]
+[ext_resource type="Texture2D" uid="uid://d05nvlydun0i" path="res://assets/Legend_of_Zink_Asset_Pack/Zink/PNG/Zink_Only/sprZinkOpenChest.png" id="15_qpopc"]
 [ext_resource type="Script" uid="uid://eb776hicbpyj" path="res://System/Components/Hurtbox.cs" id="22_221hk"]
 [ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="22_t1t22"]
 [ext_resource type="Script" uid="uid://c1cxp4qsw07r0" path="res://System/Components/HealthComponent.cs" id="23_ghoj8"]
+[ext_resource type="Script" uid="uid://dqspdditjugkp" path="res://entities/player/States/Locked.cs" id="24_wq0jh"]
 [ext_resource type="Script" uid="uid://bb7snjrvdqs0l" path="res://System/Components/InventoryComponent.cs" id="25_50fht"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_50fht"]
@@ -127,6 +129,14 @@ region = Rect2(48, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gt4e4"]
 atlas = ExtResource("5_yqrof")
 region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r633c"]
+atlas = ExtResource("15_qpopc")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pacje"]
+atlas = ExtResource("15_qpopc")
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_26q78"]
 atlas = ExtResource("1_bls4j")
@@ -296,6 +306,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_r633c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pacje")
+}],
+"loop": 0,
+"name": &"Unlocked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_26q78")
 }, {
 "duration": 1.0,
@@ -340,7 +361,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
-size = Vector2(10, 10)
+size = Vector2(8, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ovn"]
 size = Vector2(24, 20)
@@ -912,11 +933,64 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PlayerAnimations:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"WalkD"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerAnimations:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_np63p"]
+resource_name = "Unlock"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerAnimations:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Unlocked"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PlayerAnimations:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8q4fm"]
 _data = {
 &"Hit": SubResource("Animation_2soq1"),
-&"RESET": SubResource("Animation_8q4fm")
+&"RESET": SubResource("Animation_8q4fm"),
+&"Unlock": SubResource("Animation_np63p")
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=144735961 node_paths=PackedStringArray("healthComponent", "Inventory", "Hitbox", "EffectsAnimPlayer")]
@@ -935,7 +1009,7 @@ sprite_frames = SubResource("SpriteFrames_0f7yd")
 animation = &"WalkD"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1511589292]
-position = Vector2(0, 3)
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_0f7yd")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1947020590 node_paths=PackedStringArray("InitialState")]
@@ -958,6 +1032,12 @@ StateMachine = NodePath("..")
 [node name="Attack" type="Node" parent="StateMachine" unique_id=1014281556 node_paths=PackedStringArray("Anims", "Player", "StateMachine")]
 script = ExtResource("13_3wlsy")
 Anims = NodePath("../../AttackAnimPlayer")
+Player = NodePath("../..")
+StateMachine = NodePath("..")
+
+[node name="Locked" type="Node" parent="StateMachine" unique_id=1623410892 node_paths=PackedStringArray("Anims", "Player", "StateMachine")]
+script = ExtResource("24_wq0jh")
+Anims = NodePath("../../EffectsAnimPlayer")
 Player = NodePath("../..")
 StateMachine = NodePath("..")
 

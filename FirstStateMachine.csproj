@@ -6,6 +6,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="Scenes\overworld\overworld.tscn" />
+    <None Include="Scenes\RoomArea\RoomArea.cs.uid" />
+    <None Include="Scenes\RoomArea\RoomArea.tscn" />
     <None Include="Scenes\SpawnAreas\SpawnArea.cs.uid" />
   </ItemGroup>
   <ItemGroup>

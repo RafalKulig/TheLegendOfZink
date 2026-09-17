@@ -45,6 +45,11 @@ public partial class StateMachine : Node
         if (State == null || State != CurrentState)
             return;
 
+        ForceStateChange(NextStateName);
+    }
+
+    public void ForceStateChange(string NextStateName)
+    {
         State NewState = States[NextStateName.ToPascalCase()];
         if (NewState == null)
             return;

@@ -22,10 +22,10 @@ public partial class ItemToUnlock : Area2D
 
     public void OnBodyEntered(Node2D body)
     {
-        if (body is Player player)
+        if (body is Player player && !player.Inventory.GetUnlocked().Contains(Type))
         {
-            player.Inventory.UnlockWeapon(Type);
-            QueueFree();
+            CallDeferred(MethodName.IsMonitoring);
+            player.Inventory.UnlockWeapon(this);
         }
     }
 

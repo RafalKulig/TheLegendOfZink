@@ -26,6 +26,11 @@ public partial class Player : CharacterBody2D
             healthComponent.Damaged += OnPlayerDamaged;
         }
 
+        if (Inventory is not null)
+        {
+            Inventory.WeaponUnlocked += OnWeaponUnlocked;
+        }
+
         Inventory.AddToItemCount(Enums.ItemType.ARROW, 10);
     }
 
@@ -72,5 +77,15 @@ public partial class Player : CharacterBody2D
         }
     }
 
+    private async void OnWeaponUnlocked(ItemToUnlock type)
+    {
+        StateMachine StateMachine = GetNode<StateMachine>("StateMachine");
+        StateMachine.ForceStateChange("Locked");
+        EffectsAnimPlayer.Play("Unlock");
 
+        type.GlobalPosition = GlobalPosition + new Vector2(0, -15);
+
+        await ToSignal(EffectsAnimPlayer, AnimationPlayer.SignalName.AnimationFinished);
+        type.QueueFree();
+    }
 }

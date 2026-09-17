@@ -8,8 +8,7 @@ using static Enums;
 public partial class InventoryComponent : Node2D
 {
     [Signal] public delegate void ItemCountChangedEventHandler(Enums.ItemType item, int count);
-    //[Signal] public delegate void WeaponEquippedEventHandler(Enums.EquipmentSlot slot, IWeapon weapon);
-    [Signal] public delegate void WeaponUnlockedEventHandler(Enums.UnlockType type);
+    [Signal] public delegate void WeaponUnlockedEventHandler(ItemToUnlock type);
     [Signal] public delegate void InventoryUpdatedEventHandler();
 
     private Dictionary<Enums.ItemType, int> Items = new();
@@ -26,6 +25,8 @@ public partial class InventoryComponent : Node2D
         Items[Enums.ItemType.COIN] = 0;
         Items[Enums.ItemType.ARROW] = 0;
         Items[Enums.ItemType.BOMB] = 0;
+
+
     }
 
     public Texture2D GetTextureFromWeapon(IWeapon weapon)
@@ -96,11 +97,12 @@ public partial class InventoryComponent : Node2D
         return Equiped[ActiveSlot];
     }
 
-    public void UnlockWeapon(Enums.UnlockType type)
+    public void UnlockWeapon(ItemToUnlock type)
     {
-        Unlocks.Add(type);
+        Unlocks.Add(type.Type);
         GD.Print("odblokowano: " + type.ToString());
         EmitSignal(SignalName.InventoryUpdated);
+        EmitSignal(SignalName.WeaponUnlocked, type);
     }
 
     public Texture2D GetTextureFromUnlocked(Enums.UnlockType type)

@@ -8,10 +8,10 @@ public partial class GoblinIdle : State
 
     private float idleTimer;
 
-    private CharacterBody2D player;
+    private Player player;
 	public override void Entry()
 	{
-        player = GetNode<CharacterBody2D>("/root/Overworld/Player");
+        player = enemy.Player;
 
         Vector2 dir = enemy.LastDirection;
         if (dir == Vector2.Left) Anims.Play("WalkingLeft");

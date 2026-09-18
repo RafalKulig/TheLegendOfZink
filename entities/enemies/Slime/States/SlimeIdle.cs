@@ -12,7 +12,7 @@ public partial class SlimeIdle : State
     {
         Enemy.Velocity = Vector2.Zero;
 
-        IdleTimer = GD.RandRange(1, 3);
+        IdleTimer = GD.RandRange(0, 2);
 
         Anims.Play("Idle");
     }

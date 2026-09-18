@@ -6,11 +6,12 @@ public partial class GoblinWander : State
     [Export] private Goblin enemy;
     [Export] private AnimatedSprite2D Anims;
     [Export] private int speed = 10;
+    [Export] private RayCast2D WallCheck;
 
     Vector2 moveDirection;
     float wanderTime;
 
-    private CharacterBody2D player;
+    private Player player;
 
     private void randomizeWander()
     {
@@ -39,13 +40,8 @@ public partial class GoblinWander : State
 
     public override void Entry()
     {
-        player = GetNode<CharacterBody2D>("/root/Overworld/Player");
+        player = enemy.Player;
         randomizeWander();
-    }
-
-    public override void Exit()
-    {
-
     }
 
     public override void Update(float delta)
@@ -76,10 +72,16 @@ public partial class GoblinWander : State
 
     public override void PhysicsUpdate(float delta)
     {
-        if(enemy is not null)
+        if (enemy is null) return;
+
+        if (WallCheck.IsColliding())
         {
-            enemy.Velocity = moveDirection * speed;
+            randomizeWander();
         }
+
+        enemy.Velocity = moveDirection * speed;
+
+        WallCheck.Rotation = moveDirection.Angle();
     }
 
     private void WalkingAnimation(Vector2 dir)

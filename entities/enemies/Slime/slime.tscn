@@ -292,13 +292,13 @@ _data = {
 &"RESET": SubResource("Animation_jeyeq")
 }
 
-[node name="Slime" type="CharacterBody2D" unique_id=2092123515 node_paths=PackedStringArray("HealthComponent", "BodyHitbox", "EffectsAnimPlayer")]
+[node name="Slime" type="CharacterBody2D" unique_id=2092123515 node_paths=PackedStringArray("BodyHitbox", "HealthComponent", "EffectsAnimPlayer")]
 z_index = 1
 collision_layer = 16
 collision_mask = 7
 script = ExtResource("1_ovby0")
-HealthComponent = NodePath("HealthComponent")
 BodyHitbox = NodePath("BodyHitbox")
+HealthComponent = NodePath("HealthComponent")
 EffectsAnimPlayer = NodePath("EffectsAnimPlayer")
 metadata/_custom_type_script = "uid://no7cpew5emjp"
 
@@ -340,10 +340,11 @@ Enemy = NodePath("../..")
 Anims = NodePath("../../AnimatedSprite2D")
 StateMachine = NodePath("..")
 
-[node name="SlimeMove" type="Node" parent="StateMachine" unique_id=194202209 node_paths=PackedStringArray("Enemy", "Anims", "StateMachine")]
+[node name="SlimeMove" type="Node" parent="StateMachine" unique_id=194202209 node_paths=PackedStringArray("Enemy", "Anims", "WallCheck", "StateMachine")]
 script = ExtResource("8_nhoiu")
 Enemy = NodePath("../..")
 Anims = NodePath("../../AnimatedSprite2D")
+WallCheck = NodePath("../../WallCheck")
 StateMachine = NodePath("..")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=829646683 node_paths=PackedStringArray("healthComponent")]
@@ -360,3 +361,7 @@ debug_color = Color(2.1658839e-06, 0.63996667, 0.36154163, 0.41960785)
 
 [node name="EffectsAnimPlayer" type="AnimationPlayer" parent="." unique_id=1011077689]
 libraries/ = SubResource("AnimationLibrary_jeyeq")
+
+[node name="WallCheck" type="RayCast2D" parent="." unique_id=1918350244]
+target_position = Vector2(15, 0)
+collision_mask = 7

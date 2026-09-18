@@ -44,6 +44,10 @@ folder_colors={
 "res://entities/": "yellow"
 }
 
+[global_group]
+
+Player=""
+
 [input]
 
 MoveUp={

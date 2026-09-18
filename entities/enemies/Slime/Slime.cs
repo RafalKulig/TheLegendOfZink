@@ -3,15 +3,7 @@ using System;
 
 public partial class Slime : Enemy
 {
-    [Export] private HealthComponent HealthComponent;
     [Export] private Hitbox BodyHitbox;
-    [Export] private AnimationPlayer EffectsAnimPlayer;
-
-    public override void _Ready()
-    {
-        HealthComponent.Died += OnSlimeDied;
-        HealthComponent.Damaged += OnSlimeDamaged;
-    }
 
     public override void _PhysicsProcess(double delta)
     {
@@ -26,7 +18,7 @@ public partial class Slime : Enemy
         MoveAndSlide();
     }
 
-    private async void OnSlimeDied()
+    public override async void OnEnemyDied()
     {
         EmitSignal(SignalName.Died, this);
 
@@ -38,7 +30,7 @@ public partial class Slime : Enemy
         QueueFree();
     }
 
-    private void OnSlimeDamaged(int amount, Hitbox DamageDealer)
+    public override void OnEnemyDamaged(int amount, Hitbox DamageDealer)
     {
         IsKnockdbackActive = true;
 

@@ -7,6 +7,7 @@ public partial class SlimeMove : State
     [Export] private Slime Enemy;
     [Export] private AnimatedSprite2D Anims;
     [Export] private int Speed = 15;
+    [Export] private RayCast2D WallCheck;
 
     private Vector2 MoveDirection;
     private float WanderTimer;
@@ -34,7 +35,19 @@ public partial class SlimeMove : State
     {
         if (Enemy is null) return;
 
+        if (WallCheck.IsColliding())
+        {
+            RandomizeMove();
+        }
+
+        if (Enemy.GlobalPosition.DistanceTo(Enemy.SpawnPos) > 130)
+        {
+            MoveDirection *= -1;
+        }
+
         Enemy.Velocity = MoveDirection.Normalized() * Speed;
+
+        WallCheck.Rotation = MoveDirection.Angle();
     }
 
     void RandomizeMove()

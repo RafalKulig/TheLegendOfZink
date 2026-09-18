@@ -1972,10 +1972,10 @@ tile_set = SubResource("TileSet_y818t")
 position = Vector2(0.5349121, -8.32959)
 shape = SubResource("RectangleShape2D_8mw6x")
 
-[node name="Player" parent="." unique_id=144735961 instance=ExtResource("1_n3lcv")]
+[node name="Player" parent="." unique_id=144735961 groups=["Player"] instance=ExtResource("1_n3lcv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-938.10754, 783.6279)
+position = Vector2(1249.559, 308.44092)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
@@ -1985,7 +1985,7 @@ update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121]
 z_index = 1
-position = Vector2(-938.10754, 783.6279)
+position = Vector2(1249.559, 308.44092)
 offset = Vector2(0, -15)
 zoom = Vector2(1.5, 1.5)
 position_smoothing_speed = 10.0

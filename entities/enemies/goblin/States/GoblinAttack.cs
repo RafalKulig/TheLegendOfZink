@@ -6,13 +6,14 @@ public partial class GoblinAttack : State
     [Export] private Goblin enemy;
     [Export] private AnimationPlayer Anims;
     private Vector2 AttackDirection;
-    private CharacterBody2D player;
+    private Player player;
 
     public override void Entry()
     {
+        player = enemy.Player;
+
         enemy.KnockbackProtection = true;
 
-        player = GetNode<CharacterBody2D>("/root/Overworld/Player");
         Vector2 direction = player.GlobalPosition - enemy.GlobalPosition;
         if (Mathf.Abs(direction.X) > Mathf.Abs(direction.Y))
         {

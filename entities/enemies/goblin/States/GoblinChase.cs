@@ -6,7 +6,7 @@ public partial class GoblinChase : State
     [Export] private Goblin enemy;
     [Export] private AnimatedSprite2D Anims;
     [Export] private int speed = 20;
-	private CharacterBody2D player;
+	private Player player;
 
 
     private bool preferXMovement = true;
@@ -14,7 +14,8 @@ public partial class GoblinChase : State
 
 	public override void Entry()
 	{
-        player = GetNode<CharacterBody2D>("/root/Overworld/Player");
+        player = enemy.Player;
+
         Vector2 direction = player.GlobalPosition - enemy.GlobalPosition;
         preferXMovement = Mathf.Abs(direction.X) > Mathf.Abs(direction.Y);
     }

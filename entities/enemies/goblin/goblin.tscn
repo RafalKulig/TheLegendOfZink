@@ -812,15 +812,15 @@ _data = {
 &"RESET": SubResource("Animation_q55cs")
 }
 
-[node name="goblin" type="CharacterBody2D" unique_id=1889188522 node_paths=PackedStringArray("healthComponent", "EffectsAnimPlayer", "AttackHitbox", "BodyHitbox")]
+[node name="goblin" type="CharacterBody2D" unique_id=1889188522 node_paths=PackedStringArray("AttackHitbox", "BodyHitbox", "HealthComponent", "EffectsAnimPlayer")]
 z_index = 1
 collision_layer = 16
 collision_mask = 7
 script = ExtResource("1_blqbt")
-healthComponent = NodePath("HealthComponent")
-EffectsAnimPlayer = NodePath("EffectsAnimPlayer")
 AttackHitbox = NodePath("WeaponHitbox")
 BodyHitbox = NodePath("BodyHitbox")
+HealthComponent = NodePath("HealthComponent")
+EffectsAnimPlayer = NodePath("EffectsAnimPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=976604832]
 y_sort_enabled = true
@@ -842,10 +842,11 @@ enemy = NodePath("../..")
 Anims = NodePath("../../AnimatedSprite2D")
 StateMachine = NodePath("..")
 
-[node name="GoblinWander" type="Node" parent="StateMachine" unique_id=1894360793 node_paths=PackedStringArray("enemy", "Anims", "StateMachine")]
+[node name="GoblinWander" type="Node" parent="StateMachine" unique_id=1894360793 node_paths=PackedStringArray("enemy", "Anims", "WallCheck", "StateMachine")]
 script = ExtResource("8_uajcl")
 enemy = NodePath("../..")
 Anims = NodePath("../../AnimatedSprite2D")
+WallCheck = NodePath("../../WallCheck")
 StateMachine = NodePath("..")
 
 [node name="GoblinChase" type="Node" parent="StateMachine" unique_id=995212190 node_paths=PackedStringArray("enemy", "Anims", "StateMachine")]
@@ -911,3 +912,7 @@ libraries/ = SubResource("AnimationLibrary_rgl76")
 [node name="EffectsAnimPlayer" type="AnimationPlayer" parent="." unique_id=1998098976]
 root_node = NodePath("../AttackAnimPlayer")
 libraries/ = SubResource("AnimationLibrary_v5jfi")
+
+[node name="WallCheck" type="RayCast2D" parent="." unique_id=1504092363]
+target_position = Vector2(20, 0)
+collision_mask = 7

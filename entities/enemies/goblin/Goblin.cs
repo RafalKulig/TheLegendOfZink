@@ -4,20 +4,9 @@ using System.Threading.Tasks;
 
 public partial class Goblin : Enemy
 {
-    [Export] private HealthComponent healthComponent;
-    [Export] private AnimationPlayer EffectsAnimPlayer;
     [Export] private Hitbox AttackHitbox, BodyHitbox;
 
     public bool KnockbackProtection = false;
-
-    public override void _Ready()
-    {
-        if (healthComponent is not null)
-        {
-            healthComponent.Died += OnGoblinDied;
-            healthComponent.Damaged += OnGoblinDamaged;
-        }
-    }
 
     public override void _PhysicsProcess(double delta)
     {
@@ -33,7 +22,7 @@ public partial class Goblin : Enemy
         MoveAndSlide();
     }
 
-    private void OnGoblinDamaged(int amount, Hitbox DamageDealer)
+    public override void OnEnemyDamaged(int amount, Hitbox DamageDealer)
     {
         IsKnockdbackActive = true;
         if(KnockbackProtection)
@@ -47,7 +36,7 @@ public partial class Goblin : Enemy
         EffectsAnimPlayer.Play("Hit");
     }
 
-    private async void OnGoblinDied()
+    public override async void OnEnemyDied()
     {
         EmitSignal(SignalName.Died, this);
 

@@ -13,5 +13,6 @@
   <ItemGroup>
     <Folder Include="entities\enemies\Slime\" />
     <Folder Include="entities\enemies\Slime\States\" />
+    <Folder Include="Scenes\Camera\" />
   </ItemGroup>
 </Project>

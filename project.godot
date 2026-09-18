@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBusUI="*uid://cacnsh3iexsqv"
+WorldEvents="*uid://b5mxlcee8ir55"
 
 [display]
 
@@ -103,6 +104,7 @@ Inventory={
 2d_physics/layer_11="Collectibles"
 2d_physics/layer_12="Interactions"
 2d_physics/layer_13="AISensors"
+2d_physics/layer_14="Cutscenes"
 
 [physics]
 

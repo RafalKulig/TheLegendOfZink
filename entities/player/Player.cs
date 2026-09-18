@@ -83,7 +83,7 @@ public partial class Player : CharacterBody2D
         StateMachine.ForceStateChange("Locked");
         EffectsAnimPlayer.Play("Unlock");
 
-        type.GlobalPosition = GlobalPosition + new Vector2(0, -15);
+        type.GlobalPosition = GlobalPosition + new Vector2(0, -25);
 
         await ToSignal(EffectsAnimPlayer, AnimationPlayer.SignalName.AnimationFinished);
         type.QueueFree();

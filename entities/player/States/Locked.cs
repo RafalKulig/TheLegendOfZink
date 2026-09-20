@@ -16,4 +16,9 @@ public partial class Locked : State
     {
         StateMachine.StateChange(this, "Idle");
     }
+
+    public override void Exit()
+    {
+        Anims.AnimationFinished -= OnAnimationFinished;
+    }
 }

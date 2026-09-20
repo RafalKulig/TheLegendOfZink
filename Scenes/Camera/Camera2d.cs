@@ -24,6 +24,8 @@ public partial class Camera2d : Camera2D
     {
         SetDefaultCamera();
 
+        if (Engine.IsEditorHint()) return;
+
         WorldEvents.Instance.CameraChange += CameraChange;
         WorldEvents.Instance.SetCameraToDefault += SetDefaultCamera;
     }
@@ -36,7 +38,11 @@ public partial class Camera2d : Camera2D
         LimitTop = (int)_Limit.Y;
         LimitRight = (int)_Limit.Z;
         LimitBottom = (int)_Limit.W;
-        RemoteTransform.UpdatePosition = _RemoteTransformOn;
+
+        if (RemoteTransform is not null)
+        {
+            RemoteTransform.UpdatePosition = _RemoteTransformOn;
+        }
     }
 
     private void SetDefaultCamera()
@@ -47,6 +53,10 @@ public partial class Camera2d : Camera2D
         LimitTop = (int)DeafultLimit.Y;
         LimitRight = (int)DeafultLimit.Z;
         LimitBottom = (int)DeafultLimit.W;
-        RemoteTransform.UpdatePosition = true;
+
+        if (RemoteTransform is not null)
+        {
+            RemoteTransform.UpdatePosition = true;
+        }
     }
 }

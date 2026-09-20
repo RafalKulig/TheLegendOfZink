@@ -5,8 +5,10 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_br8qu"]
 
-[node name="Cutscene" type="Node2D" unique_id=644608395 node_paths=PackedStringArray("CutsceneTextLabel")]
+[node name="Cutscene" type="Area2D" unique_id=1694768466 node_paths=PackedStringArray("CutsceneTextLabel")]
 z_index = 3
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("1_br8qu")
 CutsceneTextLabel = NodePath("Control/PanelContainer/RichTextLabel")
 

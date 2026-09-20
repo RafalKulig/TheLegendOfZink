@@ -88,4 +88,11 @@ public partial class Player : CharacterBody2D
         await ToSignal(EffectsAnimPlayer, AnimationPlayer.SignalName.AnimationFinished);
         type.QueueFree();
     }
+
+    public void ForceLockState(bool Lock)
+    {
+        StateMachine StateMachine = GetNode<StateMachine>("StateMachine");
+        if (Lock) StateMachine.ForceStateChange("Locked");
+        else StateMachine.ForceStateChange("Idle");
+    }
 }

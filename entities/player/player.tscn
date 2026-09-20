@@ -22,12 +22,13 @@
 [ext_resource type="Texture2D" uid="uid://cuavp6e7ht83k" path="res://entities/player/Zink/PNG/Zink_Weapons/sprZinkWeaponsShieldCrawlE.png" id="8_ghoj8"]
 [ext_resource type="Texture2D" uid="uid://ng4ed1y20jf7" path="res://entities/player/Zink/PNG/Zink_Weapons/sprZinkWeaponsShieldCrawlN.png" id="9_t1t22"]
 [ext_resource type="Script" uid="uid://vltxwnkv3qkd" path="res://entities/player/States/Attack.cs" id="13_3wlsy"]
-[ext_resource type="Texture2D" uid="uid://d05nvlydun0i" path="res://assets/Legend_of_Zink_Asset_Pack/Zink/PNG/Zink_Only/sprZinkOpenChest.png" id="15_qpopc"]
+[ext_resource type="Texture2D" uid="uid://d05nvlydun0i" path="res://entities/player/Zink/PNG/Zink_Only/sprZinkOpenChest.png" id="15_qpopc"]
 [ext_resource type="Script" uid="uid://eb776hicbpyj" path="res://System/Components/Hurtbox.cs" id="22_221hk"]
 [ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="22_t1t22"]
 [ext_resource type="Script" uid="uid://c1cxp4qsw07r0" path="res://System/Components/HealthComponent.cs" id="23_ghoj8"]
 [ext_resource type="Script" uid="uid://dqspdditjugkp" path="res://entities/player/States/Locked.cs" id="24_wq0jh"]
 [ext_resource type="Script" uid="uid://bb7snjrvdqs0l" path="res://System/Components/InventoryComponent.cs" id="25_50fht"]
+[ext_resource type="Script" uid="uid://djmb61r0ekx4r" path="res://System/Components/InteracionsCompotent.cs" id="29_gt4e4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_50fht"]
 shader = ExtResource("2_wuv6x")
@@ -1081,5 +1082,12 @@ libraries/ = SubResource("AnimationLibrary_wq0jh")
 [node name="EffectsAnimPlayer" type="AnimationPlayer" parent="." unique_id=65140715]
 root_node = NodePath("../AttackAnimPlayer")
 libraries/ = SubResource("AnimationLibrary_8q4fm")
+
+[node name="InteracionsCompotent" type="RayCast2D" parent="." unique_id=1115144638]
+target_position = Vector2(15, 0)
+collision_mask = 2048
+hit_from_inside = true
+collide_with_areas = true
+script = ExtResource("29_gt4e4")
 
 [connection signal="animation_finished" from="PlayerAnimations" to="StateMachine/Attack" method="OnAnimationFinished"]

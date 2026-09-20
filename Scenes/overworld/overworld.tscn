@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bl4dhcskkn3og" path="res://entities/enemies/goblin/goblin.tscn" id="3_8k5ml"]
 [ext_resource type="PackedScene" uid="uid://dilewdmcwdyio" path="res://Scenes/Cutscene/cutscene.tscn" id="3_j2fa0"]
 [ext_resource type="Script" uid="uid://bom52n02oqch3" path="res://Scenes/Camera/Camera2d.cs" id="4_esrw0"]
+[ext_resource type="PackedScene" uid="uid://cbupqoro8xsf" path="res://Interactable/Chest/chest.tscn" id="5_pxfri"]
 [ext_resource type="PackedScene" uid="uid://ipnbfwmw485s" path="res://UI/InventoryUI/InventoryUI.tscn" id="7_4bwop"]
 [ext_resource type="Texture2D" uid="uid://bwv4tlaw6rcbj" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconSword.png" id="7_8k5ml"]
 [ext_resource type="PackedScene" uid="uid://blrt7hmbf68aw" path="res://Scenes/SpawnAreas/SpawnArea.tscn" id="7_jn2vy"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dl0ybo61de8se" path="res://UI/HUD/HUD.tscn" id="9_4gihl"]
 [ext_resource type="PackedScene" uid="uid://f8g432b8jsa6" path="res://entities/enemies/Slime/slime.tscn" id="9_tcx6l"]
 [ext_resource type="PackedScene" uid="uid://jf2q3jg6lrac" path="res://Scenes/DoorArea/DoorArea.tscn" id="11_8k5ml"]
+[ext_resource type="Texture2D" uid="uid://bq4o5mvm3gb3d" path="res://assets/Legend_of_Zink_Asset_Pack/NPCs/PNG/sprOldManS.png" id="12_m1b4l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_esrw0"]
 texture = ExtResource("1_8k5ml")
@@ -1943,14 +1945,17 @@ sources/1 = SubResource("TileSetAtlasSource_esrw0")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mw6x"]
 size = Vector2(192, 192)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6kah"]
+size = Vector2(15.9999695, 12)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlclu"]
 size = Vector2(464, 400)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjn5e"]
 size = Vector2(192, 176)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6kah"]
-size = Vector2(15.9999695, 12)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhmgv"]
+size = Vector2(112, 48)
 
 [node name="Game" type="Node2D" unique_id=855994466]
 
@@ -2006,14 +2011,32 @@ tile_set = SubResource("TileSet_y818t")
 position = Vector2(0.5349121, -8.32959)
 shape = SubResource("RectangleShape2D_8mw6x")
 
-[node name="Cutscene" parent="." unique_id=644608395 instance=ExtResource("3_j2fa0")]
-position = Vector2(-1024, 1536)
-DialogueText = PackedStringArray("IT\'S DANGEROUS TO GO ALONE,", "TAKE THIS!")
+[node name="Doors" type="Node" parent="." unique_id=207452047]
+
+[node name="SwordHut" type="Node" parent="Doors" unique_id=200840375]
+
+[node name="DoorSwordHutIn" parent="Doors/SwordHut" unique_id=589865920 instance=ExtResource("11_8k5ml")]
+z_index = 1
+position = Vector2(-936.42474, 760.32104)
+GoToPosition = Vector2(-1024, 1704)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/SwordHut/DoorSwordHutIn" unique_id=878609900]
+position = Vector2(-0.57525635, -1.3210449)
+shape = SubResource("RectangleShape2D_q6kah")
+
+[node name="DoorSwordHutOut" parent="Doors/SwordHut" unique_id=1609910898 instance=ExtResource("11_8k5ml")]
+z_index = 1
+position = Vector2(-1024, 1720)
+GoToPosition = Vector2(-936, 776)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/SwordHut/DoorSwordHutOut" unique_id=226545823]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_q6kah")
 
 [node name="Player" parent="." unique_id=144735961 groups=["Player"] instance=ExtResource("1_n3lcv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-1024, 1696)
+position = Vector2(-1072, 992)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
@@ -2021,11 +2044,17 @@ remote_path = NodePath("../../Camera2D")
 update_rotation = false
 update_scale = false
 
+[node name="Chest" parent="." unique_id=804969163 instance=ExtResource("5_pxfri")]
+position = Vector2(-1000, 992)
+ChestType = 1
+CanReset = true
+ResetTime = 5.0
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121 node_paths=PackedStringArray("RemoteTransform")]
 z_index = 1
-position = Vector2(-1024, 1696)
-offset = Vector2(0, -25)
-zoom = Vector2(1.7, 1.7)
+position = Vector2(-1072, 992)
+offset = Vector2(0, -15)
+zoom = Vector2(1.5, 1.5)
 limit_left = -1856
 limit_top = -960
 limit_right = 3840
@@ -2050,12 +2079,6 @@ metadata/_edit_use_anchors_ = true
 [node name="HUD" parent="HUD" unique_id=1142976838 node_paths=PackedStringArray("Player") instance=ExtResource("9_4gihl")]
 Player = NodePath("../../Player")
 metadata/_edit_use_anchors_ = true
-
-[node name="ItemToUnlock" parent="." unique_id=1424118092 instance=ExtResource("8_4gihl")]
-z_index = 1
-position = Vector2(-1023.8373, 1663.9496)
-scale = Vector2(2, 2)
-Sprite = ExtResource("7_8k5ml")
 
 [node name="Spawners" type="Node" parent="." unique_id=1898598326]
 
@@ -2083,20 +2106,26 @@ AreaShape = NodePath("SpawnShape")
 position = Vector2(-16, 0)
 shape = SubResource("RectangleShape2D_cjn5e")
 
-[node name="DoorSwordHutIn" parent="." unique_id=589865920 instance=ExtResource("11_8k5ml")]
+[node name="Cutscenes" type="Node" parent="." unique_id=1915209603]
+
+[node name="SwordHutCutscene" parent="Cutscenes" unique_id=644608395 instance=ExtResource("3_j2fa0")]
+position = Vector2(-1024, 1536)
+DialogueText = PackedStringArray("IT\'S DANGEROUS TO GO ALONE,", "TAKE THIS!")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscenes/SwordHutCutscene" unique_id=1387315400]
+position = Vector2(0, 168)
+shape = SubResource("RectangleShape2D_hhmgv")
+
+[node name="OldMan" type="Sprite2D" parent="Cutscenes/SwordHutCutscene" unique_id=1755664926]
+position = Vector2(-0.8216553, 84.87793)
+texture = ExtResource("12_m1b4l")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Unlocks" type="Node" parent="." unique_id=1069990829]
+
+[node name="Sword" parent="Unlocks" unique_id=1424118092 instance=ExtResource("8_4gihl")]
 z_index = 1
-position = Vector2(-936.42474, 760.32104)
-GoToPosition = Vector2(-1024, 1704)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorSwordHutIn" unique_id=878609900]
-position = Vector2(-0.57525635, -1.3210449)
-shape = SubResource("RectangleShape2D_q6kah")
-
-[node name="DoorSwordHutOut" parent="." unique_id=1609910898 instance=ExtResource("11_8k5ml")]
-z_index = 1
-position = Vector2(-1024, 1720)
-GoToPosition = Vector2(-936, 776)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorSwordHutOut" unique_id=226545823]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_q6kah")
+position = Vector2(-1023.8373, 1663.9496)
+scale = Vector2(2, 2)
+Sprite = ExtResource("7_8k5ml")

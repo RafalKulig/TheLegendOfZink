@@ -24,4 +24,15 @@ public partial class Enums : GodotObject
         WAND,
         BOOMERANG,
     }
+
+    public enum ChestType
+    {
+        BLUE,
+        BROWN,
+        CAVE,
+        GREEN,
+        PINK,
+        PURPLE,
+        ROYAL,
+    }
 }

@@ -23,17 +23,24 @@ public partial class Chest : StaticBody2D
 
     [ExportGroup("Loot Settings")]
     [Export] private bool RandomLoot = true;
-    [Export] private PackedScene CustomLootItem;
-    [Export] private int LootCount;
+    [Export] private Enums.ItemType LootItemType;
+    [Export] public int LootCount { get; private set; }
 
     [ExportGroup("Reset Settings")]
     [Export] private bool CanReset = false;
     [Export] private float ResetTime = 300;
 
+    [Export] private Timer ResetTimer;
+
     private bool IsOpen = false;
 
     public override void _Ready()
     {
+        if (ResetTimer is not null)
+        {
+            ResetTimer.Timeout += OnResetTimerTimeout;
+        }
+
         UpdateSprite();
     }
 
@@ -45,36 +52,51 @@ public partial class Chest : StaticBody2D
         Sprite.Frame = IsOpen ? BaseFrame + 1 : BaseFrame;
     }
 
-    public void Interact()
+    public void Interact(Player player)
     {
-        if (IsOpen) return;
+        //Move direction check to InteracionComponent
+        if (IsOpen || player.LastDirection != Vector2.Up) return;
 
-        OpenChest();
+        OpenChest(player);
     }
 
-    private void OpenChest()
+    private void OpenChest(Player player)
     {
         IsOpen = true;
         UpdateSprite();
-        SpawnLoot();
+        SpawnLoot(player);
 
-        if (CanReset)
+        WorldEvents.Instance.EmitSignal(WorldEvents.SignalName.ChestOpened);
+
+        if (CanReset && ResetTimer is not null)
         {
-            StartResetTimer();
+            ResetTimer.Start(ResetTime);
         }
     }
 
-    private void SpawnLoot()
+    private void SpawnLoot(Player player)
     {
-        GD.Print("POJAWIA SIE LOOT!");
+        if (RandomLoot)
+        {
+            SpawnRandomLoot();
+        }
+
+        player.LootToDisplay(LootItemType);
+        player.Inventory.AddToItemCount(LootItemType, LootCount);
     }
 
-    private async void StartResetTimer()
+    private void SpawnRandomLoot()
     {
-        await ToSignal(GetTree().CreateTimer(ResetTime), "timeout");
+        uint RandomItem = GD.Randi() % 3;
+        uint RandomItemCount = GD.Randi() % 5 + 1;
 
+        LootItemType = (Enums.ItemType)RandomItem;
+        LootCount = (int)RandomItemCount;
+    }
+
+    private void OnResetTimerTimeout()
+    {
         IsOpen = false;
         UpdateSprite();
     }
-
 }

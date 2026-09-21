@@ -5,6 +5,8 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="Items\Collectables\Money\Coin\Coin.tscn" />
+    <None Include="Items\Collectables\Weapons\Arrow\Arrow.tscn" />
     <None Include="Scenes\overworld\overworld.tscn" />
     <None Include="Scenes\RoomArea\RoomArea.cs.uid" />
     <None Include="Scenes\RoomArea\RoomArea.tscn" />
@@ -14,5 +16,6 @@
     <Folder Include="entities\enemies\Slime\" />
     <Folder Include="entities\enemies\Slime\States\" />
     <Folder Include="Scenes\Camera\" />
+    <Folder Include="System\Static\" />
   </ItemGroup>
 </Project>

@@ -2,8 +2,11 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+//To do -> some sort of animation component
 public partial class Player : CharacterBody2D
 {
+    [Export] public Sprite2D LootItemSprite;
+
     [Export] private HealthComponent healthComponent;
 	[Export] public InventoryComponent Inventory { get; private set; }
     [Export] private Hitbox Hitbox;
@@ -30,6 +33,8 @@ public partial class Player : CharacterBody2D
         {
             Inventory.WeaponUnlocked += OnWeaponUnlocked;
         }
+
+        WorldEvents.Instance.ChestOpened += OnChestOpen;
 
         Inventory.AddToItemCount(Enums.ItemType.ARROW, 10);
     }
@@ -87,6 +92,24 @@ public partial class Player : CharacterBody2D
 
         await ToSignal(EffectsAnimPlayer, AnimationPlayer.SignalName.AnimationFinished);
         type.QueueFree();
+    }
+
+    private void OnChestOpen()
+    {
+        EffectsAnimPlayer.Play("OpenChest");
+    }
+
+    public void LootToDisplay(Enums.ItemType item)
+    {
+        LootItemSprite.Texture = ItemDatabase.GetTexture(item);
+        if (item == Enums.ItemType.COIN)
+        {
+            LootItemSprite.Hframes = 4;
+        }
+        else
+        {
+            LootItemSprite.Hframes = 1;
+        }
     }
 
     public void ForceLockState(bool Lock)

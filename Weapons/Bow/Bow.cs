@@ -36,7 +36,7 @@ public partial class Bow : Node, IWeapon
 
         Arrow spawnedArrow = arrowScene.Instantiate<Arrow>();
 
-        Player.GetTree().Root.AddChild(spawnedArrow);
+        Player.GetTree().Root.GetNode("Game").AddChild(spawnedArrow);
 
         spawnedArrow.GlobalPosition = Player.GlobalPosition;
         spawnedArrow.Rotation = Player.LastDirection.Angle();

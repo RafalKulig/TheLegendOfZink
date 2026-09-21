@@ -2,16 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cq3lh8pe0dssa" path="res://Interactable/Chest/Chest.cs" id="1_0pfs8"]
 [ext_resource type="Texture2D" uid="uid://bucrhiwvno27y" path="res://assets/Atlases/Chests.png" id="1_pxbvu"]
+[ext_resource type="PackedScene" uid="uid://bub124lte3q6g" path="res://Items/Collectables/Money/Coin/Coin.tscn" id="2_16c01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlclu"]
 size = Vector2(16, 16)
 
-[node name="Chest" type="StaticBody2D" unique_id=804969163 node_paths=PackedStringArray("Sprite")]
+[node name="Chest" type="StaticBody2D" unique_id=804969163 node_paths=PackedStringArray("Sprite", "ResetTimer")]
 z_index = 1
 collision_layer = 2050
 collision_mask = 0
 script = ExtResource("1_0pfs8")
 Sprite = NodePath("Sprite2D")
+RandomLoot = false
+CustomLootItem = ExtResource("2_16c01")
+LootCount = 5
+ResetTimer = NodePath("Timer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2113022671]
 texture = ExtResource("1_pxbvu")
@@ -20,3 +25,6 @@ vframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2008752016]
 shape = SubResource("RectangleShape2D_vlclu")
+
+[node name="Timer" type="Timer" parent="." unique_id=2003422581]
+one_shot = true

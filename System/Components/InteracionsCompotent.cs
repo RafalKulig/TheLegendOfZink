@@ -32,7 +32,7 @@ public partial class InteracionsCompotent : RayCast2D
         //Chest -> IInteractable
         if (collider is Chest interactable) 
         {
-            interactable.Interact();
+            interactable.Interact(player);
         }
     }
 }

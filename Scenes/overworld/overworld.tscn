@@ -2047,6 +2047,7 @@ update_scale = false
 [node name="Chest" parent="." unique_id=804969163 instance=ExtResource("5_pxfri")]
 position = Vector2(-1000, 992)
 ChestType = 1
+RandomLoot = true
 CanReset = true
 ResetTime = 5.0
 

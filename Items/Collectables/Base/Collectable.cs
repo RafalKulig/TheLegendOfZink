@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 [GlobalClass]
 public partial class Collectable : Area2D
@@ -9,15 +10,20 @@ public partial class Collectable : Area2D
 
     public override void _Ready()
     {
-        this.BodyEntered += OnBodyEntered;
+        BodyEntered += OnBodyEntered;
     }
 
     public void OnBodyEntered(Node2D body)
     {
         if (body is Player player)
         {
-            player.Inventory.AddToItemCount(Type, 1);
-            QueueFree();
+            AddToInventory(player, 1);
         }
+    }
+
+    private void AddToInventory(Player player, int count)
+    {
+        player.Inventory.AddToItemCount(Type, count);
+        CallDeferred(MethodName.QueueFree);
     }
 }

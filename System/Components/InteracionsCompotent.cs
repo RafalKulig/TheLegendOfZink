@@ -30,7 +30,7 @@ public partial class InteracionsCompotent : RayCast2D
         GodotObject collider = GetCollider();
 
         //Chest -> IInteractable
-        if (collider is Chest interactable) 
+        if (collider is IInteractable interactable) 
         {
             interactable.Interact(player);
         }

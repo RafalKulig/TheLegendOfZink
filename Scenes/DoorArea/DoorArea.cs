@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class DoorArea : Area2D
 {
 	[Export] private Vector2 GoToPosition;

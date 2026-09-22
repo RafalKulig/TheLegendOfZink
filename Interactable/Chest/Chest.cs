@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 [Tool]
 //TO DO:
 //Make Interactable interface
-public partial class Chest : StaticBody2D
+public partial class Chest : StaticBody2D, IInteractable
 {
     [ExportGroup("Type & Visiuals")]
     private Enums.ChestType _chestType;
@@ -54,8 +54,7 @@ public partial class Chest : StaticBody2D
 
     public void Interact(Player player)
     {
-        //Move direction check to InteracionComponent
-        if (IsOpen || player.LastDirection != Vector2.Up) return;
+        if (IsOpen || player.GlobalPosition.Y < GlobalPosition.Y) return;
 
         OpenChest(player);
     }

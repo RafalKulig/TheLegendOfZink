@@ -365,3 +365,6 @@ libraries/ = SubResource("AnimationLibrary_jeyeq")
 [node name="WallCheck" type="RayCast2D" parent="." unique_id=1918350244]
 target_position = Vector2(15, 0)
 collision_mask = 7
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=439705986]
+rect = Rect2(-32, -32, 64, 64)

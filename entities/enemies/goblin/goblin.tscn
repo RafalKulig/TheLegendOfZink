@@ -916,3 +916,6 @@ libraries/ = SubResource("AnimationLibrary_v5jfi")
 [node name="WallCheck" type="RayCast2D" parent="." unique_id=1504092363]
 target_position = Vector2(20, 0)
 collision_mask = 7
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=755973130]
+rect = Rect2(-32, -32, 64, 64)

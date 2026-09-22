@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Diagnostics.Tracing;
 
+[GlobalClass]
 public partial class SpawnArea : Area2D
 {
 	[Export] private PackedScene EntityToSpawn;
@@ -17,7 +18,7 @@ public partial class SpawnArea : Area2D
 
     public override void _Ready()
     {
-		this.BodyEntered += OnBodyEntered;
+		BodyEntered += OnBodyEntered;
 		IsActive = true;
     }
 

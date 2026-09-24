@@ -22,7 +22,7 @@ public partial class InventoryComponent : Node2D
         Equiped[Enums.EquipmentSlot.SlotA] = null;
         Equiped[Enums.EquipmentSlot.SlotB] = null;
 
-        Items[Enums.ItemType.COIN] = 0;
+        Items[Enums.ItemType.MONEY] = 0;
         Items[Enums.ItemType.ARROW] = 0;
         Items[Enums.ItemType.BOMB] = 0;
 

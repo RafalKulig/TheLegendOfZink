@@ -102,7 +102,7 @@ public partial class Player : CharacterBody2D
     public void LootToDisplay(Enums.ItemType item)
     {
         LootItemSprite.Texture = ItemDatabase.GetTexture(item);
-        if (item == Enums.ItemType.COIN)
+        if (item == Enums.ItemType.MONEY)
         {
             LootItemSprite.Hframes = 4;
         }

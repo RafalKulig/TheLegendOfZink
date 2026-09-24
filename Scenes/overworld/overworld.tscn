@@ -2315,7 +2315,7 @@ CanReset = false
 position = Vector2(1448, 520)
 
 [node name="Pot" parent="." unique_id=611988952 instance=ExtResource("17_8jsxp")]
-position = Vector2(-1040, 984)
+position = Vector2(-920, 1016)
 ChestType = 1
 CanReset = true
-ResetTime = 3.0
+ResetTime = 1.5

@@ -27,7 +27,7 @@ public partial class Pot : StaticBody2D
     [Export] private CollisionShape2D CollisionShape;
 
     private bool IsBroken = false;
-    private PackedScene MoneyScene = GD.Load<PackedScene>("res://Items/Collectables/Money/Coin/Coin.tscn");
+    private PackedScene MoneyScene = GD.Load<PackedScene>("res://Items/Collectables/Money/Money.tscn");
 
     public override void _Ready()
     {
@@ -77,39 +77,58 @@ public partial class Pot : StaticBody2D
     private void SpawnLoot()
     {
         float SpawnChance = GD.Randf();
-        GD.Print(SpawnChance);
         if (SpawnChance < 0.4f) return;
 
-        Collectable SpawnedCoin = MoneyScene.Instantiate<Collectable>();
+        Money SpawnedCoin = MoneyScene.Instantiate<Money>();
 
-        
         GetTree().Root.GetNode("Game").CallDeferred(MethodName.AddChild, SpawnedCoin);
 
         SpawnedCoin.GlobalPosition = GlobalPosition;
 
-        Vector2 targetPosition = GlobalPosition + new Vector2(0, -15);
-
-        Tween tween = CreateTween();
-        tween.TweenProperty(SpawnedCoin, PropertyName.GlobalPosition.ToString(), targetPosition, 1f)
-            .SetTrans(Tween.TransitionType.Bounce)
-            .SetEase(Tween.EaseType.Out);
-
         float WhichCoin = GD.Randf();
         if (WhichCoin <= 0.5f)
         {
-            //Coin
+            SpawnedCoin.CoinType = Enums.MoneyType.BASICCOIN;
             GD.Print("Coin");
         }
         else if (WhichCoin > 0.5f && WhichCoin <= 0.85f)
         {
-            //SilverCoin
+            SpawnedCoin.CoinType = Enums.MoneyType.SILVERCOIN;
             GD.Print("SilverCoin");
         }
         else if (WhichCoin > 0.85f)
         {
-            //Ruby
+            SpawnedCoin.CoinType = Enums.MoneyType.RUBY;
             GD.Print("Ruby");
         }
+
+        Vector2 targetPosition = GlobalPosition + RandomizePosition();
+
+        Tween tween = CreateTween();
+        tween.TweenProperty(SpawnedCoin, PropertyName.GlobalPosition.ToString(), targetPosition, 0.5f)
+            .SetTrans(Tween.TransitionType.Bounce)
+            .SetEase(Tween.EaseType.Out);
+    }
+
+    private Vector2 RandomizePosition()
+    {
+        Vector2 NewVector;
+
+        uint WhichWay = GD.Randi() % 4;
+        NewVector = (int)WhichWay switch
+        {
+            0 => Vector2.Up,
+            1 => Vector2.Right,
+            2 => Vector2.Down,
+            3 => Vector2.Left,
+            _ => Vector2.Zero
+        };
+
+        uint HowFar = GD.Randi() % 12;
+
+        NewVector *= HowFar; 
+
+        return NewVector;
     }
 
     private void OnResetTimerTimeout()

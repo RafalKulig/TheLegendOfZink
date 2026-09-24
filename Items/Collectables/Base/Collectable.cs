@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 public partial class Collectable : Area2D
 {
     [Export]
-    public Enums.ItemType Type { get; private set; }
+    public Enums.ItemType Type { get; protected set; }
+    protected int count = 1;
 
     public override void _Ready()
     {
@@ -17,7 +18,7 @@ public partial class Collectable : Area2D
     {
         if (body is Player player)
         {
-            AddToInventory(player, 1);
+            AddToInventory(player, count);
         }
     }
 

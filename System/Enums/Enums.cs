@@ -11,9 +11,16 @@ public partial class Enums : GodotObject
 
     public enum ItemType
     {
-        COIN,
+        MONEY,
         ARROW,
         BOMB,
+    }
+
+    public enum MoneyType
+    {
+        BASICCOIN,
+        SILVERCOIN,
+        RUBY
     }
 
     public enum UnlockType

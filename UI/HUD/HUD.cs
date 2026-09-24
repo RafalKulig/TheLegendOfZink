@@ -49,7 +49,7 @@ public partial class HUD : Control
             SlotB.Visible = false;
         }
 
-        CoinsLabel.Text = "x" + Player.Inventory.GetItemCount(Enums.ItemType.COIN).ToString();
+        CoinsLabel.Text = "x" + Player.Inventory.GetItemCount(Enums.ItemType.MONEY).ToString();
         ArrowsLabel.Text = "x" + Player.Inventory.GetItemCount(Enums.ItemType.ARROW).ToString();
         BombsLabel.Text = "x" + Player.Inventory.GetItemCount(Enums.ItemType.BOMB).ToString();
     }

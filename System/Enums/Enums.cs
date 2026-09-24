@@ -35,4 +35,14 @@ public partial class Enums : GodotObject
         PURPLE,
         ROYAL,
     }
+
+    public enum PotType
+    {
+        BLUE,
+        BROWN,
+        CAVE,
+        FANCY,
+        PINK,
+        SAND,
+    }
 }

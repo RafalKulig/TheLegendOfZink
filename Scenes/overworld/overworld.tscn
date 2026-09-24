@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://f8g432b8jsa6" path="res://entities/enemies/Slime/slime.tscn" id="9_tcx6l"]
 [ext_resource type="PackedScene" uid="uid://jf2q3jg6lrac" path="res://Scenes/DoorArea/DoorArea.tscn" id="11_8k5ml"]
 [ext_resource type="Texture2D" uid="uid://bq4o5mvm3gb3d" path="res://assets/Legend_of_Zink_Asset_Pack/NPCs/PNG/sprOldManS.png" id="12_m1b4l"]
+[ext_resource type="PackedScene" uid="uid://b5psfvs43n3xt" path="res://Interactable/Pot/Pot.tscn" id="17_8jsxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_esrw0"]
 texture = ExtResource("1_8k5ml")
@@ -2111,7 +2112,7 @@ shape = SubResource("RectangleShape2D_q6kah")
 [node name="Player" parent="." unique_id=144735961 groups=["Player"] instance=ExtResource("1_n3lcv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-1524.6217, 31.001942)
+position = Vector2(-1088.3557, 985.99585)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
@@ -2121,7 +2122,7 @@ update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121 node_paths=PackedStringArray("RemoteTransform")]
 z_index = 1
-position = Vector2(-1524.6217, 31.001942)
+position = Vector2(-1088.3557, 985.99585)
 offset = Vector2(0, -15)
 zoom = Vector2(1.5, 1.5)
 limit_left = -1856
@@ -2312,3 +2313,9 @@ CanReset = false
 
 [node name="Chest10" parent="Chests" unique_id=977938262 instance=ExtResource("5_pxfri")]
 position = Vector2(1448, 520)
+
+[node name="Pot" parent="." unique_id=611988952 instance=ExtResource("17_8jsxp")]
+position = Vector2(-1040, 984)
+ChestType = 1
+CanReset = true
+ResetTime = 3.0

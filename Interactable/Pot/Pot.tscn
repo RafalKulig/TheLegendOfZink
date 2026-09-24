@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b5psfvs43n3xt"]
+
+[ext_resource type="Script" uid="uid://b7o02ucyvr3dc" path="res://Interactable/Pot/Pot.cs" id="1_jc768"]
+[ext_resource type="Texture2D" uid="uid://cheo8sqfstve0" path="res://assets/Atlases/Pots.png" id="1_lywq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c5xq"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
+size = Vector2(16, 16)
+
+[node name="Pot" type="StaticBody2D" unique_id=611988952 node_paths=PackedStringArray("Sprite", "ResetTimer", "Area2D", "CollisionShape")]
+z_index = 1
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_jc768")
+Sprite = NodePath("Sprite2D")
+ResetTimer = NodePath("Timer")
+Area2D = NodePath("Area2D")
+CollisionShape = NodePath("PotCollisionShape")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1296648150]
+texture = ExtResource("1_lywq4")
+hframes = 2
+vframes = 6
+
+[node name="PotCollisionShape" type="CollisionShape2D" parent="." unique_id=724973674]
+shape = SubResource("RectangleShape2D_8c5xq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2014253902]
+collision_layer = 0
+collision_mask = 128
+
+[node name="InteractionCollisionShape" type="CollisionShape2D" parent="Area2D" unique_id=1916778557]
+shape = SubResource("RectangleShape2D_0f7yd")
+
+[node name="Timer" type="Timer" parent="." unique_id=1732989629]
+one_shot = true

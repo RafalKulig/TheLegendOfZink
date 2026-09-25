@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jf2q3jg6lrac"]
 
-[ext_resource type="Script" uid="uid://bhdxtglg3u7sx" path="res://Scenes/DoorArea/DoorArea.cs" id="1_21sl0"]
+[ext_resource type="Script" uid="uid://bhdxtglg3u7sx" path="res://Scenes/Areas/DoorArea/DoorArea.cs" id="1_21sl0"]
 
 [node name="DoorArea" type="Area2D" unique_id=589865920]
 collision_layer = 0

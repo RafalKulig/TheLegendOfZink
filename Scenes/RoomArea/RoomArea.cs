@@ -6,6 +6,7 @@ public partial class RoomArea : Area2D
 {
 	[Export] private Node2D Overworld;
 	[Export] private Node2D RoomNode;
+    [Export] private bool ChangeCamera = true;
     [Export] private Vector2 CameraOffset;
     [Export] private float CameraZoom;
     [Export] private Vector4 CameraLimit;
@@ -24,6 +25,8 @@ public partial class RoomArea : Area2D
         if (body is not Player) return;
 
         ActivateRoom(true);
+
+        if (!ChangeCamera) return;
         WorldEvents.Instance.EmitSignal(WorldEvents.SignalName.CameraChange, CameraZoom, CameraLimit, CameraOffset, RemoteTransformOn);
     }
 

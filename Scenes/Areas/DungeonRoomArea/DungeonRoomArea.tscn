@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cysy1sccj0ymn"]
+
+[ext_resource type="Script" uid="uid://cflmpurpumne7" path="res://Scenes/Areas/DungeonRoomArea/DungeonRoom.cs" id="1_sbr2d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huksp"]
+size = Vector2(304, 208)
+
+[node name="Room1" type="Area2D" unique_id=888470725 node_paths=PackedStringArray("RoomShape")]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_sbr2d")
+RoomShape = NodePath("CollisionShape2D")
+metadata/_custom_type_script = "uid://cflmpurpumne7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=456077383]
+shape = SubResource("RectangleShape2D_huksp")

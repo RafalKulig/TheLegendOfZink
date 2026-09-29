@@ -4,19 +4,20 @@ using System;
 [GlobalClass]
 public partial class DoorArea : Area2D
 {
-	[Export] private Vector2 GoToPosition;
+    [Export] private DoorArea NextRoom;
+    [Export] public Marker2D EnterPoint { get; private set; }
 
     public override void _Ready()
     {
         BodyEntered += OnBodyEntered;
     }
 
-    private void OnBodyEntered(Node2D body)
+    protected void OnBodyEntered(Node2D body)
     {
         if (body is not Player) return;
 
         //TransitonAnim();
 
-        body.GlobalPosition = GoToPosition;
+        body.GlobalPosition = NextRoom.EnterPoint.GlobalPosition;
     }
 }

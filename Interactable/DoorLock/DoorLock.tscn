@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://3kti72esi8kq"]
+
+[ext_resource type="Texture2D" uid="uid://ge0vjty02okq" path="res://assets/Legend_of_Zink_Asset_Pack/Tiles/tileBaseTileset.png" id="1_4nmi3"]
+[ext_resource type="Script" uid="uid://blpwff51svpun" path="res://Interactable/DoorLock/DoorLock.cs" id="1_utiqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
+size = Vector2(16, 16)
+
+[node name="DoorLock" type="StaticBody2D" unique_id=13597188 node_paths=PackedStringArray("Sprite")]
+collision_layer = 2050
+collision_mask = 0
+script = ExtResource("1_utiqq")
+Sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1554743637]
+texture = ExtResource("1_4nmi3")
+hframes = 2
+vframes = 4
+region_enabled = true
+region_rect = Rect2(624, 352, 32, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=471121953]
+shape = SubResource("RectangleShape2D_0f7yd")

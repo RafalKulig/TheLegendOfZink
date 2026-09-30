@@ -14,6 +14,7 @@ public partial class Enums : GodotObject
         MONEY,
         ARROW,
         BOMB,
+        KEY,
     }
 
     public enum MoneyType
@@ -51,5 +52,17 @@ public partial class Enums : GodotObject
         FANCY,
         PINK,
         SAND,
+    }
+
+    public enum DoorLockType
+    {
+        LOCKEDN,
+        LOCKEDE,
+        LOCKEDW,
+        LOCKEDS,
+        DARKN,
+        DARKE,
+        DARKW,
+        DARKS
     }
 }

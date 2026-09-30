@@ -4,8 +4,6 @@ using System;
 using System.Threading.Tasks;
 
 [Tool]
-//TO DO:
-//Make Interactable interface
 public partial class Chest : StaticBody2D, IInteractable
 {
     [ExportGroup("Type & Visiuals")]

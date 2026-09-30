@@ -25,8 +25,7 @@ public partial class InventoryComponent : Node2D
         Items[Enums.ItemType.MONEY] = 0;
         Items[Enums.ItemType.ARROW] = 0;
         Items[Enums.ItemType.BOMB] = 0;
-
-
+        Items[Enums.ItemType.KEY] = 10;
     }
 
     public Texture2D GetTextureFromWeapon(IWeapon weapon)

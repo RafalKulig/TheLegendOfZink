@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dtjqg28ru1dky"]
+
+[ext_resource type="Script" uid="uid://ulav1thxestk" path="res://Items/Collectables/Base/Collectable.cs" id="1_gfe3a"]
+[ext_resource type="Texture2D" uid="uid://b2ahcuagvsfpy" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconKey.png" id="2_1bmjn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gy36"]
+size = Vector2(9, 14)
+
+[node name="Key" type="Area2D" unique_id=155894333]
+collision_layer = 1024
+collision_mask = 8
+script = ExtResource("1_gfe3a")
+Type = 3
+metadata/_custom_type_script = "uid://ulav1thxestk"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=314314088]
+texture = ExtResource("2_1bmjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2146601417]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_8gy36")

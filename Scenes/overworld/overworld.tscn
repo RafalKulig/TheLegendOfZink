@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dilewdmcwdyio" path="res://Scenes/Cutscene/cutscene.tscn" id="3_j2fa0"]
 [ext_resource type="Script" uid="uid://bom52n02oqch3" path="res://Scenes/Camera/Camera2d.cs" id="4_esrw0"]
 [ext_resource type="PackedScene" uid="uid://cysy1sccj0ymn" path="res://Scenes/Areas/DungeonRoomArea/DungeonRoomArea.tscn" id="4_nf5hn"]
+[ext_resource type="PackedScene" uid="uid://qchxbvxwo6l8" path="res://entities/enemies/DungeonEnemies/Stalfos/Stalfos.tscn" id="5_jpc86"]
 [ext_resource type="PackedScene" uid="uid://cbupqoro8xsf" path="res://Interactable/Chest/chest.tscn" id="5_pxfri"]
+[ext_resource type="PackedScene" uid="uid://dtjqg28ru1dky" path="res://Items/Collectables/Key/Key.tscn" id="6_648q3"]
+[ext_resource type="PackedScene" uid="uid://3kti72esi8kq" path="res://Interactable/DoorLock/DoorLock.tscn" id="6_hw2a2"]
 [ext_resource type="PackedScene" uid="uid://ipnbfwmw485s" path="res://UI/InventoryUI/InventoryUI.tscn" id="7_4bwop"]
 [ext_resource type="Texture2D" uid="uid://bwv4tlaw6rcbj" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconSword.png" id="7_8k5ml"]
 [ext_resource type="PackedScene" uid="uid://blrt7hmbf68aw" path="res://Scenes/Areas/SpawnAreas/SpawnArea.tscn" id="7_jn2vy"]
@@ -2304,13 +2307,46 @@ position = Vector2(88, 2264)
 [node name="Room9" parent="Map/Dungeon1/Dungeon/Rooms" unique_id=442589761 instance=ExtResource("4_nf5hn")]
 position = Vector2(824, 2264)
 
+[node name="Stalfos" parent="Map/Dungeon1/Dungeon/Rooms/Room9" unique_id=152526632 instance=ExtResource("5_jpc86")]
+position = Vector2(-29, -36)
+
+[node name="Stalfos2" parent="Map/Dungeon1/Dungeon/Rooms/Room9" unique_id=360459162 instance=ExtResource("5_jpc86")]
+position = Vector2(-28, 29)
+
+[node name="Stalfos3" parent="Map/Dungeon1/Dungeon/Rooms/Room9" unique_id=1030396720 instance=ExtResource("5_jpc86")]
+position = Vector2(43, 27)
+
+[node name="Stalfos4" parent="Map/Dungeon1/Dungeon/Rooms/Room9" unique_id=1381127674 instance=ExtResource("5_jpc86")]
+position = Vector2(41, -30)
+
+[node name="Key" parent="Map/Dungeon1/Dungeon/Rooms/Room9" unique_id=155894333 instance=ExtResource("6_648q3")]
+
 [node name="Room10" parent="Map/Dungeon1/Dungeon/Rooms" unique_id=1181299844 instance=ExtResource("4_nf5hn")]
 position = Vector2(824, 1848)
 
 [node name="Room11" parent="Map/Dungeon1/Dungeon/Rooms" unique_id=706491523 instance=ExtResource("4_nf5hn")]
 position = Vector2(1192, 1848)
 
+[node name="DoorLocks" type="Node" parent="Map/Dungeon1/Dungeon" unique_id=1944381125]
+
+[node name="DoorLock" parent="Map/Dungeon1/Dungeon/DoorLocks" unique_id=13597188 instance=ExtResource("6_hw2a2")]
+position = Vector2(952, 1848)
+Type = 1
+
+[node name="DoorLock2" parent="Map/Dungeon1/Dungeon/DoorLocks" unique_id=392460667 instance=ExtResource("6_hw2a2")]
+position = Vector2(584, 1848)
+Type = 1
+
+[node name="DoorLock3" parent="Map/Dungeon1/Dungeon/DoorLocks" unique_id=204478770 instance=ExtResource("6_hw2a2")]
+position = Vector2(328, 1640)
+Type = 2
+
+[node name="DoorLock4" parent="Map/Dungeon1/Dungeon/DoorLocks" unique_id=1850668501 instance=ExtResource("6_hw2a2")]
+position = Vector2(328, 1848)
+Type = 2
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Dungeon1" unique_id=26924757]
+visible = false
 position = Vector2(40, 8)
 shape = SubResource("RectangleShape2D_8jsxp")
 
@@ -2347,7 +2383,7 @@ NextRoom = NodePath("../../../Map/Dungeon1/Dungeon/Doors/Room1/Room1-S")
 [node name="Player" parent="." unique_id=144735961 groups=["Player"] instance=ExtResource("1_n3lcv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(171.90912, 2050.9092)
+position = Vector2(716.8075, 2256.802)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
@@ -2357,7 +2393,7 @@ update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121 node_paths=PackedStringArray("RemoteTransform")]
 z_index = 1
-position = Vector2(171.90912, 2050.9092)
+position = Vector2(716.8075, 2256.802)
 offset = Vector2(0, -15)
 zoom = Vector2(1.3, 1.3)
 limit_left = -1856

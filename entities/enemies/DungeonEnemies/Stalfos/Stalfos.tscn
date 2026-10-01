@@ -1,0 +1,310 @@
+[gd_scene format=3 uid="uid://qchxbvxwo6l8"]
+
+[ext_resource type="Script" uid="uid://buqc5r1xrc226" path="res://entities/enemies/DungeonEnemies/Stalfos/Stalfos.cs" id="1_h0nlx"]
+[ext_resource type="Texture2D" uid="uid://r042fniu7etu" path="res://assets/TheLegendOfZeldaNes/enemies-zelda-nes-sprite-sheet.png" id="2_w4jff"]
+[ext_resource type="Shader" uid="uid://dphkd6hpkm0jx" path="res://System/Shaders/HitFlash.gdshader" id="2_xhvpi"]
+[ext_resource type="Script" uid="uid://c1cxp4qsw07r0" path="res://System/Components/HealthComponent.cs" id="3_xyqag"]
+[ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="4_xhvpi"]
+[ext_resource type="Script" uid="uid://eb776hicbpyj" path="res://System/Components/Hurtbox.cs" id="5_csvw3"]
+[ext_resource type="Script" uid="uid://myhrvgwd6m1l" path="res://System/StateMachine/StateMachine.cs" id="6_koryl"]
+[ext_resource type="Script" uid="uid://cji85xhg05rj" path="res://entities/enemies/DungeonEnemies/Stalfos/States/IdleStalfos.cs" id="7_xyqag"]
+[ext_resource type="Script" uid="uid://drvtqr8g1cxgv" path="res://entities/enemies/DungeonEnemies/Stalfos/States/MoveStalfos.cs" id="8_xhvpi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xyqag"]
+resource_local_to_scene = true
+shader = ExtResource("2_xhvpi")
+shader_parameter/FlashModifier = 0.0
+shader_parameter/FlashColor = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgkil"]
+atlas = ExtResource("2_w4jff")
+region = Rect2(407, 112, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2td2"]
+atlas = ExtResource("2_w4jff")
+region = Rect2(407, 140, 29, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8gy36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgkil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2td2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gy36"]
+size = Vector2(8, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa47e"]
+size = Vector2(12, 14)
+
+[sub_resource type="Animation" id="Animation_koryl"]
+resource_name = "Death"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333333, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StateMachine:process_mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_xhvpi"]
+resource_name = "Hit"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/FlashModifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_csvw3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/FlashModifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StateMachine:process_mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4oj6e"]
+_data = {
+&"Death": SubResource("Animation_koryl"),
+&"Hit": SubResource("Animation_xhvpi"),
+&"RESET": SubResource("Animation_csvw3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct6ro"]
+size = Vector2(6, 10)
+
+[node name="Stalfos" type="CharacterBody2D" unique_id=152526632 node_paths=PackedStringArray("BodyHitbox", "Effects", "HealthComponent", "EffectsAnimPlayer")]
+z_index = 1
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_h0nlx")
+BodyHitbox = NodePath("Hitbox")
+Effects = NodePath("EffectsAnimPlayer")
+HealthComponent = NodePath("HealthComponent")
+EffectsAnimPlayer = NodePath("EffectsAnimPlayer")
+metadata/_custom_type_script = "uid://no7cpew5emjp"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1383450289]
+material = SubResource("ShaderMaterial_xyqag")
+position = Vector2(-6, -2)
+sprite_frames = SubResource("SpriteFrames_8gy36")
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=55459690]
+script = ExtResource("3_xyqag")
+maxHealth = 3
+metadata/_custom_type_script = "uid://c1cxp4qsw07r0"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=659874491]
+collision_layer = 512
+collision_mask = 64
+script = ExtResource("4_xhvpi")
+Damage = 1
+KnockbackPower = 250
+metadata/_custom_type_script = "uid://dyurj2h4tffj1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1606236656]
+shape = SubResource("RectangleShape2D_8gy36")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1572186703 node_paths=PackedStringArray("healthComponent")]
+collision_layer = 256
+collision_mask = 128
+script = ExtResource("5_csvw3")
+healthComponent = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://eb776hicbpyj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1028196202]
+shape = SubResource("RectangleShape2D_xa47e")
+
+[node name="EffectsAnimPlayer" type="AnimationPlayer" parent="." unique_id=1716731039]
+libraries/ = SubResource("AnimationLibrary_4oj6e")
+
+[node name="StateMachine" type="Node" parent="." unique_id=341175122 node_paths=PackedStringArray("InitialState")]
+script = ExtResource("6_koryl")
+InitialState = NodePath("IdleStalfos")
+metadata/_custom_type_script = "uid://myhrvgwd6m1l"
+
+[node name="IdleStalfos" type="Node" parent="StateMachine" unique_id=555936303 node_paths=PackedStringArray("Anims", "Enemy", "StateMachine")]
+script = ExtResource("7_xyqag")
+Anims = NodePath("../../AnimatedSprite2D")
+Enemy = NodePath("../..")
+StateMachine = NodePath("..")
+
+[node name="MoveStalfos" type="Node" parent="StateMachine" unique_id=1970330748 node_paths=PackedStringArray("Enemy", "Anims", "Timer", "WallCheck", "StateMachine")]
+script = ExtResource("8_xhvpi")
+Enemy = NodePath("../..")
+Speed = 50
+Anims = NodePath("../../AnimatedSprite2D")
+Timer = NodePath("../../Timer")
+WallCheck = NodePath("../../WallDetector")
+StateMachine = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=853244047]
+shape = SubResource("RectangleShape2D_ct6ro")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=541958196]
+
+[node name="Timer" type="Timer" parent="." unique_id=872572701]
+
+[node name="WallDetector" type="RayCast2D" parent="." unique_id=1696055437]
+target_position = Vector2(10, 0)
+collision_mask = 2055

@@ -619,7 +619,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../CollisionShape2D:disabled")
+tracks/2/path = NodePath("../BodyCollision:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -747,7 +747,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../CollisionShape2D:disabled")
+tracks/4/path = NodePath("../BodyCollision:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -828,7 +828,7 @@ material = SubResource("ShaderMaterial_g0fei")
 sprite_frames = SubResource("SpriteFrames_vlclu")
 animation = &"WalkingRight"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=53647376]
+[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=53647376]
 shape = SubResource("RectangleShape2D_cjn5e")
 
 [node name="StateMachine" type="Node" parent="." unique_id=54316323 node_paths=PackedStringArray("InitialState")]

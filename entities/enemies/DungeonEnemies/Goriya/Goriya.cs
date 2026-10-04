@@ -2,16 +2,15 @@ using Godot;
 using System;
 using System.Threading.Tasks;
 
-public partial class Stalfos : Enemy
+public partial class Goriya : Enemy
 {
-    [Export] private Hitbox BodyHitbox;
+    [Export] public PackedScene ProjectileScene { get; private set; }
 
     public override void _PhysicsProcess(double delta)
     {
         if (Velocity != Vector2.Zero)
         {
             LastDirection = Velocity.Normalized();
-            BodyHitbox.HitDirection = LastDirection;
         }
 
         ApplyKnockback((float)delta);

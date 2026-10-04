@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b4ggmmeudfa7w"]
+
+[ext_resource type="Script" uid="uid://b6ki3y7ps7gm7" path="res://Weapons/Boomerang/BoomerangProjectile/BoomerangProjectile.cs" id="1_7r6t0"]
+[ext_resource type="Texture2D" uid="uid://cj4ayhcvdm2d" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconBoomerange.png" id="1_d72qe"]
+[ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="2_7r6t0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlclu"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjn5e"]
+size = Vector2(12, 12)
+
+[node name="BoomerangProjectile" type="CharacterBody2D" unique_id=1290701940 node_paths=PackedStringArray("Sprite", "Hitbox")]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_7r6t0")
+Speed = 50
+RotationSpeed = 15.0
+Sprite = NodePath("Sprite2D")
+Hitbox = NodePath("Hitbox")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1062769354]
+texture = ExtResource("1_d72qe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2037567565]
+shape = SubResource("RectangleShape2D_vlclu")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=218367332]
+z_index = 1
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_7r6t0")
+Damage = 1
+metadata/_custom_type_script = "uid://dyurj2h4tffj1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=51983811]
+shape = SubResource("RectangleShape2D_cjn5e")

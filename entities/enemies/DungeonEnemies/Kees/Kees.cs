@@ -1,19 +1,11 @@
 using Godot;
 using System;
-using System.Threading.Tasks;
 
-public partial class Stalfos : Enemy
+public partial class Kees : Enemy
 {
-    [Export] private Hitbox BodyHitbox;
 
     public override void _PhysicsProcess(double delta)
     {
-        if (Velocity != Vector2.Zero)
-        {
-            LastDirection = Velocity.Normalized();
-            BodyHitbox.HitDirection = LastDirection;
-        }
-
         ApplyKnockback((float)delta);
 
         MoveAndSlide();
@@ -24,8 +16,6 @@ public partial class Stalfos : Enemy
         IsKnockdbackActive = true;
 
         KnockbackVelocity = DamageDealer.KnockbackPower * DamageDealer.HitDirection;
-
-        EffectsAnimPlayer.Play("Hit");
     }
 
     public override async void OnEnemyDied()

@@ -18,8 +18,6 @@ public partial class MoveStalfos : State
         double Time = GD.Randfn(1, 0.75);
         if (Time > 0) Timer.WaitTime = Time;
 
-        Timer.Start();
-
         uint Rand = GD.Randi() % 4;
 
         MoveDirection = Rand switch
@@ -30,6 +28,8 @@ public partial class MoveStalfos : State
             3 => MoveDirection = Vector2.Down,
             _ => MoveDirection = Vector2.Zero
         };
+
+        Timer.Start();
     }
 
     private void OnTimerTimeout()

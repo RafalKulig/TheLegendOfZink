@@ -6,18 +6,33 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
 size = Vector2(16, 16)
 
-[node name="DoorLock" type="StaticBody2D" unique_id=13597188 node_paths=PackedStringArray("Sprite")]
+[node name="DoorLock" type="StaticBody2D" unique_id=13597188 node_paths=PackedStringArray("Sprite1", "Sprite2")]
 collision_layer = 2050
 collision_mask = 0
 script = ExtResource("1_utiqq")
-Sprite = NodePath("Sprite2D")
+Sprite1 = NodePath("Sprite2D")
+Sprite2 = NodePath("Sprite2D2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1554743637]
+position = Vector2(0, 56)
 texture = ExtResource("1_4nmi3")
-hframes = 2
 vframes = 4
 region_enabled = true
-region_rect = Rect2(624, 352, 32, 64)
+region_rect = Rect2(624, 352, 16, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=471121953]
+position = Vector2(0, 56)
+shape = SubResource("RectangleShape2D_0f7yd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1334830922]
+position = Vector2(9.536743e-07, -56)
+rotation = 3.1415927
+texture = ExtResource("1_4nmi3")
+vframes = 4
+region_enabled = true
+region_rect = Rect2(624, 352, 16, 64)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=142024886]
+position = Vector2(9.536743e-07, -56)
+rotation = 3.1415927
 shape = SubResource("RectangleShape2D_0f7yd")

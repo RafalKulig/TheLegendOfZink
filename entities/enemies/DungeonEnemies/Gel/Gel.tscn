@@ -1,0 +1,365 @@
+[gd_scene format=3 uid="uid://b07keue34brvw"]
+
+[ext_resource type="Script" uid="uid://gr28ck2ubtke" path="res://entities/enemies/DungeonEnemies/Gel/Gel.cs" id="1_850hl"]
+[ext_resource type="Texture2D" uid="uid://r042fniu7etu" path="res://assets/TheLegendOfZeldaNes/enemies-zelda-nes-sprite-sheet.png" id="2_bp2c5"]
+[ext_resource type="Shader" uid="uid://dphkd6hpkm0jx" path="res://System/Shaders/HitFlash.gdshader" id="2_lnw0f"]
+[ext_resource type="Script" uid="uid://c1cxp4qsw07r0" path="res://System/Components/HealthComponent.cs" id="3_lnw0f"]
+[ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="4_05unw"]
+[ext_resource type="Script" uid="uid://eb776hicbpyj" path="res://System/Components/Hurtbox.cs" id="5_0hwrn"]
+[ext_resource type="Script" uid="uid://myhrvgwd6m1l" path="res://System/StateMachine/StateMachine.cs" id="6_4kkbs"]
+[ext_resource type="Script" uid="uid://brr2qvcddocv5" path="res://entities/enemies/DungeonEnemies/Gel/States/IdleGel.cs" id="8_05unw"]
+[ext_resource type="Script" uid="uid://k8ca7duuhcjv" path="res://entities/enemies/DungeonEnemies/Gel/States/MoveGel.cs" id="9_0hwrn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aoit3"]
+resource_local_to_scene = true
+shader = ExtResource("2_lnw0f")
+shader_parameter/FlashModifier = 0.0
+shader_parameter/FlashColor = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuaa3"]
+size = Vector2(6, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iso6y"]
+size = Vector2(10, 9)
+
+[sub_resource type="Animation" id="Animation_0hwrn"]
+resource_name = "Death"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hurtbox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:material:shader_parameter/FlashModifier")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:collision_layer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_05unw"]
+resource_name = "hit"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/FlashModifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EffectsAnimationPlayer:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+
+[sub_resource type="Animation" id="Animation_gbfps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/FlashModifier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EffectsAnimationPlayer:current_animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&""]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:offset:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hitbox:monitorable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hurtbox:monitoring")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StateMachine:process_mode")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:collision_layer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
+[sub_resource type="Animation" id="Animation_baqet"]
+resource_name = "walk"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, -2.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4cqm"]
+_data = {
+&"Death": SubResource("Animation_0hwrn"),
+&"Hit": SubResource("Animation_05unw"),
+&"RESET": SubResource("Animation_gbfps"),
+&"walk": SubResource("Animation_baqet")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
+size = Vector2(6, 6)
+
+[node name="Gel" type="CharacterBody2D" unique_id=1620556836 node_paths=PackedStringArray("BodyHitbox", "HealthComponent", "EffectsAnimPlayer")]
+collision_layer = 16
+collision_mask = 7
+script = ExtResource("1_850hl")
+BodyHitbox = NodePath("Hitbox")
+HealthComponent = NodePath("HealthComponent")
+EffectsAnimPlayer = NodePath("EffectsAnimationPlayer")
+metadata/_custom_type_script = "uid://no7cpew5emjp"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=387257685]
+material = SubResource("ShaderMaterial_aoit3")
+texture = ExtResource("2_bp2c5")
+vframes = 4
+region_enabled = true
+region_rect = Rect2(424, 184, 8, 38)
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1120771782]
+script = ExtResource("3_lnw0f")
+maxHealth = 2
+metadata/_custom_type_script = "uid://c1cxp4qsw07r0"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1308055275]
+collision_layer = 512
+collision_mask = 64
+script = ExtResource("4_05unw")
+Damage = 1
+KnockbackPower = 200
+metadata/_custom_type_script = "uid://dyurj2h4tffj1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=621929478]
+shape = SubResource("RectangleShape2D_vuaa3")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1621134774 node_paths=PackedStringArray("healthComponent")]
+collision_layer = 256
+collision_mask = 128
+script = ExtResource("5_0hwrn")
+healthComponent = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://eb776hicbpyj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=610146913]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_iso6y")
+
+[node name="EffectsAnimationPlayer" type="AnimationPlayer" parent="." unique_id=2047051332]
+libraries/ = SubResource("AnimationLibrary_a4cqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1852639465]
+shape = SubResource("RectangleShape2D_0f7yd")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1164760445 node_paths=PackedStringArray("InitialState")]
+script = ExtResource("6_4kkbs")
+InitialState = NodePath("IdleGel")
+metadata/_custom_type_script = "uid://myhrvgwd6m1l"
+
+[node name="IdleGel" type="Node" parent="StateMachine" unique_id=2006675281 node_paths=PackedStringArray("Timer", "Enemy", "StateMachine")]
+script = ExtResource("8_05unw")
+Timer = NodePath("../../Timer")
+Enemy = NodePath("../..")
+StateMachine = NodePath("..")
+
+[node name="MoveGel" type="Node" parent="StateMachine" unique_id=1358963478 node_paths=PackedStringArray("Enemy", "WallCheck", "StateMachine")]
+script = ExtResource("9_0hwrn")
+Enemy = NodePath("../..")
+Speed = 40
+WallCheck = NodePath("../../WallChecker")
+StateMachine = NodePath("..")
+
+[node name="WallChecker" type="RayCast2D" parent="." unique_id=948187143]
+target_position = Vector2(8, 0)
+collision_mask = 7
+
+[node name="Timer" type="Timer" parent="." unique_id=927211973]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=2112737562]

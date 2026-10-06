@@ -14,11 +14,6 @@ public partial class BoomerangProjectile : CharacterBody2D
     public Vector2 GoToPos;
     public Vector2 Direction;
 
-    public override void _Ready()
-    {
-        GD.Print(GetParent().Name);
-    }
-
     public override void _PhysicsProcess(double delta)
     {
         Velocity = Direction * Speed;
@@ -51,5 +46,19 @@ public partial class BoomerangProjectile : CharacterBody2D
         CollisionMask = 8;
         Hitbox.CollisionLayer = 512;
         Hitbox.CollisionMask = 64;
+    }
+
+    public void SetPlayerParams(Player Player)
+    {
+        GlobalPosition = Player.GlobalPosition + Player.LastDirection * 10;
+
+        Direction = Player.LastDirection;
+
+        SpawnPos = Player.GlobalPosition;
+        GoToPos = Player.GlobalPosition + (Player.LastDirection * 50);
+
+        CollisionMask = 16;
+        Hitbox.CollisionLayer = 128;
+        Hitbox.CollisionMask = 256;
     }
 }

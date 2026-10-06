@@ -56,13 +56,7 @@ public partial class Enums : GodotObject
 
     public enum DoorLockType
     {
-        LOCKEDN,
-        LOCKEDE,
-        LOCKEDW,
-        LOCKEDS,
-        DARKN,
-        DARKE,
-        DARKW,
-        DARKS
+        DUNGEON,
+        DARK
     }
 }

@@ -104,7 +104,7 @@ Interact={
 
 2d_physics/layer_1="WorldStatic"
 2d_physics/layer_2="WorldDynamic"
-2d_physics/layer_3="HazardsEnvi"
+2d_physics/layer_3="GroundWithCollisions"
 2d_physics/layer_4="PlayerBody"
 2d_physics/layer_5="EnemyBody"
 2d_physics/layer_6="NpcBody"

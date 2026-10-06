@@ -89,8 +89,6 @@ public partial class MoveGoriya : State
         Enemy.Velocity = MoveDirection.Normalized() * Speed;
 
         WallCheck.Rotation = MoveDirection.Angle();
-
-
     }
 
     public override void Exit()

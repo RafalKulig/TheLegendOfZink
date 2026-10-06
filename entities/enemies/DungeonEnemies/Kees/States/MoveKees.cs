@@ -24,6 +24,8 @@ public partial class MoveKees : State
 
     private void RandomizeMovement()
     {
+        if (FlightTimer is null || DirectionTimer is null) return;
+
         double Time = GD.Randfn(1.25, 0.75);
         if (Time > 0) DirectionTimer.WaitTime = Time;
 

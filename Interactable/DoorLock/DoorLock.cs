@@ -14,7 +14,8 @@ public partial class DoorLock : StaticBody2D, IInteractable
 			UpdateSprite();
 		}
 	}
-	[Export] private Sprite2D Sprite;
+	[Export] private Sprite2D Sprite1;
+	[Export] private Sprite2D Sprite2;
 
 	public void Interact(Player Player)
 	{
@@ -25,10 +26,11 @@ public partial class DoorLock : StaticBody2D, IInteractable
 
 	private void UpdateSprite()
 	{
-		if (Sprite is null) return;
+		if (Sprite1 is null || Sprite2 is null) return;
 
-		int Frame = (int)Type;
+		int Frame = (int)Type * 2;
 
-		Sprite.Frame = Frame;
+		Sprite1.Frame = Frame;
+		Sprite2.Frame = Frame;
 	}
 }

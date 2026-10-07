@@ -22,7 +22,7 @@ public partial class Arrow : CharacterBody2D
 
         KinematicCollision2D collision = MoveAndCollide(Velocity * (float)delta);
 
-        if (collision != null)
+        if (collision is not null)
         {
             QueueFree();
         }

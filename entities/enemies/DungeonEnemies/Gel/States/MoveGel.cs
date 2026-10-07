@@ -45,7 +45,7 @@ public partial class MoveGel : State
 
         WallCheck.Rotation = MoveDirection.Angle();
 
-        if (Enemy.GlobalPosition.DistanceTo(GoToPos) <= 0.1)
+        if (Enemy.GlobalPosition.DistanceTo(GoToPos) <= 0.08)
         {
             StateMachine.StateChange(this, "IdleGel");
         }

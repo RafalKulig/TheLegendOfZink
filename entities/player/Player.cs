@@ -20,8 +20,8 @@ public partial class Player : CharacterBody2D
 
     public override void _Ready()
 	{
-		Inventory.EquipWeaponToSlot(Enums.UnlockType.SWORD, Enums.EquipmentSlot.SlotA);
-        Inventory.EquipWeaponToSlot(Enums.UnlockType.BOW, Enums.EquipmentSlot.SlotB);
+		//Inventory.EquipWeaponToSlot(Enums.UnlockType.SWORD, Enums.EquipmentSlot.SlotA);
+        //Inventory.EquipWeaponToSlot(Enums.UnlockType.BOW, Enums.EquipmentSlot.SlotB);
 
         if (healthComponent is not null)
         {

@@ -279,7 +279,7 @@ _data = {
 
 [node name="Aquamentus" type="CharacterBody2D" unique_id=1612020240 node_paths=PackedStringArray("Animations", "BehaviourAnims", "MovementTimer", "AttackTimer", "BodyHitbox", "Marker", "HealthComponent", "EffectsAnimPlayer")]
 z_index = 1
-collision_layer = 16
+collision_layer = 2064
 collision_mask = 7
 script = ExtResource("1_f42hb")
 Animations = NodePath("AnimatedSprite2D")

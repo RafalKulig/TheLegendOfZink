@@ -7,10 +7,12 @@ public partial class Player : CharacterBody2D
 {
     [Export] public Sprite2D LootItemSprite;
 
-    [Export] private HealthComponent healthComponent;
+    [Export] public HealthComponent healthComponent { get; private set; }
 	[Export] public InventoryComponent Inventory { get; private set; }
     [Export] private Hitbox Hitbox;
+    [Export] private Hurtbox Hurtbox;
     [Export] private AnimationPlayer EffectsAnimPlayer;
+    [Export] private Timer GraceTimer;
 
 	public Vector2 LastDirection { get; private set; } = Vector2.Right;
 
@@ -20,8 +22,8 @@ public partial class Player : CharacterBody2D
 
     public override void _Ready()
 	{
-		//Inventory.EquipWeaponToSlot(Enums.UnlockType.SWORD, Enums.EquipmentSlot.SlotA);
-        //Inventory.EquipWeaponToSlot(Enums.UnlockType.BOW, Enums.EquipmentSlot.SlotB);
+		Inventory.EquipWeaponToSlot(Enums.UnlockType.SWORD, Enums.EquipmentSlot.SlotA);
+        Inventory.EquipWeaponToSlot(Enums.UnlockType.BOW, Enums.EquipmentSlot.SlotB);
 
         if (healthComponent is not null)
         {
@@ -32,6 +34,11 @@ public partial class Player : CharacterBody2D
         if (Inventory is not null)
         {
             Inventory.WeaponUnlocked += OnWeaponUnlocked;
+        }
+
+        if (GraceTimer is not null)
+        {
+            GraceTimer.Timeout += OnGraceTimeout; 
         }
 
         WorldEvents.Instance.ChestOpened += OnChestOpen;
@@ -54,9 +61,16 @@ public partial class Player : CharacterBody2D
 
     private void OnPlayerDamaged(int amount, Hitbox DamageDealer)
     {
+        EventBusUI.Instance.EmitSignal(SignalName.)
+
         GD.Print(DamageDealer.Name);
         IsKnockdbackActive = true;
         KnockbackVelocity = GetKnockbackDiretcion(DamageDealer.HitDirection) * DamageDealer.KnockbackPower;
+
+        GraceTimer.Start();
+        Hurtbox.SetDeferred(Hurtbox.PropertyName.Monitoring, false);
+        //Grace = true;
+        
         EffectsAnimPlayer.Play("Hit");
         GD.Print(KnockbackVelocity);
     }
@@ -128,5 +142,10 @@ public partial class Player : CharacterBody2D
         StateMachine StateMachine = GetNode<StateMachine>("StateMachine");
         if (Lock) StateMachine.ForceStateChange("Locked");
         else StateMachine.ForceStateChange("Idle");
+    }
+
+    private void OnGraceTimeout()
+    {
+        Hurtbox.SetDeferred(Hurtbox.PropertyName.Monitoring, true);
     }
 }

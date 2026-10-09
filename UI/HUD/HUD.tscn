@@ -5,13 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://uqaimrs57q81" path="res://assets/Legend_of_Zink_Asset_Pack/HUD/PNG/sprHUDAssignBButton.png" id="2_vb885"]
 [ext_resource type="Texture2D" uid="uid://cxfrviliyeq5t" path="res://assets/Legend_of_Zink_Asset_Pack/HUD/PNG/sprHUDCent.png" id="3_q8dl0"]
 [ext_resource type="Texture2D" uid="uid://des0i8gurffpf" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconMiniArrow.png" id="4_10ibt"]
+[ext_resource type="Texture2D" uid="uid://n37sxbsc1xwk" path="res://assets/Legend_of_Zink_Asset_Pack/HUD/PNG/sprHUDHealthMeter.png" id="4_q8dl0"]
 [ext_resource type="Texture2D" uid="uid://dceuvgds358tn" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconMiniBomb.png" id="5_3o8sq"]
+[ext_resource type="FontFile" uid="uid://dttm1x55eno6c" path="res://assets/Fonts/PressStart2P-vaV7.ttf" id="6_10ibt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k5ml"]
 bg_color = Color(0, 0, 0, 1)
 corner_detail = 1
 
-[node name="HUD" type="Control" unique_id=1142976838 node_paths=PackedStringArray("SlotA", "SlotB", "CoinsLabel", "ArrowsLabel", "BombsLabel")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gy36"]
+atlas = ExtResource("4_q8dl0")
+region = Rect2(200, 0, 40, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q8dl0"]
+font = ExtResource("6_10ibt")
+
+[node name="HUD" type="Control" unique_id=1142976838 node_paths=PackedStringArray("SlotA", "SlotB", "HealthBar", "CoinsLabel", "ArrowsLabel", "BombsLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +30,7 @@ grow_vertical = 2
 script = ExtResource("1_vb885")
 SlotA = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/WeaponsEquiped/A/WeaponA")
 SlotB = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/WeaponsEquiped/B/WeaponB")
+HealthBar = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/Health/HealthBar")
 CoinsLabel = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowCoins/Label")
 ArrowsLabel = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowArrows/Label")
 BombsLabel = NodePath("MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowBombs/Label")
@@ -44,7 +54,8 @@ layout_mode = 2
 [node name="UpperPart" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer" unique_id=324752449]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
-theme_override_constants/separation = 16
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
 
 [node name="WeaponsEquiped" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer/UpperPart" unique_id=465374614]
 layout_mode = 2
@@ -97,6 +108,17 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Health" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer/UpperPart" unique_id=1950978634]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HealthBar" type="TextureRect" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Health" unique_id=1035299714]
+custom_minimum_size = Vector2(-1, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_8gy36")
+expand_mode = 3
+
 [node name="Collectables" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer/UpperPart" unique_id=388441055]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -117,6 +139,7 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowCoins" unique_id=387682723]
 layout_mode = 2
 text = "x99"
+label_settings = SubResource("LabelSettings_q8dl0")
 
 [node name="ItemRowArrows" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables" unique_id=2004932859]
 layout_mode = 2
@@ -132,6 +155,7 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowArrows" unique_id=883379590]
 layout_mode = 2
 text = "x99"
+label_settings = SubResource("LabelSettings_q8dl0")
 
 [node name="ItemRowBombs" type="HBoxContainer" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables" unique_id=899899913]
 layout_mode = 2
@@ -147,3 +171,4 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="MainContainer/PanelContainer/MarginContainer/UpperPart/Collectables/ItemRowBombs" unique_id=857824386]
 layout_mode = 2
 text = "x99"
+label_settings = SubResource("LabelSettings_q8dl0")

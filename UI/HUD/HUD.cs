@@ -7,6 +7,9 @@ public partial class HUD : Control
 
     [Export] private TextureRect SlotA;
     [Export] private TextureRect SlotB;
+
+    [Export] private TextureRect HealthBar;
+
     [Export] private Label CoinsLabel;
     [Export] private Label ArrowsLabel;
     [Export] private Label BombsLabel;
@@ -16,7 +19,8 @@ public partial class HUD : Control
         if (Player is not null)
         {
             Player.Inventory.InventoryUpdated += RefreshUI;
-            RefreshUI();
+            //RefreshUI();
+            CallDeferred(MethodName.RefreshUI);
         }
 
         EventBusUI.Instance.UIVisibilityChanged += OnUiVisibilityChanged;
@@ -49,9 +53,31 @@ public partial class HUD : Control
             SlotB.Visible = false;
         }
 
+        HealthBarChange();
+
         CoinsLabel.Text = "x" + Player.Inventory.GetItemCount(Enums.ItemType.MONEY).ToString();
         ArrowsLabel.Text = "x" + Player.Inventory.GetItemCount(Enums.ItemType.ARROW).ToString();
         BombsLabel.Text = "x" + Player.Inventory.GetItemCount(Enums.ItemType.BOMB).ToString();
+    }
+
+    private void HealthBarChange()
+    {
+        int PlayerHealth = Player.healthComponent.currentHealth;
+
+        AtlasTexture Atlas = (AtlasTexture)HealthBar.Texture;
+
+        float NewX = (float)PlayerHealth switch
+        {
+            5 => 0,
+            4 => 40,
+            3 => 80,
+            2 => 120,
+            1 => 160,
+            0 => 200,
+            _ => 0
+        };
+
+        Atlas.Region = new Rect2(NewX, 0, Atlas.Region.Size);
     }
 
     private void OnUiVisibilityChanged(string UiName, bool IsOpen)

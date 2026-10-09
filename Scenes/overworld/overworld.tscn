@@ -2601,7 +2601,7 @@ NextRoom = NodePath("../../../Map/Dungeon1/Dungeon/Doors/EntryRoom/Room1-S")
 [node name="Player" parent="." unique_id=144735961 groups=["Player"] instance=ExtResource("1_n3lcv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-651.10077, -298.4347)
+position = Vector2(1110.3955, 1852.4211)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
@@ -2611,7 +2611,7 @@ update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121 node_paths=PackedStringArray("RemoteTransform")]
 z_index = 1
-position = Vector2(-651.10077, -298.4347)
+position = Vector2(1110.3955, 1852.4211)
 offset = Vector2(0, -15)
 zoom = Vector2(1.3, 1.3)
 limit_left = -1856

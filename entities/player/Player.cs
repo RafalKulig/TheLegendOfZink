@@ -56,7 +56,7 @@ public partial class Player : CharacterBody2D
     {
         GD.Print(DamageDealer.Name);
         IsKnockdbackActive = true;
-        KnockbackVelocity = DamageDealer.HitDirection * DamageDealer.KnockbackPower;
+        KnockbackVelocity = GetKnockbackDiretcion(DamageDealer.HitDirection) * DamageDealer.KnockbackPower;
         EffectsAnimPlayer.Play("Hit");
         GD.Print(KnockbackVelocity);
     }
@@ -80,6 +80,17 @@ public partial class Player : CharacterBody2D
             Velocity = Vector2.Zero;
             IsKnockdbackActive = false;
         }
+    }
+
+    private Vector2 GetKnockbackDiretcion(Vector2 DamageDealerDirection)
+    {
+        if (DamageDealerDirection == Vector2.Zero) return LastDirection * -1;
+
+        if (DamageDealerDirection.Normalized() == LastDirection.Normalized()) return DamageDealerDirection *= -1;
+
+        if (Mathf.Abs(Mathf.RadToDeg(DamageDealerDirection.AngleTo(LastDirection))) >= 90) return LastDirection * -1;
+
+        return DamageDealerDirection;
     }
 
     private async void OnWeaponUnlocked(ItemToUnlock type)

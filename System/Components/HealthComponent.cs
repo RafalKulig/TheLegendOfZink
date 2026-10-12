@@ -4,7 +4,7 @@ using System;
 [GlobalClass]
 public partial class HealthComponent : Node2D
 {
-	[Signal] public delegate void HealthChangedEventHandler(int currentHealth); //might use
+	[Signal] public delegate void HealthChangedEventHandler(); //might use
 	[Signal] public delegate void DamagedEventHandler(int amount, Hitbox DamageDealer);
 	[Signal] public delegate void DiedEventHandler();
 
@@ -24,6 +24,7 @@ public partial class HealthComponent : Node2D
 		currentHealth -= Amount;
 
 		EmitSignal(SignalName.Damaged, Amount, DamageDealer);
+		EmitSignal(SignalName.HealthChanged);
 
 		if (currentHealth <= 0)
 		{

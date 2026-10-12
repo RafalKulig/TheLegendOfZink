@@ -19,7 +19,8 @@ public partial class HUD : Control
         if (Player is not null)
         {
             Player.Inventory.InventoryUpdated += RefreshUI;
-            //RefreshUI();
+            Player.healthComponent.HealthChanged += RefreshUI;
+
             CallDeferred(MethodName.RefreshUI);
         }
 

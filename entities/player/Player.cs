@@ -61,8 +61,6 @@ public partial class Player : CharacterBody2D
 
     private void OnPlayerDamaged(int amount, Hitbox DamageDealer)
     {
-        EventBusUI.Instance.EmitSignal(SignalName.)
-
         GD.Print(DamageDealer.Name);
         IsKnockdbackActive = true;
         KnockbackVelocity = GetKnockbackDiretcion(DamageDealer.HitDirection) * DamageDealer.KnockbackPower;

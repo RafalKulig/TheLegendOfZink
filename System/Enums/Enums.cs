@@ -15,6 +15,7 @@ public partial class Enums : GodotObject
         ARROW,
         BOMB,
         KEY,
+        HEALTH_POTION,
     }
 
     public enum MoneyType
@@ -58,5 +59,11 @@ public partial class Enums : GodotObject
     {
         DUNGEON,
         DARK
+    }
+
+    public enum InvSlotType
+    {
+        WEAPON,
+        USEABLES
     }
 }

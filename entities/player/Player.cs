@@ -146,4 +146,9 @@ public partial class Player : CharacterBody2D
     {
         Hurtbox.SetDeferred(Hurtbox.PropertyName.Monitoring, true);
     }
+
+    public void Heal(int Amount)
+    {
+        healthComponent.Heal(Amount);
+    }
 }

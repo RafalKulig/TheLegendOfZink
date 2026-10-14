@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b0e51m061kodm"]
+
+[ext_resource type="Script" uid="uid://4ow826u30urk" path="res://UI/InventorySlot/UseableSlot/UseableSlot.cs" id="1_vew5v"]
+[ext_resource type="FontFile" uid="uid://dttm1x55eno6c" path="res://assets/Fonts/PressStart2P-vaV7.ttf" id="2_oce4j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vew5v"]
+
+[node name="UseableSlot" type="PanelContainer" unique_id=1146408261 node_paths=PackedStringArray("iconRect", "label")]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vew5v")
+script = ExtResource("1_vew5v")
+iconRect = NodePath("TextureRect")
+label = NodePath("Label")
+metadata/_custom_type_script = "uid://letbrlqc3qng"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=528800366]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=20697977]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_oce4j")

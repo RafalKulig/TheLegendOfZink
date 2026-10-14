@@ -16,6 +16,11 @@ public partial class HUD : Control
 
     public override void _Ready()
     {
+        if (Player is null)
+        {
+            Player = GetTree().GetFirstNodeInGroup("Player") as Player;
+        }
+
         if (Player is not null)
         {
             Player.Inventory.InventoryUpdated += RefreshUI;
@@ -27,7 +32,7 @@ public partial class HUD : Control
         EventBusUI.Instance.UIVisibilityChanged += OnUiVisibilityChanged;
     }
 
-    private void RefreshUI()
+    public void RefreshUI()
     {
         IWeapon WeaponA = Player.Inventory.GetWeaponFromSlot(Enums.EquipmentSlot.SlotA);
         Texture2D WeaponATexture = Player.Inventory.GetTextureFromWeapon(WeaponA);
@@ -83,7 +88,7 @@ public partial class HUD : Control
 
     private void OnUiVisibilityChanged(string UiName, bool IsOpen)
     {
-        if (UiName == "Inventory")
+        if (UiName == "Inventory" && GetParent() is not Control)
         {
             Visible = !IsOpen;
         }

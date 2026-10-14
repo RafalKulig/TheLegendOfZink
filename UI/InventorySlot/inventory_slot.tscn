@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ea0ogsl8xsuk"]
 
 [ext_resource type="Script" uid="uid://letbrlqc3qng" path="res://UI/InventorySlot/InventorySlot.cs" id="1_flgjv"]
+[ext_resource type="FontFile" uid="uid://dttm1x55eno6c" path="res://assets/Fonts/PressStart2P-vaV7.ttf" id="2_b5ke6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4gihl"]
 
@@ -22,3 +23,4 @@ layout_mode = 2
 [node name="Label" type="Label" parent="." unique_id=2081022601]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_b5ke6")

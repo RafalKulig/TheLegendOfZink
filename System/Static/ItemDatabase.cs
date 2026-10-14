@@ -8,7 +8,9 @@ public static class ItemDatabase
     {
         { Enums.ItemType.ARROW, GD.Load<Texture2D>("res:///assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconMiniArrow.png") },
         { Enums.ItemType.BOMB, GD.Load<Texture2D>("res:///assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconBomb.png") },
-        { Enums.ItemType.MONEY, GD.Load<Texture2D>("res://assets/Legend_of_Zink_Asset_Pack/Collectables/PNG/sprGoldCoin.png") }
+        { Enums.ItemType.MONEY, GD.Load<Texture2D>("res://assets/Legend_of_Zink_Asset_Pack/Collectables/PNG/sprGoldCoin.png") },
+        { Enums.ItemType.KEY, GD.Load<Texture2D>("res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconMiniKey.png") },
+        { Enums.ItemType.HEALTH_POTION, GD.Load<Texture2D>("res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconHealthPotion.png") }
     };
 
     public static Texture2D GetTexture(Enums.ItemType type)

@@ -307,7 +307,7 @@ region_rect = Rect2(424, 184, 8, 38)
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=1120771782]
 script = ExtResource("3_lnw0f")
-maxHealth = 2
+maxHealth = 1
 metadata/_custom_type_script = "uid://c1cxp4qsw07r0"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1308055275]
@@ -358,7 +358,7 @@ StateMachine = NodePath("..")
 
 [node name="WallChecker" type="RayCast2D" parent="." unique_id=948187143]
 target_position = Vector2(8, 0)
-collision_mask = 7
+collision_mask = 2055
 
 [node name="Timer" type="Timer" parent="." unique_id=927211973]
 

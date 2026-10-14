@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dmxwkg0txrov7"]
+
+[ext_resource type="Script" uid="uid://cuwa2lqa2tgnh" path="res://UI/InventorySlot/WeaponSlot/WeaponSlot.cs" id="1_vxug4"]
+[ext_resource type="FontFile" uid="uid://dttm1x55eno6c" path="res://assets/Fonts/PressStart2P-vaV7.ttf" id="2_0jd7x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0f7yd"]
+
+[node name="WeaponSlot" type="PanelContainer" unique_id=675874132 node_paths=PackedStringArray("iconRect", "label")]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0f7yd")
+script = ExtResource("1_vxug4")
+iconRect = NodePath("TextureRect")
+label = NodePath("Label")
+metadata/_custom_type_script = "uid://letbrlqc3qng"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1486979177]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=11647527]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_0jd7x")

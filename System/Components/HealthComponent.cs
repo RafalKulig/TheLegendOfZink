@@ -31,4 +31,18 @@ public partial class HealthComponent : Node2D
 			EmitSignal(SignalName.Died);
 		}
 	}
+
+	public void Heal(int Amount)
+	{
+		if (IsHealed()) return;
+
+		currentHealth += Amount;
+
+		EmitSignal(SignalName.HealthChanged);
+	}
+
+	public bool IsHealed()
+	{
+		return currentHealth == maxHealth;
+	}
 }

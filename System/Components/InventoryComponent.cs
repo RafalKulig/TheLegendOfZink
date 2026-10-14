@@ -26,6 +26,7 @@ public partial class InventoryComponent : Node2D
         Items[Enums.ItemType.ARROW] = 0;
         Items[Enums.ItemType.BOMB] = 0;
         Items[Enums.ItemType.KEY] = 10;
+        Items[Enums.ItemType.HEALTH_POTION] = 10;
     }
 
     public Texture2D GetTextureFromWeapon(IWeapon weapon)
@@ -161,5 +162,28 @@ public partial class InventoryComponent : Node2D
         }
         EmitSignal(SignalName.ItemCountChanged, (int)item, Items[item]);
         EmitSignal(SignalName.InventoryUpdated);
+    }
+
+    public Dictionary<Enums.ItemType, int> GetItems()
+    {
+        return Items;
+    }
+
+    public void UseItem(Enums.ItemType item, int count)
+    {
+        if (Items[item] <= 0) return;
+
+        Player Player = GetParent<Player>();
+
+        switch(item)
+        {
+            case Enums.ItemType.HEALTH_POTION:
+                if (Player.healthComponent.IsHealed()) return;
+
+                Player.Heal(count);
+                AddToItemCount(item, -count);
+
+                break;
+        }
     }
 }

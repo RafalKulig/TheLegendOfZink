@@ -17,14 +17,4 @@ public partial class Kees : Enemy
 
         KnockbackVelocity = DamageDealer.KnockbackPower * DamageDealer.HitDirection;
     }
-
-    public override async void OnEnemyDied()
-    {
-        Velocity = Vector2.Zero;
-
-        EffectsAnimPlayer.Play("Death");
-
-        await ToSignal(EffectsAnimPlayer, AnimationPlayer.SignalName.AnimationFinished);
-        CallDeferred(MethodName.QueueFree);
-    }
 }

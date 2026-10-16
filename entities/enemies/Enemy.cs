@@ -7,6 +7,7 @@ public partial class Enemy : CharacterBody2D
     [Signal] public delegate void DiedEventHandler(Enemy enemy);
     [Export] public HealthComponent HealthComponent { get; private set; }
     [Export] public AnimationPlayer EffectsAnimPlayer { get; private set; }
+    [Export] public LootComponent LootComponent { get; private set; }
     private Player _player;
     public Player Player 
     {
@@ -40,7 +41,17 @@ public partial class Enemy : CharacterBody2D
 
     public virtual void OnEnemyDamaged(int amount, Hitbox DamageDealer) { }
 
-    public virtual void OnEnemyDied() { }
+    public virtual async void OnEnemyDied()
+    {
+        LootComponent.SpawnRandomLoot();
+
+        Velocity = Vector2.Zero;
+
+        EffectsAnimPlayer.Play("Death");
+
+        await ToSignal(EffectsAnimPlayer, AnimationPlayer.SignalName.AnimationFinished);
+        CallDeferred(MethodName.QueueFree);
+    }
 
     protected void ApplyKnockback(float delta)
     {

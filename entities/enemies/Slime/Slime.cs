@@ -22,12 +22,7 @@ public partial class Slime : Enemy
     {
         EmitSignal(SignalName.Died, this);
 
-        Velocity = Vector2.Zero;
-
-        EffectsAnimPlayer.Play("Death");
-
-        await ToSignal(EffectsAnimPlayer, AnimationPlayer.SignalName.AnimationFinished);
-        QueueFree();
+        base.OnEnemyDied();
     }
 
     public override void OnEnemyDamaged(int amount, Hitbox DamageDealer)

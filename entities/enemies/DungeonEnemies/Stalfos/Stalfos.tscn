@@ -9,6 +9,10 @@
 [ext_resource type="Script" uid="uid://myhrvgwd6m1l" path="res://System/StateMachine/StateMachine.cs" id="6_koryl"]
 [ext_resource type="Script" uid="uid://cji85xhg05rj" path="res://entities/enemies/DungeonEnemies/Stalfos/States/IdleStalfos.cs" id="7_xyqag"]
 [ext_resource type="Script" uid="uid://drvtqr8g1cxgv" path="res://entities/enemies/DungeonEnemies/Stalfos/States/MoveStalfos.cs" id="8_xhvpi"]
+[ext_resource type="Script" uid="uid://crnmsghwxryl1" path="res://System/Components/LootComponent.cs" id="10_csvw3"]
+[ext_resource type="PackedScene" uid="uid://dtjqg28ru1dky" path="res://Items/Collectables/Key/Key.tscn" id="11_f2td2"]
+[ext_resource type="PackedScene" uid="uid://bub124lte3q6g" path="res://Items/Collectables/Money/Money.tscn" id="12_4oj6e"]
+[ext_resource type="PackedScene" uid="uid://dw6f4voqqp5r5" path="res://Items/Collectables/Potions/HealthPotion/HealthPotion.tscn" id="13_a5s6f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xyqag"]
 resource_local_to_scene = true
@@ -233,7 +237,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct6ro"]
 size = Vector2(6, 10)
 
-[node name="Stalfos" type="CharacterBody2D" unique_id=152526632 node_paths=PackedStringArray("BodyHitbox", "HealthComponent", "EffectsAnimPlayer")]
+[node name="Stalfos" type="CharacterBody2D" unique_id=152526632 node_paths=PackedStringArray("BodyHitbox", "HealthComponent", "EffectsAnimPlayer", "LootComponent")]
 z_index = 1
 collision_layer = 16
 collision_mask = 7
@@ -241,6 +245,7 @@ script = ExtResource("1_h0nlx")
 BodyHitbox = NodePath("Hitbox")
 HealthComponent = NodePath("HealthComponent")
 EffectsAnimPlayer = NodePath("EffectsAnimPlayer")
+LootComponent = NodePath("LootComponent")
 metadata/_custom_type_script = "uid://no7cpew5emjp"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1383450289]
@@ -250,7 +255,7 @@ sprite_frames = SubResource("SpriteFrames_8gy36")
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=55459690]
 script = ExtResource("3_xyqag")
-maxHealth = 3
+maxHealth = 2
 metadata/_custom_type_script = "uid://c1cxp4qsw07r0"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=659874491]
@@ -307,3 +312,9 @@ shape = SubResource("RectangleShape2D_ct6ro")
 [node name="WallDetector" type="RayCast2D" parent="." unique_id=1696055437]
 target_position = Vector2(10, 0)
 collision_mask = 2055
+
+[node name="LootComponent" type="Node2D" parent="." unique_id=2045381705]
+script = ExtResource("10_csvw3")
+PossibleDrops = Array[PackedScene]([ExtResource("11_f2td2"), ExtResource("12_4oj6e"), ExtResource("13_a5s6f")])
+DropChance = 0.2
+metadata/_custom_type_script = "uid://crnmsghwxryl1"

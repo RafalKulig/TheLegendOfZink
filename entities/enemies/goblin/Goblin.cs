@@ -40,11 +40,6 @@ public partial class Goblin : Enemy
     {
         EmitSignal(SignalName.Died, this);
 
-        Velocity = Vector2.Zero;
-
-        EffectsAnimPlayer.Play("Death");
-
-        await ToSignal(EffectsAnimPlayer, AnimationPlayer.SignalName.AnimationFinished);
-        QueueFree();
+        base.OnEnemyDied();
     }
 }

@@ -2602,7 +2602,7 @@ NextRoom = NodePath("../../../Map/Dungeon1/Dungeon/Doors/EntryRoom/Room1-S")
 [node name="Player" parent="." unique_id=144735961 groups=["Player"] instance=ExtResource("1_n3lcv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(456.9539, 2318.2615)
+position = Vector2(-485.75836, -0.8588257)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
@@ -2612,7 +2612,7 @@ update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121 node_paths=PackedStringArray("RemoteTransform")]
 z_index = 1
-position = Vector2(456.9539, 2318.2615)
+position = Vector2(-485.75836, -0.8588257)
 offset = Vector2(0, -15)
 zoom = Vector2(1.3, 1.3)
 limit_left = -1856
@@ -2758,44 +2758,53 @@ region_rect = Rect2(0, 0, 16, 16)
 [node name="Chest" parent="Chests" unique_id=804969163 instance=ExtResource("5_pxfri")]
 position = Vector2(-1496, 712)
 ChestType = 0
+LootCount = 0
+CanReset = false
 
 [node name="Chest2" parent="Chests" unique_id=2038743974 instance=ExtResource("5_pxfri")]
 position = Vector2(-728, 88)
+LootCount = 0
+CanReset = false
 
 [node name="Chest3" parent="Chests" unique_id=417252899 instance=ExtResource("5_pxfri")]
 position = Vector2(-1448, -248)
 ChestType = 2
-RandomLoot = false
-LootItemType = 1
-LootCount = 10
-ResetTime = 600.0
+LootCount = 0
+CanReset = false
 
 [node name="Chest5" parent="Chests" unique_id=885078354 instance=ExtResource("5_pxfri")]
 position = Vector2(-1432, 424)
+LootCount = 0
+CanReset = false
 
 [node name="Chest6" parent="Chests" unique_id=1899925256 instance=ExtResource("5_pxfri")]
 position = Vector2(-712, 1160)
+LootCount = 0
+CanReset = false
 
 [node name="Chest7" parent="Chests" unique_id=1313252992 instance=ExtResource("5_pxfri")]
 position = Vector2(-472, -104)
+CanReset = false
 
 [node name="Chest4" parent="Chests" unique_id=1185116208 instance=ExtResource("5_pxfri")]
 position = Vector2(696, 184)
-ChestType = 4
-LootCount = 15
+LootCount = 0
 CanReset = false
 
 [node name="Chest8" parent="Chests" unique_id=1727473707 instance=ExtResource("5_pxfri")]
 position = Vector2(200, 184)
-ChestType = 5
+LootCount = 0
 CanReset = false
 
 [node name="Chest9" parent="Chests" unique_id=1404064628 instance=ExtResource("5_pxfri")]
 position = Vector2(648, 584)
+LootCount = 0
 CanReset = false
 
 [node name="Chest10" parent="Chests" unique_id=977938262 instance=ExtResource("5_pxfri")]
 position = Vector2(1448, 520)
+LootCount = 0
+CanReset = false
 
 [node name="Pot" parent="." unique_id=611988952 instance=ExtResource("17_8jsxp")]
 position = Vector2(-920, 1016)

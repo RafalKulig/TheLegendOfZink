@@ -124,12 +124,8 @@ public partial class Aquamentus : Enemy
     {
         IsDead = true;
 
-        Velocity = Vector2.Zero;
-
-        EffectsAnimPlayer.Play("Death");
-
-        await ToSignal(EffectsAnimPlayer, AnimationPlayer.SignalName.AnimationFinished);
         LootRoom.CallDeferred(MethodName.QueueFree);
-        CallDeferred(MethodName.QueueFree);
+
+        base.OnEnemyDied();
     }
 }

@@ -9,6 +9,10 @@
 [ext_resource type="Script" uid="uid://myhrvgwd6m1l" path="res://System/StateMachine/StateMachine.cs" id="5_8df02"]
 [ext_resource type="Script" uid="uid://batpgqettyhar" path="res://entities/enemies/DungeonEnemies/Goriya/States/MoveGoriya.cs" id="7_d7sjj"]
 [ext_resource type="Script" uid="uid://dwj570i5sk1ne" path="res://entities/enemies/DungeonEnemies/Goriya/States/ThrowGoriya.cs" id="8_pxsiy"]
+[ext_resource type="Script" uid="uid://crnmsghwxryl1" path="res://System/Components/LootComponent.cs" id="10_33qpd"]
+[ext_resource type="PackedScene" uid="uid://dtjqg28ru1dky" path="res://Items/Collectables/Key/Key.tscn" id="11_c2v5v"]
+[ext_resource type="PackedScene" uid="uid://bub124lte3q6g" path="res://Items/Collectables/Money/Money.tscn" id="12_r2ysh"]
+[ext_resource type="PackedScene" uid="uid://dw6f4voqqp5r5" path="res://Items/Collectables/Potions/HealthPotion/HealthPotion.tscn" id="13_1e2pq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cjn5e"]
 resource_local_to_scene = true
@@ -238,13 +242,14 @@ _data = {
 &"RESET": SubResource("Animation_pxsiy")
 }
 
-[node name="Goriya" type="CharacterBody2D" unique_id=1688027813 node_paths=PackedStringArray("HealthComponent", "EffectsAnimPlayer")]
+[node name="Goriya" type="CharacterBody2D" unique_id=1688027813 node_paths=PackedStringArray("HealthComponent", "EffectsAnimPlayer", "LootComponent")]
 collision_layer = 16
 collision_mask = 7
 script = ExtResource("1_nwfgq")
 ProjectileScene = ExtResource("2_d7sjj")
 HealthComponent = NodePath("HealthComponent")
 EffectsAnimPlayer = NodePath("EffectsAnimationPlayer")
+LootComponent = NodePath("LootComponent")
 metadata/_custom_type_script = "uid://no7cpew5emjp"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2114858717]
@@ -306,3 +311,9 @@ rect = Rect2(-10, -10, 22, 20)
 [node name="MovementTimer" type="Timer" parent="." unique_id=1639817061]
 
 [node name="ThrowTimer" type="Timer" parent="." unique_id=1853397488]
+
+[node name="LootComponent" type="Node2D" parent="." unique_id=1942979035]
+script = ExtResource("10_33qpd")
+PossibleDrops = Array[PackedScene]([ExtResource("11_c2v5v"), ExtResource("12_r2ysh"), ExtResource("13_1e2pq")])
+DropChance = 0.2
+metadata/_custom_type_script = "uid://crnmsghwxryl1"

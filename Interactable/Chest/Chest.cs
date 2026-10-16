@@ -21,6 +21,7 @@ public partial class Chest : StaticBody2D, IInteractable
 
     [ExportGroup("Loot Settings")]
     [Export] private bool RandomLoot = true;
+    [Export] private Array<Enums.ItemType> ExcludedItems = new () { Enums.ItemType.KEY };
     [Export] private Enums.ItemType LootItemType;
     [Export] public int LootCount { get; private set; }
 
@@ -29,14 +30,26 @@ public partial class Chest : StaticBody2D, IInteractable
     [Export] private float ResetTime = 300;
 
     [Export] private Timer ResetTimer;
+    [Export] private Node2D LootComponent;
+    private LootComponent _LootComponent;
 
     private bool IsOpen = false;
 
     public override void _Ready()
     {
+        //if (Engine.IsEditorHint()) return;
+
         if (ResetTimer is not null)
         {
             ResetTimer.Timeout += OnResetTimerTimeout;
+        }
+
+        _LootComponent = LootComponent as LootComponent;
+
+        if (_LootComponent is not null)
+        {
+            _LootComponent.ExcludedTypes = ExcludedItems;
+
         }
 
         UpdateSprite();
@@ -75,20 +88,12 @@ public partial class Chest : StaticBody2D, IInteractable
     {
         if (RandomLoot)
         {
-            SpawnRandomLoot();
+            LootItemType = _LootComponent.GetRandomItemType();
+            LootCount = _LootComponent.GetRandomItemCount(1, 5);
         }
 
         player.LootToDisplay(LootItemType);
         player.Inventory.AddToItemCount(LootItemType, LootCount);
-    }
-
-    private void SpawnRandomLoot()
-    {
-        uint RandomItem = GD.Randi() % 3;
-        uint RandomItemCount = GD.Randi() % 5 + 1;
-
-        LootItemType = (Enums.ItemType)RandomItem;
-        LootCount = (int)RandomItemCount;
     }
 
     private void OnResetTimerTimeout()

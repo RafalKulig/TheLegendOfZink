@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://bm0j7lfjmewhg" path="res://entities/enemies/Slime/States/SlimeIdle.cs" id="7_ovby0"]
 [ext_resource type="Script" uid="uid://delyb0fdvtiew" path="res://entities/enemies/Slime/States/SlimeMove.cs" id="8_nhoiu"]
 [ext_resource type="Script" uid="uid://eb776hicbpyj" path="res://System/Components/Hurtbox.cs" id="9_ovby0"]
+[ext_resource type="Script" uid="uid://crnmsghwxryl1" path="res://System/Components/LootComponent.cs" id="11_l4x83"]
+[ext_resource type="PackedScene" uid="uid://bub124lte3q6g" path="res://Items/Collectables/Money/Money.tscn" id="12_a7j6a"]
+[ext_resource type="PackedScene" uid="uid://beidjswnpp5ke" path="res://Items/Collectables/Weapons/Arrow/Arrow.tscn" id="13_pg6x3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jvx04"]
 resource_local_to_scene = true
@@ -292,7 +295,7 @@ _data = {
 &"RESET": SubResource("Animation_jeyeq")
 }
 
-[node name="Slime" type="CharacterBody2D" unique_id=2092123515 node_paths=PackedStringArray("BodyHitbox", "HealthComponent", "EffectsAnimPlayer")]
+[node name="Slime" type="CharacterBody2D" unique_id=2092123515 node_paths=PackedStringArray("BodyHitbox", "HealthComponent", "EffectsAnimPlayer", "LootComponent")]
 z_index = 1
 collision_layer = 16
 collision_mask = 7
@@ -300,6 +303,7 @@ script = ExtResource("1_ovby0")
 BodyHitbox = NodePath("BodyHitbox")
 HealthComponent = NodePath("HealthComponent")
 EffectsAnimPlayer = NodePath("EffectsAnimPlayer")
+LootComponent = NodePath("LootComponent")
 metadata/_custom_type_script = "uid://no7cpew5emjp"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=382034823]
@@ -368,3 +372,9 @@ collision_mask = 7
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=439705986]
 rect = Rect2(-32, -32, 64, 64)
+
+[node name="LootComponent" type="Node2D" parent="." unique_id=1706971846]
+script = ExtResource("11_l4x83")
+PossibleDrops = Array[PackedScene]([ExtResource("12_a7j6a"), ExtResource("13_pg6x3")])
+DropChance = 0.2
+metadata/_custom_type_script = "uid://crnmsghwxryl1"

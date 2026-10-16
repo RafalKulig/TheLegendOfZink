@@ -18,6 +18,10 @@
 [ext_resource type="Script" uid="uid://eb776hicbpyj" path="res://System/Components/Hurtbox.cs" id="15_8wnk4"]
 [ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="15_g0fei"]
 [ext_resource type="Script" uid="uid://c1cxp4qsw07r0" path="res://System/Components/HealthComponent.cs" id="16_g0fei"]
+[ext_resource type="Script" uid="uid://crnmsghwxryl1" path="res://System/Components/LootComponent.cs" id="19_ahrin"]
+[ext_resource type="PackedScene" uid="uid://bub124lte3q6g" path="res://Items/Collectables/Money/Money.tscn" id="20_sdbj0"]
+[ext_resource type="PackedScene" uid="uid://dw6f4voqqp5r5" path="res://Items/Collectables/Potions/HealthPotion/HealthPotion.tscn" id="21_yd0fj"]
+[ext_resource type="PackedScene" uid="uid://beidjswnpp5ke" path="res://Items/Collectables/Weapons/Arrow/Arrow.tscn" id="22_stm7n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g0fei"]
 resource_local_to_scene = true
@@ -812,7 +816,7 @@ _data = {
 &"RESET": SubResource("Animation_q55cs")
 }
 
-[node name="goblin" type="CharacterBody2D" unique_id=1889188522 node_paths=PackedStringArray("AttackHitbox", "BodyHitbox", "HealthComponent", "EffectsAnimPlayer")]
+[node name="goblin" type="CharacterBody2D" unique_id=1889188522 node_paths=PackedStringArray("AttackHitbox", "BodyHitbox", "HealthComponent", "EffectsAnimPlayer", "LootComponent")]
 z_index = 1
 collision_layer = 16
 collision_mask = 7
@@ -821,6 +825,7 @@ AttackHitbox = NodePath("WeaponHitbox")
 BodyHitbox = NodePath("BodyHitbox")
 HealthComponent = NodePath("HealthComponent")
 EffectsAnimPlayer = NodePath("EffectsAnimPlayer")
+LootComponent = NodePath("LootComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=976604832]
 y_sort_enabled = true
@@ -919,3 +924,8 @@ collision_mask = 7
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=755973130]
 rect = Rect2(-32, -32, 64, 64)
+
+[node name="LootComponent" type="Node2D" parent="." unique_id=1759073847]
+script = ExtResource("19_ahrin")
+PossibleDrops = Array[PackedScene]([ExtResource("20_sdbj0"), ExtResource("21_yd0fj"), ExtResource("22_stm7n")])
+DropChance = 0.3

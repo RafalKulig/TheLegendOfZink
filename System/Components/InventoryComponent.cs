@@ -19,6 +19,7 @@ public partial class InventoryComponent : Node2D
 
     public override void _Ready()
     {
+        GD.Print(Enum.GetNames<Enums.ItemType>().Length);
         Equiped[Enums.EquipmentSlot.SlotA] = null;
         Equiped[Enums.EquipmentSlot.SlotB] = null;
 

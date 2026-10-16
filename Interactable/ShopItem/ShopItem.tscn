@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c4bc5w51uwmtf"]
+
+[ext_resource type="Script" uid="uid://o7w5gb55ox0w" path="res://Interactable/ShopItem/ShopItem.cs" id="1_vysav"]
+[ext_resource type="Texture2D" uid="uid://gapv1yc824uq" path="res://assets/Legend_of_Zink_Asset_Pack/Menu_Icons/PNG/sprIconHealthPotion.png" id="2_4nfml"]
+[ext_resource type="FontFile" uid="uid://dttm1x55eno6c" path="res://assets/Fonts/PressStart2P-vaV7.ttf" id="3_4nfml"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8gy36"]
+radius = 8.0
+
+[node name="ShopItem" type="Area2D" unique_id=1748313786 node_paths=PackedStringArray("Sprite", "PriceLabel", "Timer")]
+process_mode = 1
+z_index = 1
+collision_layer = 1024
+collision_mask = 8
+script = ExtResource("1_vysav")
+Price = 5
+ItemType = 4
+Sprite = NodePath("Sprite2D")
+PriceLabel = NodePath("Sprite2D/Label")
+Timer = NodePath("Timer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=944583779]
+texture = ExtResource("2_4nfml")
+
+[node name="Label" type="Label" parent="Sprite2D" unique_id=1246152780]
+offset_left = -2.0
+offset_top = 4.0
+offset_right = 16.0
+offset_bottom = 10.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_4nfml")
+theme_override_font_sizes/font_size = 8
+text = "5$"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2110317612]
+shape = SubResource("CircleShape2D_8gy36")
+
+[node name="Timer" type="Timer" parent="." unique_id=674605821]
+one_shot = true

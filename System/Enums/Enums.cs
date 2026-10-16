@@ -12,9 +12,9 @@ public partial class Enums : GodotObject
     public enum ItemType
     {
         MONEY,
+        KEY,
         ARROW,
         BOMB,
-        KEY,
         HEALTH_POTION,
     }
 

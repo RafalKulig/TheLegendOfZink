@@ -44,6 +44,8 @@ public partial class Player : CharacterBody2D
         WorldEvents.Instance.ChestOpened += OnChestOpen;
 
         Inventory.AddToItemCount(Enums.ItemType.ARROW, 10);
+        Inventory.AddToItemCount(Enums.ItemType.BOMB, 10);
+        Inventory.AddToItemCount(Enums.ItemType.MONEY, 1000);
     }
 
 	public override void _PhysicsProcess(double delta)

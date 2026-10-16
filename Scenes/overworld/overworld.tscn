@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cysy1sccj0ymn" path="res://Scenes/Areas/DungeonRoomArea/DungeonRoomArea.tscn" id="4_nf5hn"]
 [ext_resource type="PackedScene" uid="uid://8fueji0x8gqg" path="res://entities/enemies/DungeonEnemies/Goriya/Goriya.tscn" id="5_61e4d"]
 [ext_resource type="PackedScene" uid="uid://qchxbvxwo6l8" path="res://entities/enemies/DungeonEnemies/Stalfos/Stalfos.tscn" id="5_jpc86"]
+[ext_resource type="PackedScene" uid="uid://c4bc5w51uwmtf" path="res://Interactable/ShopItem/ShopItem.tscn" id="5_pm8gf"]
 [ext_resource type="PackedScene" uid="uid://cbupqoro8xsf" path="res://Interactable/Chest/chest.tscn" id="5_pxfri"]
 [ext_resource type="PackedScene" uid="uid://dtjqg28ru1dky" path="res://Items/Collectables/Key/Key.tscn" id="6_648q3"]
 [ext_resource type="PackedScene" uid="uid://3kti72esi8kq" path="res://Interactable/DoorLock/DoorLock.tscn" id="6_hw2a2"]
@@ -2164,6 +2165,21 @@ tile_set = SubResource("TileSet_y818t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/RiverSideShop" unique_id=1596123943]
 shape = SubResource("RectangleShape2D_wcmat")
 
+[node name="ShopItem" parent="Map/RiverSideShop" unique_id=1748313786 instance=ExtResource("5_pm8gf")]
+position = Vector2(-40, 0)
+Price = 30
+
+[node name="ShopItem2" parent="Map/RiverSideShop" unique_id=1451657325 instance=ExtResource("5_pm8gf")]
+Price = 8
+Count = 4
+ItemType = 2
+
+[node name="ShopItem3" parent="Map/RiverSideShop" unique_id=1587587547 instance=ExtResource("5_pm8gf")]
+position = Vector2(40, 0)
+Price = 22
+Count = 2
+ItemType = 3
+
 [node name="Dungeon1" type="Area2D" parent="Map" unique_id=2029676506 node_paths=PackedStringArray("Overworld", "RoomNode")]
 position = Vector2(608, 1944)
 collision_layer = 0
@@ -2602,7 +2618,7 @@ NextRoom = NodePath("../../../Map/Dungeon1/Dungeon/Doors/EntryRoom/Room1-S")
 [node name="Player" parent="." unique_id=144735961 groups=["Player"] instance=ExtResource("1_n3lcv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-485.75836, -0.8588257)
+position = Vector2(-2244.026, 58.40119)
 metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=478796932]
@@ -2612,7 +2628,7 @@ update_scale = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1208266121 node_paths=PackedStringArray("RemoteTransform")]
 z_index = 1
-position = Vector2(-485.75836, -0.8588257)
+position = Vector2(-2244.026, 58.40119)
 offset = Vector2(0, -15)
 zoom = Vector2(1.3, 1.3)
 limit_left = -1856
@@ -2758,51 +2774,61 @@ region_rect = Rect2(0, 0, 16, 16)
 [node name="Chest" parent="Chests" unique_id=804969163 instance=ExtResource("5_pxfri")]
 position = Vector2(-1496, 712)
 ChestType = 0
+ExcludedItems = Array[int]([3])
 LootCount = 0
 CanReset = false
 
 [node name="Chest2" parent="Chests" unique_id=2038743974 instance=ExtResource("5_pxfri")]
 position = Vector2(-728, 88)
+ExcludedItems = Array[int]([3])
 LootCount = 0
 CanReset = false
 
 [node name="Chest3" parent="Chests" unique_id=417252899 instance=ExtResource("5_pxfri")]
 position = Vector2(-1448, -248)
 ChestType = 2
+ExcludedItems = Array[int]([3])
 LootCount = 0
 CanReset = false
 
 [node name="Chest5" parent="Chests" unique_id=885078354 instance=ExtResource("5_pxfri")]
 position = Vector2(-1432, 424)
+ExcludedItems = Array[int]([3])
 LootCount = 0
 CanReset = false
 
 [node name="Chest6" parent="Chests" unique_id=1899925256 instance=ExtResource("5_pxfri")]
 position = Vector2(-712, 1160)
+ExcludedItems = Array[int]([3])
 LootCount = 0
 CanReset = false
 
 [node name="Chest7" parent="Chests" unique_id=1313252992 instance=ExtResource("5_pxfri")]
 position = Vector2(-472, -104)
+ExcludedItems = Array[int]([3])
 CanReset = false
 
 [node name="Chest4" parent="Chests" unique_id=1185116208 instance=ExtResource("5_pxfri")]
 position = Vector2(696, 184)
+ExcludedItems = Array[int]([3])
 LootCount = 0
 CanReset = false
 
 [node name="Chest8" parent="Chests" unique_id=1727473707 instance=ExtResource("5_pxfri")]
 position = Vector2(200, 184)
+ExcludedItems = Array[int]([3])
 LootCount = 0
 CanReset = false
 
 [node name="Chest9" parent="Chests" unique_id=1404064628 instance=ExtResource("5_pxfri")]
 position = Vector2(648, 584)
+ExcludedItems = Array[int]([3])
 LootCount = 0
 CanReset = false
 
 [node name="Chest10" parent="Chests" unique_id=977938262 instance=ExtResource("5_pxfri")]
 position = Vector2(1448, 520)
+ExcludedItems = Array[int]([3])
 LootCount = 0
 CanReset = false
 

@@ -17,12 +17,6 @@ public partial class StateMachine : Node
             States[State.Name.ToString().ToPascalCase()] = State;
         }
 
-        //debug
-        foreach (var (key, value) in States)
-        {
-            GD.Print(key + " --- " + value);
-        }
-
         if (InitialState != null)
         {
             InitialState.Entry();
@@ -58,7 +52,5 @@ public partial class StateMachine : Node
 
         NewState.Entry();
         CurrentState = NewState;
-
-        GD.Print(CurrentState.Name);
     }
 }

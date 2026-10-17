@@ -70,9 +70,9 @@ public partial class ShopItem : Area2D
 
 		Player.Inventory.AddToItemCount(_ItemType, 1);
 		Player.Inventory.AddToItemCount(Enums.ItemType.MONEY, -_Price);
-		Count--;
+		CurrentCount--;
 
-		if (Count == 0)
+		if (CurrentCount == 0)
 		{
 			Despawn();
 		}

@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://d13w4wnvdsdbe" path="res://entities/player/Zink/PNG/Zink_Only/sprZinkWalkS.png" id="3_8fjmc"]
 [ext_resource type="Texture2D" uid="uid://d132yce3uqc31" path="res://entities/player/Zink/PNG/Zink_Weapons/sprZinkWeaponsClassicSwordAttackW.png" id="3_afbqv"]
 [ext_resource type="Texture2D" uid="uid://cly4qluqp815u" path="res://entities/player/Zink/PNG/Zink_Weapons/sprZinkWeaponsBowAttackW.png" id="3_b2kln"]
+[ext_resource type="Texture2D" uid="uid://ca8tpkrnxtqpp" path="res://assets/Legend_of_Zink_Asset_Pack/Zink/PNG/Zink_Only/sprZinkSwordAttackW.png" id="3_vewsg"]
+[ext_resource type="Texture2D" uid="uid://digg88v6mwccd" path="res://assets/Legend_of_Zink_Asset_Pack/Zink/PNG/Zink_Only/sprZinkSwordAttackE.png" id="4_2soq1"]
 [ext_resource type="Texture2D" uid="uid://cg0x3ksn27pt1" path="res://entities/player/Zink/PNG/Zink_Weapons/sprZinkWeaponsClassicSwordAttackE.png" id="4_gx6sm"]
 [ext_resource type="Texture2D" uid="uid://0gx3dpjmto5o" path="res://entities/player/Zink/PNG/Zink_Only/sprZinkWalkN.png" id="4_qiwj3"]
 [ext_resource type="Texture2D" uid="uid://cje5td58gm83v" path="res://entities/player/Zink/PNG/Zink_Weapons/sprZinkWeaponsBowAttackE.png" id="4_we0b7"]
@@ -27,13 +29,31 @@
 [ext_resource type="Script" uid="uid://dyurj2h4tffj1" path="res://System/Components/Hitbox.cs" id="22_t1t22"]
 [ext_resource type="Script" uid="uid://c1cxp4qsw07r0" path="res://System/Components/HealthComponent.cs" id="23_ghoj8"]
 [ext_resource type="Script" uid="uid://dqspdditjugkp" path="res://entities/player/States/Locked.cs" id="24_wq0jh"]
+[ext_resource type="Script" uid="uid://diwt7dbbkd8jk" path="res://entities/player/States/PlaceBomb.cs" id="25_24ehl"]
 [ext_resource type="Script" uid="uid://bb7snjrvdqs0l" path="res://System/Components/InventoryComponent.cs" id="25_50fht"]
+[ext_resource type="PackedScene" uid="uid://d4gosq014hsm5" path="res://Weapons/Bomb/Bomb.tscn" id="28_2soq1"]
 [ext_resource type="Script" uid="uid://djmb61r0ekx4r" path="res://System/Components/InteracionsCompotent.cs" id="29_gt4e4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_50fht"]
 shader = ExtResource("2_wuv6x")
 shader_parameter/FlashModifier = 0.0
 shader_parameter/FlashColor = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssgi7"]
+atlas = ExtResource("3_vewsg")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtlkk"]
+atlas = ExtResource("3_vewsg")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2brg"]
+atlas = ExtResource("4_2soq1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arp52"]
+atlas = ExtResource("4_2soq1")
+region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24ehl"]
 atlas = ExtResource("2_3wlsy")
@@ -197,6 +217,28 @@ region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0f7yd"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssgi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtlkk")
+}],
+"loop": 0,
+"name": &"BombLeft",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2brg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arp52")
+}],
+"loop": 0,
+"name": &"BombRight",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_24ehl")
@@ -417,6 +459,92 @@ size = Vector2(24, 20)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iso6y"]
 radius = 6.0
 height = 14.0
+
+[sub_resource type="Animation" id="Animation_jjk8f"]
+resource_name = "BombLeft"
+length = 0.500025
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimations:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"BombLeft"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAnimations:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/PlaceBomb")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"SpawnBomb"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_cnswy"]
+resource_name = "BombRight"
+length = 0.500025
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnimations:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"BombRight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAnimations:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/PlaceBomb")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"SpawnBomb"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_gt4e4"]
 resource_name = "BowAttackDown"
@@ -999,6 +1127,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wq0jh"]
 _data = {
+&"BombLeft": SubResource("Animation_jjk8f"),
+&"BombRight": SubResource("Animation_cnswy"),
 &"BowAttackDown": SubResource("Animation_gt4e4"),
 &"BowAttackLeft": SubResource("Animation_24ehl"),
 &"BowAttackRight": SubResource("Animation_bwdx1"),
@@ -1233,6 +1363,13 @@ StateMachine = NodePath("..")
 script = ExtResource("24_wq0jh")
 Anims = NodePath("../../EffectsAnimPlayer")
 Player = NodePath("../..")
+StateMachine = NodePath("..")
+
+[node name="PlaceBomb" type="Node" parent="StateMachine" unique_id=1826069505 node_paths=PackedStringArray("Player", "AttackAnims", "StateMachine")]
+script = ExtResource("25_24ehl")
+Player = NodePath("../..")
+AttackAnims = NodePath("../../AttackAnimPlayer")
+BombScene = ExtResource("28_2soq1")
 StateMachine = NodePath("..")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=796654733]

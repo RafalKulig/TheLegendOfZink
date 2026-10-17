@@ -42,5 +42,11 @@ public partial class Idle : State
             StateMachine.StateChange(this, "Attack");
             return;
         }
+
+        if (Input.IsActionJustPressed("BombPlace"))
+        {
+            StateMachine.StateChange(this, "PlaceBomb");
+            return;
+        }
     }
 }

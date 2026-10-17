@@ -316,5 +316,6 @@ collision_mask = 2055
 [node name="LootComponent" type="Node2D" parent="." unique_id=2045381705]
 script = ExtResource("10_csvw3")
 PossibleDrops = Array[PackedScene]([ExtResource("11_f2td2"), ExtResource("12_4oj6e"), ExtResource("13_a5s6f")])
+ExcludedTypes = Array[int]([1])
 DropChance = 0.2
 metadata/_custom_type_script = "uid://crnmsghwxryl1"

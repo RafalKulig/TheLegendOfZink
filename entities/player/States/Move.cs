@@ -36,6 +36,12 @@ public partial class Move : State
             return;
         }
 
+        if (Input.IsActionJustPressed("BombPlace"))
+        {
+            StateMachine.StateChange(this, "PlaceBomb");
+            return;
+        }
+
         WalkingAnimation(MoveDirection);
     }
 

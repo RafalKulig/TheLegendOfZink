@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://d4gosq014hsm5"]
+
+[ext_resource type="Script" uid="uid://b8r61hkgh152w" path="res://Weapons/Bomb/Bomb.cs" id="1_kqkw5"]
+[ext_resource type="Texture2D" uid="uid://bbttwyxt42mbi" path="res://assets/Legend_of_Zink_Asset_Pack/Zink/PNG/sprWeaponBombExplosion.png" id="2_t6xhb"]
+[ext_resource type="Texture2D" uid="uid://cwhirmm104eb7" path="res://assets/Legend_of_Zink_Asset_Pack/Zink/PNG/sprWeaponBomb.png" id="3_74rm7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybwjm"]
+atlas = ExtResource("2_t6xhb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dy4l"]
+atlas = ExtResource("2_t6xhb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e420b"]
+atlas = ExtResource("2_t6xhb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kbjd"]
+atlas = ExtResource("2_t6xhb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmdxh"]
+atlas = ExtResource("2_t6xhb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05gwi"]
+atlas = ExtResource("2_t6xhb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qij7"]
+atlas = ExtResource("3_74rm7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5xha"]
+atlas = ExtResource("3_74rm7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8gy36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybwjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dy4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e420b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kbjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmdxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05gwi")
+}],
+"loop": 0,
+"name": &"Explosion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qij7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5xha")
+}],
+"loop": 0,
+"name": &"Spawn",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_g6tt8"]
+resource_name = "new_animation"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Spawn", &"Explosion"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.2, 2.4, 2.6, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(8, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_1h7my"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Spawn"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_73vg3"]
+_data = {
+&"Deafult": SubResource("Animation_g6tt8"),
+&"RESET": SubResource("Animation_1h7my")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8gy36"]
+radius = 24.0
+
+[node name="Bomb" type="Area2D" unique_id=2022630538 node_paths=PackedStringArray("Anims")]
+z_index = 2
+collision_layer = 128
+collision_mask = 256
+script = ExtResource("1_kqkw5")
+Anims = NodePath("AnimationPlayer")
+Damage = 2
+metadata/_custom_type_script = "uid://dyurj2h4tffj1"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=214102890]
+sprite_frames = SubResource("SpriteFrames_8gy36")
+animation = &"Spawn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2131346628]
+libraries/ = SubResource("AnimationLibrary_73vg3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2147137780]
+shape = SubResource("CircleShape2D_8gy36")
+disabled = true
+debug_color = Color(0.9960484, 0, 0.20259362, 0.41960785)

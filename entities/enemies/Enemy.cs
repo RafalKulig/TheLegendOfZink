@@ -43,7 +43,7 @@ public partial class Enemy : CharacterBody2D
 
     public virtual async void OnEnemyDied()
     {
-        LootComponent.SpawnRandomLoot();
+        if (LootComponent is not null) LootComponent.SpawnRandomLoot();
 
         Velocity = Vector2.Zero;
 

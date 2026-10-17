@@ -18,7 +18,7 @@ public partial class LootComponent : Node2D
 
 	public void SpawnRandomLoot()
 	{
-		if (PossibleDrops.Count == 0 || PossibleDrops is null) return;
+		if (PossibleDrops is null || PossibleDrops.Count == 0) return;
 		if (GD.Randf() > DropChance) return;
 
 		uint RandomIndex = GD.Randi() % (uint)PossibleDrops.Count;
@@ -26,11 +26,11 @@ public partial class LootComponent : Node2D
 
 		if (SelectedItem is null) return;
 
-		Node2D LootInstance = SelectedItem.Instantiate<Node2D>();
+		Collectable LootInstance = SelectedItem.Instantiate<Collectable>();
 
 		LootInstance.GlobalPosition = GlobalPosition;
 
-		GetTree().CurrentScene.CallDeferred(MethodName.AddSibling, LootInstance);
+		GetTree().CurrentScene.CallDeferred(MethodName.AddChild, LootInstance);
 	}
 
 	public Enums.ItemType GetRandomItemType()

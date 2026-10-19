@@ -2448,6 +2448,7 @@ position = Vector2(16, 0)
 
 [node name="Key" parent="Map/Dungeon1/Dungeon/Rooms/Room4" unique_id=155894333 instance=ExtResource("6_648q3")]
 position = Vector2(-64, -64)
+Type = 1
 
 [node name="Room5" parent="Map/Dungeon1/Dungeon/Rooms" unique_id=144215514 instance=ExtResource("4_nf5hn")]
 position = Vector2(88, 1640)
@@ -2466,6 +2467,7 @@ position = Vector2(104, 0)
 
 [node name="Key2" parent="Map/Dungeon1/Dungeon/Rooms/Room5" unique_id=169356777 instance=ExtResource("6_648q3")]
 position = Vector2(-112, -64)
+Type = 1
 
 [node name="Room6" parent="Map/Dungeon1/Dungeon/Rooms" unique_id=1753534762 instance=ExtResource("4_nf5hn")]
 position = Vector2(88, 1848)
@@ -2495,6 +2497,7 @@ position = Vector2(80, 0)
 position = Vector2(-80, 0)
 
 [node name="Key" parent="Map/Dungeon1/Dungeon/Rooms/Room6" unique_id=957023920 instance=ExtResource("6_648q3")]
+Type = 1
 
 [node name="Room7" parent="Map/Dungeon1/Dungeon/Rooms" unique_id=31269745 instance=ExtResource("4_nf5hn")]
 position = Vector2(88, 2056)
@@ -2548,6 +2551,7 @@ position = Vector2(43, 27)
 position = Vector2(41, -30)
 
 [node name="Key" parent="Map/Dungeon1/Dungeon/Rooms/Room9" unique_id=1688073448 instance=ExtResource("6_648q3")]
+Type = 1
 
 [node name="Room10" parent="Map/Dungeon1/Dungeon/Rooms" unique_id=1181299844 instance=ExtResource("4_nf5hn")]
 position = Vector2(824, 1848)

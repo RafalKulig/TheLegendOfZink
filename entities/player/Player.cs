@@ -10,7 +10,7 @@ public partial class Player : CharacterBody2D
     [Export] public HealthComponent healthComponent { get; private set; }
 	[Export] public InventoryComponent Inventory { get; private set; }
     [Export] private Hitbox Hitbox;
-    [Export] private Hurtbox Hurtbox;
+    [Export] public Hurtbox Hurtbox { get; private set; }
     [Export] private AnimationPlayer EffectsAnimPlayer;
     [Export] private Timer GraceTimer;
 
@@ -23,7 +23,7 @@ public partial class Player : CharacterBody2D
     public override void _Ready()
 	{
 		Inventory.EquipWeaponToSlot(Enums.UnlockType.SWORD, Enums.EquipmentSlot.SlotA);
-        Inventory.EquipWeaponToSlot(Enums.UnlockType.BOW, Enums.EquipmentSlot.SlotB);
+        Inventory.EquipWeaponToSlot(Enums.UnlockType.SHIELD, Enums.EquipmentSlot.SlotB);
 
         if (healthComponent is not null)
         {

@@ -315,5 +315,6 @@ rect = Rect2(-10, -10, 22, 20)
 [node name="LootComponent" type="Node2D" parent="." unique_id=1942979035]
 script = ExtResource("10_33qpd")
 PossibleDrops = Array[PackedScene]([ExtResource("11_c2v5v"), ExtResource("12_r2ysh"), ExtResource("13_1e2pq")])
+ExcludedTypes = Array[int]([1])
 DropChance = 0.2
 metadata/_custom_type_script = "uid://crnmsghwxryl1"

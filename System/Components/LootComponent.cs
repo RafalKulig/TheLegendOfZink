@@ -26,7 +26,12 @@ public partial class LootComponent : Node2D
 
 		if (SelectedItem is null) return;
 
-		Collectable LootInstance = SelectedItem.Instantiate<Collectable>();
+		Collectable LootInstance;
+
+		do
+		{
+			LootInstance = SelectedItem.Instantiate<Collectable>();
+		} while (ExcludedTypes.Contains(LootInstance.Type));
 
 		LootInstance.GlobalPosition = GlobalPosition;
 

@@ -12,6 +12,7 @@ public partial class Player : CharacterBody2D
     [Export] private Hitbox Hitbox;
     [Export] public Hurtbox Hurtbox { get; private set; }
     [Export] private AnimationPlayer EffectsAnimPlayer;
+    [Export] public AnimationPlayer AttackAnimPlayer { get; private set; }
     [Export] private Timer GraceTimer;
 
 	public Vector2 LastDirection { get; private set; } = Vector2.Right;

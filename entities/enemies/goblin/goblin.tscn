@@ -816,7 +816,7 @@ _data = {
 &"RESET": SubResource("Animation_q55cs")
 }
 
-[node name="goblin" type="CharacterBody2D" unique_id=1889188522 node_paths=PackedStringArray("AttackHitbox", "BodyHitbox", "HealthComponent", "EffectsAnimPlayer", "LootComponent")]
+[node name="goblin" type="CharacterBody2D" unique_id=1889188522 node_paths=PackedStringArray("AttackHitbox", "BodyHitbox", "HealthComponent", "EffectsAnimPlayer")]
 z_index = 1
 collision_layer = 16
 collision_mask = 7
@@ -825,7 +825,6 @@ AttackHitbox = NodePath("WeaponHitbox")
 BodyHitbox = NodePath("BodyHitbox")
 HealthComponent = NodePath("HealthComponent")
 EffectsAnimPlayer = NodePath("EffectsAnimPlayer")
-LootComponent = NodePath("LootComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=976604832]
 y_sort_enabled = true

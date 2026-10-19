@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dt4nlbd4c5bnc"]
+
+[ext_resource type="Script" uid="uid://cmkav7se25qsc" path="res://Interactable/Door/Door.cs" id="1_g2b16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f7yd"]
+size = Vector2(16, 16)
+
+[node name="Door" type="Area2D" unique_id=752351402 node_paths=PackedStringArray("EnterPoint")]
+collision_layer = 2048
+collision_mask = 0
+script = ExtResource("1_g2b16")
+EnterPoint = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1776882637]
+shape = SubResource("RectangleShape2D_0f7yd")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1645326220]
+position = Vector2(0, 16)

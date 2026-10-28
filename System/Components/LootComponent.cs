@@ -13,7 +13,7 @@ public partial class LootComponent : Node2D
 
     public override void _Ready()
     {
-		ItemTypeCount = Enum.GetNames<Enums.ItemType>().Length + 1;
+		ItemTypeCount = Enum.GetNames<Enums.ItemType>().Length;
     }
 
 	public void SpawnRandomLoot()
